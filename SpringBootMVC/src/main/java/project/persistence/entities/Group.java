@@ -17,7 +17,7 @@ public class Group{
     private String groupName;
     private int GroupID;
     private String groupInfo;
-    private List<User> members;
+    //private List<User> members;
     private Boolean visable;
    // private eventsList List<Event>;
     
@@ -25,7 +25,7 @@ public class Group{
     	this.groupName = groupName;
     	this.GroupID = groupID;
     	this.groupInfo = groupInfo;
-    	this.members = members;
+    	//this.members = members;
     	this.visable = visable;
     }
     
@@ -65,7 +65,7 @@ public class Group{
     public String getGroupInfo() {
     	return this.groupInfo;
     }
-    
+    /*
     public void setMembers(List<User> members) {
     	this.members = members;
     }
@@ -73,7 +73,7 @@ public class Group{
     public List<User> getMembers(){
     	return this.members;
     }
-    
+    */
     public void setVisable(Boolean vis) {
     	this.visable = vis;
     }

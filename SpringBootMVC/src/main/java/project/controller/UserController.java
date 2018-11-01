@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
@@ -70,14 +71,17 @@ public class UserController {
     }
     
     
-    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
-    public String UserViewUser(@ModelAttribute("user") User user,Model model){
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST )
+    
+    public String UserViewUser(@ModelAttribute("user") User user,Model model ,@RequestParam("username") String username, @RequestParam("password") String password,@RequestParam("userID") String userID){
 
         // Save the Postit Note that we received from the form
         userService.createUser(user);
 
+        
+        
         // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("user", userService.findAllUsers());
+        model.addAttribute("user", userService.findAllUsers() );
 
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we

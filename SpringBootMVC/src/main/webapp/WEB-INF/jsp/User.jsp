@@ -44,15 +44,15 @@
     <sf:form method="POST" modelAttribute="user" action="/addUser">
     
     <label>username:
-    <input type="text" path="userName">
+    <input type="text" path="userName" name = "username">
     </label>
     
      <label>:
-    <input type="text" path="password">
+    <input type="text" path="password" name = "password">
     </label>
     
      <label>email:
-    <input type="text" path="userID">
+    <input type="text" path="userID" name="userID">
     </label>
     
      
