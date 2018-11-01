@@ -6,16 +6,17 @@
 <html lang="en">
 
     <head>
-        <title>Project Title</title>
+        <title>Eventster</title>
     </head>
     <body>
 
-    <h1>HBV501G Project Spring Boot Skeleton</h1>
-    <p>This skeleton of a Spring Boot Web project was made to help groups get started on their projects without to much hassle.</p>
+    <h1>Halló heimur, þetta er Eventster</h1>
+    <p>Evenster er best</p>
 	
     <ul>
         <li><a href="/postit">Click here for Persistence Layer Demo</a></li>
         <li><a href="/user">user</a></li>
+        <li><a href="/loginView">login</a></li>
         
     </ul>
     </body>

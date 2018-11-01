@@ -8,18 +8,22 @@ import javax.persistence.*;
  * Be sure to annotate any entities you have with the @Entity annotation.
  */
 @Entity
-//@Table(name = "postitnote") // If you want to specify a table name, you can do so here
+@Table(name = "User") // If you want to specify a table name, you can do so here
 public class User{
 
     // Declare that this attribute is the id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private Long id;
+    
+    //@Column(name = "id", unique = true, columnDefinition = "serial")
+   
     private String userName;
     private String password;
     private String userID;
     private String birthday;
     private String phone;
-    
+    private String zodiac;
 
     private String name;
     private String note;
@@ -31,7 +35,7 @@ public class User{
 
     public User(String username, String userID, String name, String password){
         this.userName = username;
-        this.userID = userID;
+        
         this.password = password;
         this.name = name;   
     }
@@ -40,24 +44,51 @@ public class User{
         return this.userID;
     }
     
-    public 
 
-
-    public String getName() {
-        return this.name;
+    public String getUsername() {
+        return this.userName;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+    	return this.password;
+    }
+    
+    public void setBirthday(String birthday) {
+    	this.birthday = birthday;
+    }
+    
+    public String getBirthday(){
+    	return this.birthday;
+    }
+    
+    public void setPhone(String phone) {
+    	this.phone = phone;
+    }
+    
+    public String getPhone() {
+    	return this.phone;
+    }
+    
     public void setName(String name) {
-        this.name = name;
+    	this.name = name;
     }
-
-    public String getNote() {
-        return note;
+    
+    public String getName() {
+    	return this.name;
     }
-
-    public void setNote(String note) {
-        this.note = note;
+    
+    public void setZodiac(String zodiac) {
+    	this.zodiac = zodiac;
     }
+    
+    public String getZodiac() {
+    	return this.zodiac;
+    }
+   
 
     // This is for easier debug.
     @Override
