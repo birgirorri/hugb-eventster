@@ -40,6 +40,11 @@ public class User{
         System.out.println("new user created  " + username);
     }
     
+    public User(String username, String email) {
+    	this.username= username;
+    	this.email =email;
+    }
+    
 
     public String getUsername() {
         return this.username;

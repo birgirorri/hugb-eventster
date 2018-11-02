@@ -17,6 +17,8 @@
         <li><a href="/postit">Click here for Persistence Layer Demo</a></li>
         <li><a href="/user">user</a></li>
         <li><a href="/loginView">login</a></li>
+        <li><a href="/Group">Group page</a></li>
+        
         
     </ul>
     </body>

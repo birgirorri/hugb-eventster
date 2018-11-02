@@ -6,7 +6,7 @@ import java.util.List;
 
 
 @Entity
-//@Table(name = "Group") // If you want to specify a table name, you can do so here
+@Table(name = "Group") // If you want to specify a table name, you can do so here
 public class Group{
 
     // Declare that this attribute is the id
@@ -17,16 +17,23 @@ public class Group{
     private String groupName;
     private int GroupID;
     private String groupInfo;
-    //private List<User> members;
+   
     private Boolean visable;
-   // private eventsList List<Event>;
+    private String username;
+    private String email;
+   
     
     public Group(int groupID, String groupName, String groupInfo, List<User> members, Boolean visable) {
     	this.groupName = groupName;
     	this.GroupID = groupID;
     	this.groupInfo = groupInfo;
-    	//this.members = members;
     	this.visable = visable;
+    }
+    
+    public Group(String username, String email, String groupName) {
+    	this.username = username;
+    	this.email = email;
+    	this.groupName = groupName;
     }
     
     public void addUser(User user) {

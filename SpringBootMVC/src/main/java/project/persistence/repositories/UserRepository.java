@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
+import project.persistence.entities.Group;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	User save(User user);
+	Group save(Group group);
 
     void delete(User user);
 
@@ -39,11 +41,16 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query(value = "SELECT p FROM User p WHERE p.id = ?1")
     User findOne(Long id);
 
-    @Query(value = "SELECT p FROM User p WHERE p.username = ?1")
+    @Query(value = "SELECT p FROM User p WHERE p.username LIKE %?1% ")
     List<User> findByUsername(String username);
     
     
     @Query(value = "SELECT p FROM User p WHERE p.email = ?1 AND p.password = ?2")
     User validLogin(String email, String password);
+    
+    @Query(value = "SELECT p FROM Group p WHERE p.groupName = gName")
+    List<User> findGroupMembers(String groupName);
+    
+    
     
 } 
