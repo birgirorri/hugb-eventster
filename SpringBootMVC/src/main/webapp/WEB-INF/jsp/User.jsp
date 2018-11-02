@@ -35,16 +35,20 @@
     </sf:form>
     
     
+    
+    
     <sf:form method="POST" modelAttribute="user" action="/findUser">
     
     <label>find user:
     <input type=text path="username" name = "username">
     </label>
-    
     <input type="submit" value="search!">
     
     </sf:form>
     
+    <sf:form method="POST" modelAttribute="user" action="/showAllUsers">
+    <input type="submit" value="show all">
+    </sf:form>
     
     
        <c:choose>

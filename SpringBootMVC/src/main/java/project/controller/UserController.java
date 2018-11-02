@@ -134,7 +134,18 @@ public class UserController {
     return "User";
     }
         // Save the Postit Note that we received from the form
+    @RequestMapping(value = "/showAllUsers", method = RequestMethod.POST )
+    public String showAll(Model model){
     
+    	System.out.println("SHOW ALL");
+    	
+    	model.addAttribute("userList", userService.findAllUsers() );
+    	//model.addAttribute("user", temp );
+    
+    	
+    	
+    return "User";
+    }
     
    
 }
