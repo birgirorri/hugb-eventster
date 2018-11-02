@@ -43,8 +43,8 @@ public class UserService{
 	    	return repository.findOne(userID);
 	    }
 	    
-	    public List<User> findByUsername(String username){
-	    	return repository.findByName(username);
+	    public List<User> findByUsername(String userName){
+	    	return repository.findByUsername(userName);
 	    }
 	    
 	    
@@ -61,8 +61,12 @@ public class UserService{
 	    	return users;
 	    }
 	    
-	    public Boolean validateLogin(String username, String password){
-	    	//return repository.validateLogin(username, password);
+	    public Boolean validateLogin(String email, String password){
+	    	
+	    	User loginCheck = repository.validLogin(email, password);
+	    	System.out.println( loginCheck.getPassword() + "-----------------------------------" );
+	    	
+	    	System.out.println("Service----------------------------------------");
 	    	return true;
 	    }
 	    

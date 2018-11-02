@@ -13,6 +13,7 @@ import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
 import project.service.StringManipulationService;
 import project.service.UserService;
+import java.util.List;
 
 
 @Controller
@@ -72,21 +73,22 @@ public class UserController {
     
     
     @RequestMapping(value = "/addUser", method = RequestMethod.POST )
-    
-    public String UserViewUser(@ModelAttribute("user") User user,Model model ,@RequestParam("username") String username, @RequestParam("password") String password,@RequestParam("userID") String userID){
+    public String UserViewUser(@ModelAttribute("user") User user,Model model ,@RequestParam("username") String username, @RequestParam("password") String password,@RequestParam("email") String email){
 
         // Save the Postit Note that we received from the form
-        userService.createUser(user);
+    	
+    	User newUser = new User(username,password, email);
+        userService.createUser(newUser);
 
-        
+        System.out.println(" sdf"+ username);
         
         // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("user", userService.findAllUsers() );
+        model.addAttribute("userList", userService.findAllUsers() );
 
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
         // reference this attribute there by the name `postitNote`.
-        model.addAttribute("user", new User());
+        model.addAttribute("user", newUser );
 
         // Return the view
         return "User";
@@ -98,6 +100,41 @@ public class UserController {
     // based on the data that we have.
     // This method finds all Postit Notes posted by someone with the requested {name}
     // and returns a list with all those Postit Notes.
-   
+    @RequestMapping(value = "/userObj/{username}", method = RequestMethod.GET)
+    public String postitNoteGetNotesFromName(@PathVariable String userName,
+                                             Model model){
+
+    	System.out.println("------------------------------------------------------------------------------------hello");
+        // Get all Postit Notes with this name and add them to the model
+        model.addAttribute("userList", userService.findByUsername(userName));
+
+        
+        // Add a new Postit Note to the model for the form
+        // If you look at the form in PostitNotes.jsp, you can see that we
+        // reference this attribute there by the name `postitNote`.
+        model.addAttribute("user", new User());
+
+        // Return the view
+        return "User";
+    }
+    
+    
+    @RequestMapping(value = "/findUser", method = RequestMethod.POST )
+    public String SearchUser(@ModelAttribute("user") User user,Model model ,@RequestParam("username") String username){
+    
+    	System.out.println("calling service function================================");
+    	List<User> search = userService.findByUsername(username);
+    	
+    	
+    		model.addAttribute("userList", userService.findByUsername(username) );
+    		//model.addAttribute("user", temp );
+    
+    	System.out.println("done looking ================================");
+    	
+    return "User";
+    }
+        // Save the Postit Note that we received from the form
+    
+    
    
 }

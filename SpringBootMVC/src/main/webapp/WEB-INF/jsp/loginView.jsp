@@ -12,28 +12,21 @@
 
 <p>this is login</p>
 
-<sf:form>
-
-
-
+<sf:form action="/login" method="GET">
 
 <label>
-Username:
-<input type="text" path="username" placeholder="username here"> 
+Email:
+<input type="text" path="email" placeholder="username here" name="email"> 
 </label>
-
-
 
 <label>
 password:
-<input type="text" path="password" placeholder="password here">
+<input type="text" path="password" placeholder="password here" name="password">
 </label>
 
-<a href="/user">
+<a href="/login">
 <input type="submit" VALUE="login">
 </a>
-
-
 
 </sf:form>
 

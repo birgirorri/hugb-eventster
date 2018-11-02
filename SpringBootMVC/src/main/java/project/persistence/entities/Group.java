@@ -6,7 +6,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "Group") // If you want to specify a table name, you can do so here
+//@Table(name = "Group") // If you want to specify a table name, you can do so here
 public class Group{
 
     // Declare that this attribute is the id

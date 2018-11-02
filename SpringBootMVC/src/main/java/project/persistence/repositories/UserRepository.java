@@ -27,7 +27,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // If we need a custom query that maybe doesn't fit the naming convention used by the JPA repository,
     // then we can write it quite easily with the @Query notation, like you see below.
     // This method returns all PostitNotes where the length of the name is equal or greater than 3 characters.
-    @Query(value = "SELECT p FROM PostitNote p where length(p.name) >= 3 ")
+    @Query(value = "SELECT p FROM User p where length(p.username) >= 3 ")
     List<User> findAllWithNameLongerThan3Chars();
 
     // Instead of the method findAllReverseOrder() in PostitNoteService.java,
@@ -36,9 +36,14 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //
     List<User> findAllByOrderByIdDesc();
 
-    @Query(value = "SELECT p FROM User p WHERE p.userID = ?1")
+    @Query(value = "SELECT p FROM User p WHERE p.id = ?1")
     User findOne(Long id);
 
-    List<User> findByName(String name);
+    @Query(value = "SELECT p FROM User p WHERE p.username = ?1")
+    List<User> findByUsername(String username);
+    
+    
+    @Query(value = "SELECT p FROM User p WHERE p.email = ?1 AND p.password = ?2")
+    User validLogin(String email, String password);
     
 } 

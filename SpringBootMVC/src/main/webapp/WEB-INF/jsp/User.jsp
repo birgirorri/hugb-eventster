@@ -14,74 +14,59 @@
     <h1>User Page</h1>
     <p>Here could be some user information</p>
 
-    <table border="1px gray">
-        <thead>
-            <tr style="font-weight: 600;">
-                <td>Name</td>
-                <td>Job</td>
-                <td>email</td>
-                <td>Description</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>${name}</td>
-                <td>${job}</td>
-                <td>${email}</td>
-                <td>${description}</td>
-            </tr>
-        </tbody>
-        <tbody>
-            <tr>
-                <td>${name}</td>
-                <td>${job}</td>
-                <td>${email}</td>
-                <td>${description}</td>
-            </tr>
-        </tbody>
-    </table>
     
     <sf:form method="POST" modelAttribute="user" action="/addUser">
     
     <label>username:
-    <input type="text" path="userName" name = "username">
+    <input type="text" path="username" name = "username">
     </label>
     
-     <label>:
+     <label>password:
     <input type="text" path="password" name = "password">
     </label>
     
      <label>email:
-    <input type="text" path="userID" name="userID">
+    <input type="text" path="email" name="email">
     </label>
     
      
     
-     <input type="submit" VALUE="addUser"/>
+     <input type="submit" VALUE="add User"/>
     </sf:form>
+    
+    
+    <sf:form method="POST" modelAttribute="user" action="/findUser">
+    
+    <label>find user:
+    <input type=text path="username" name = "username">
+    </label>
+    
+    <input type="submit" value="search!">
+    
+    </sf:form>
+    
     
     
        <c:choose>
         <%--If the model has an attribute with the name `postitNotes`--%>
-        <c:when test="${not empty Users}">
+        <c:when test="${not empty userList}">
             <%--Create a table for the Postit Notes--%>
-            <table class="users">
+            <table class="users" border="1px gray">
 
                 <%--For each postit note, that is in the list that was passed in the model--%>
                 <%--generate a row in the table--%>
                 <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-                <c:forEach var="user" items="${Users}">
+                <c:forEach var="userObj" items="${userList}">
                     <tr>
                         <%--We can reference attributes of the Entity by just entering the name we gave--%>
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
                         <%--Create a link based on the name attribute value--%>
-                        <td><a href="/user/${user.userName}">${user.userName}</a></td>
+                        <td>${userObj.username}</td>
                         <%--The String in the note attribute--%>
-                        <td>${user.password}</td>
-                        <td>${user.userID}</td>
+                        <td>${userObj.password}</td>
+                        <td>${userObj.email}</td>
                        
-                        
                     </tr>
                 </c:forEach>
             </table>
@@ -92,6 +77,9 @@
             <h3>No users!</h3>
         </c:otherwise>
     </c:choose>
+    
+    
+    
     </body>
 
 </html>

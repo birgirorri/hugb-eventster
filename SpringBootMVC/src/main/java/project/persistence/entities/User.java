@@ -18,35 +18,31 @@ public class User{
     
     //@Column(name = "id", unique = true, columnDefinition = "serial")
    
-    private String userName;
+    private String username;
     private String password;
-    private String userID;
-    private String birthday;
-    private String phone;
-    private String zodiac;
+    
+    private String birthday ="1";
+    private String phone ="2";
+    private String zodiac ="3";
 
-    private String name;
-    private String note;
+    private String email;
+   
 
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
     // to our model so we can use it with our form
     public User() {
     }
 
-    public User(String username, String userID, String name, String password){
-        this.userName = username;
-        
+    public User(String username, String password, String userID){
+        this.username = username;
         this.password = password;
-        this.name = name;   
-    }
-
-    public String getUserID() {
-        return this.userID;
+        this.email = userID;   
+        System.out.println("new user created  " + username);
     }
     
 
     public String getUsername() {
-        return this.userName;
+        return this.username;
     }
 
     public void setPassword(String password) {
@@ -73,12 +69,12 @@ public class User{
     	return this.phone;
     }
     
-    public void setName(String name) {
-    	this.name = name;
+    public void setEmail(String email) {
+    	this.email = email;
     }
     
-    public String getName() {
-    	return this.name;
+    public String getEmail() {
+    	return this.email;
     }
     
     public void setZodiac(String zodiac) {
@@ -91,10 +87,10 @@ public class User{
    
 
     // This is for easier debug.
-    @Override
+    /*@Override
     public String toString() {
         return String.format(
                 "Postit Note[name=%s, note=%s]",
-                name,note);
-    }
+                email,note);
+    }*/
 }
