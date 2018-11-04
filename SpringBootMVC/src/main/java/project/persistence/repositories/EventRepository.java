@@ -17,6 +17,6 @@ import java.util.List;
  *
  */
 
-public interface EventRepository extends JpaRepository<Events, Long> { 
+public interface EventRepository extends JpaRepository<Event, Long> { 
     
-} 
+}
