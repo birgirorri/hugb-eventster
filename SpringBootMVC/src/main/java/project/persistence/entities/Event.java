@@ -23,15 +23,16 @@ public class Event{
     
     private String eventName;
     private String eventInfo;
-    private Long GroupID;
+    private Long groupID;
   
-    
+    public Event() {
+    }
     
     public Event(String eventName, String eventInfo, Long groupID){
     	
     	this.eventName = eventName;
     	this.eventInfo = eventInfo;
-    	this.GroupID = groupID;
+    	this.groupID = groupID;
     	
     }
     
@@ -68,11 +69,11 @@ public class Event{
     }
     
     public void setGroupID(Long groupID) {
-    	this.GroupID = groupID;
+    	this.groupID = groupID;
     }
     
     public Long getGroupID() {
-    	return this.GroupID;
+    	return this.groupID;
     }
     
     
