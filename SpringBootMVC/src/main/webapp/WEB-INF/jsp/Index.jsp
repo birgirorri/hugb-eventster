@@ -18,6 +18,7 @@
         <li><a href="/user">user</a></li>
         <li><a href="/loginView">login</a></li>
         <li><a href="/Group">Group page</a></li>
+        <li><a href="/Events">Events page</a></li>
         
         
     </ul>
