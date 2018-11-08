@@ -7,7 +7,7 @@
 <html lang="en">
 
     <head>
-        <title>Group page</title>
+        <title>Groups</title>
     </head>
     <body>
 
@@ -15,13 +15,13 @@
     <p>Here could be some user information</p>
 
     
-    <sf:form method="POST" modelAttribute="user" action="/addMember">
-    <h2>add member</h2>
-    <label>username:
+    <sf:form method="POST" modelAttribute="group" action="/addGroup">
+    <h2>create group</h2>
+    <label>Group name
     <input type="text" path="username" name = "username">
     </label>
     
-     <label>password:
+     <label>p
     <input type="text" path="password" name = "password">
     </label>
     
