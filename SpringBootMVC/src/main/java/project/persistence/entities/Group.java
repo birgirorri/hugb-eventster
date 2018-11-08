@@ -23,11 +23,15 @@ public class Group{
     private String email;
    
     
-    public Group(int groupID, String groupName, String groupInfo, List<User> members, Boolean visable) {
+    public Group(String groupName, String groupInfo, Boolean visable){
     	this.groupName = groupName;
-    	this.GroupID = groupID;
     	this.groupInfo = groupInfo;
     	this.visable = visable;
+    }
+    
+    public Group(String groupName, String groupInfo){
+    	this.groupName = groupName;
+    	this.groupInfo = groupInfo;
     }
     
     public Group(String username, String email, String groupName) {
