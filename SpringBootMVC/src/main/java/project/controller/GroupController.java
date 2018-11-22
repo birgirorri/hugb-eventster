@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
+import project.persistence.entities.Group;
 import project.service.StringManipulationService;
 import project.service.GroupService;
 import java.util.List;
@@ -38,24 +39,29 @@ public class GroupController {
         return "Group";
     }
     
-    @RequestMapping(value = "/addMember", method = RequestMethod.POST )
-    public String UserViewUser(@ModelAttribute("members") User user,Model model ,@RequestParam("username") String username,
-    		@RequestParam("email") String email,@RequestParam("groupName") String groupName ){
+    @RequestMapping(value = "/addGroup", method = RequestMethod.POST )
+    public String groupViewGroup(@ModelAttribute("groups") Group groups,Model model ,
+    		@RequestParam("groupInfo") String groupInfo,@RequestParam("groupName") String groupName ){
 
         // Save the Postit Note that we received from the form
-    	User newUser = new User(username,email);
-        groupService.addMember(username,email,groupName);
+    	Group newGroup = new Group(groupName,groupInfo);
+    	System.out.println("newGroup===============================================");
+        groupService.addGroup(newGroup);
+    	System.out.println("Group added===============================================");
+
 
         
         
         // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("memberList", groupService.findAllUsersInGroup(groupName) );
+        model.addAttribute("groups", groupService.findAllGroups() );
+        
 
         // Add a new Postit Note to the model for the form
         // If you look at the form in PostitNotes.jsp, you can see that we
         // reference this attribute there by the name `postitNote`.
-        model.addAttribute("members", newUser );
+        model.addAttribute("groups", newGroup);
 
+        System.out.println("virkar===============================================");
         // Return the view
         return "Group";
     }

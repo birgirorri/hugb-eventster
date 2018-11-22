@@ -7,7 +7,7 @@ import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
 import project.persistence.entities.Group;
 import project.persistence.repositories.PostitNoteRepository;
-import project.persistence.repositories.UserRepository;
+import project.persistence.repositories.GroupRepository;
 import project.service.PostitNoteService;
 
 import java.util.Collections;
@@ -18,25 +18,31 @@ import java.util.List;
 public class GroupService{
 	
 	
-	 UserRepository repository;
+	 GroupRepository repository;
 	
 	 
 	 @Autowired
-	    public GroupService(UserRepository repository) {
+	    public GroupService(GroupRepository repository) {
 	        this.repository = repository;
 	    }
 	 
 
-	    public User createUser(User user) {
-	        return repository.save(user);
+	    public Group createUser(Group group) {
+	        return repository.save(group);
+	    }
+	    
+	    public Group addGroup(Group group) {
+	    	System.out.println("saving group==========================================");
+	    	return repository.save(group);
+	    	
 	    }
 
 	    
-	    public void delete(User user) {
-	        repository.delete(user);
+	    public void delete(Group group) {
+	        repository.delete(group);
 	    }
 	    
-	    public List<User> findAllUsers() {
+	    public List<Group> findAllGroups() {
 	        return repository.findAll();
 	    }
 	    
@@ -44,8 +50,8 @@ public class GroupService{
 	    	return repository.findOne(userID);
 	    }
 	    
-	    public List<User> findByUsername(String userName){
-	    	return repository.findByUsername(userName);
+	    public List<Group> findByName(String name){
+	    	return repository.findByName(name);
 	    }
 	    
 	    
@@ -62,15 +68,7 @@ public class GroupService{
 	    	return users;
 	    }
 	    
-	    public Boolean validateLogin(String email, String password){
-	    	
-	    	User loginCheck = repository.validLogin(email);
-	    	System.out.println( loginCheck.getPassword() + "-----------------------------------" );
-	    	
-	    	System.out.println("Service----------------------------------------");
-	    	return true;
-	    }
-	    
+	  
 	    public List<User> findAllUsersInGroup(String groupName){
 	    	return repository.findGroupMembers(groupName);
 	    }

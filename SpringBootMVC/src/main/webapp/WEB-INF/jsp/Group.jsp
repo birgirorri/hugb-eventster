@@ -15,14 +15,14 @@
     <p>Here could be some user information</p>
 
     
-    <sf:form method="POST" modelAttribute="group" action="/addGroup">
+    <sf:form method="POST" modelAttribute="groups" action="/addGroup">
     <h2>create group</h2>
     <label>Group name
-    <input type="text" path="username" name = "username">
+    <input type="text" path="groupName" name = "groupName">
     </label>
     
-     <label>p
-    <input type="text" path="password" name = "password">
+     <label>GroupInfo
+    <input type="text" path="groupInfo" name = "groupInfo">
     </label>
     
      <label>email:
@@ -31,11 +31,11 @@
     
      
     
-     <input type="submit" VALUE="add member"/>
+     <input type="submit" VALUE="create Group"/>
     </sf:form>
     
     
-    <sf:form method="POST" modelAttribute="user" action="/findUser">
+    <sf:form method="POST" modelAttribute="groups" action="/findGroups">
     
     <label>find user:
     <input type=text path="username" name = "username">
@@ -51,23 +51,23 @@
     
        <c:choose>
         <%--If the model has an attribute with the name `postitNotes`--%>
-        <c:when test="${not empty userList}">
+        <c:when test="${not empty groups}">
             <%--Create a table for the Postit Notes--%>
             <table class="users" border="1px gray">
 
                 <%--For each postit note, that is in the list that was passed in the model--%>
                 <%--generate a row in the table--%>
                 <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-                <c:forEach var="userObj" items="${userList}">
+                <c:forEach var="groupObj" items="${groups}">
                     <tr>
                         <%--We can reference attributes of the Entity by just entering the name we gave--%>
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
                         <%--Create a link based on the name attribute value--%>
-                        <td>${userObj.username}</td>
+                        <td>${groupObj.groupName}</td>
                         <%--The String in the note attribute--%>
-                        <td>${userObj.password}</td>
-                        <td>${userObj.email}</td>
+                        <td>${groupObj.groupInfo}</td>
+                        
                        
                     </tr>
                 </c:forEach>

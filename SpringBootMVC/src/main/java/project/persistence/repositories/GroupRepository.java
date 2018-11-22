@@ -17,22 +17,21 @@ import java.util.List;
  *
  */
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface GroupRepository extends JpaRepository<Group, Long> {
 
-	User save(User user);
 	
+	Group save(Group group);
 
-    void delete(User user);
+    void delete(Group group);
 
-    List<User> findAll();
+    List<Group> findAll();
     
-    @Query(value = "SELECT p From Group p")
-    List<Group> findAllGroups();
+    
 
     // If we need a custom query that maybe doesn't fit the naming convention used by the JPA repository,
     // then we can write it quite easily with the @Query notation, like you see below.
     // This method returns all PostitNotes where the length of the name is equal or greater than 3 characters.
-    @Query(value = "SELECT p FROM User p where length(p.username) >= 3 ")
+    @Query(value = "SELECT p FROM Group p where length(p.groupName) >= 3 ")
     List<User> findAllWithNameLongerThan3Chars();
 
     // Instead of the method findAllReverseOrder() in PostitNoteService.java,
@@ -41,15 +40,12 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //
     List<User> findAllByOrderByIdDesc();
 
-    @Query(value = "SELECT p FROM User p WHERE p.id = ?1")
+    @Query(value = "SELECT p FROM Group p WHERE p.id = ?1")
     User findOne(Long id);
 
-    @Query(value = "SELECT p FROM User p WHERE p.username LIKE %?1% ")
-    List<User> findByUsername(String username);
+    @Query(value = "SELECT p FROM Group p WHERE p.groupName LIKE %?1% ")
+    List<Group> findByName(String groupName);
     
-    
-    @Query(value = "SELECT p FROM User p WHERE p.email = ?1")
-    User validLogin(String email);
     
     @Query(value = "SELECT p FROM Group p WHERE p.groupName = gName")
     List<User> findGroupMembers(String groupName);

@@ -14,13 +14,17 @@ public class Group{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long id;
     
-    private String groupName;
-    private int GroupID;
-    private String groupInfo;
+    private String groupName="group";
+    private int GroupID=0;
+    private String groupInfo ="info";
    
-    private Boolean visable;
-    private String username;
-    private String email;
+    private Boolean visable= true;
+    private String username ="";
+    private String email ="";
+    
+    public Group() {
+    	
+    }
    
     
     public Group(String groupName, String groupInfo, Boolean visable){
@@ -32,6 +36,7 @@ public class Group{
     public Group(String groupName, String groupInfo){
     	this.groupName = groupName;
     	this.groupInfo = groupInfo;
+    	System.out.println("new Group created====================================");
     }
     
     public Group(String username, String email, String groupName) {
