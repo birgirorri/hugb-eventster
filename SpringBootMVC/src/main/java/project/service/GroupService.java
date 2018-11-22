@@ -64,7 +64,7 @@ public class GroupService{
 	    
 	    public Boolean validateLogin(String email, String password){
 	    	
-	    	User loginCheck = repository.validLogin(email);
+	    	User loginCheck = repository.validLogin(email, password);
 	    	System.out.println( loginCheck.getPassword() + "-----------------------------------" );
 	    	
 	    	System.out.println("Service----------------------------------------");
