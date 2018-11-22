@@ -1,0 +1,36 @@
+html {
+	font-size: 18px;
+}
+
+h1 {
+	font-size: 2em;
+	margin-bottom: 2em;
+	border-bottom: 1px solid #999;
+}
+
+h2 {
+	font-size: 1.666667em;
+	color: #999;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+.login {
+	width: 50%;
+}
+
+.column > * {
+	margin-bottom: 20px;
+}
+
+.signUp {
+	width: 50%;
+}
