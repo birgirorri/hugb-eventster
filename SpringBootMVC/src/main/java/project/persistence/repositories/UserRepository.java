@@ -45,8 +45,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByUsername(String username);
     
     
-    @Query(value = "SELECT p FROM User p WHERE p.email = ?1 AND p.password = ?2")
-    User validLogin(String email, String password);
+    @Query(value = "SELECT p FROM User p WHERE p.email = ?1")
+    User validLogin(String email);
     
     @Query(value = "SELECT p FROM Group p WHERE p.groupName = gName")
     List<User> findGroupMembers(String groupName);
