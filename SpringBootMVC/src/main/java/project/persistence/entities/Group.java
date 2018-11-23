@@ -12,7 +12,7 @@ public class Group{
     // Declare that this attribute is the id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     private Long id;
+    private Long id;
     
     private String group_name;
     //private int GroupID;

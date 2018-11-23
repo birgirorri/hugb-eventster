@@ -72,9 +72,8 @@ public class EventController {
         // Save the Postit Note that we received from the form
     	
     	Event newEvent = new Event(eventName, eventInfo, groupID);
+    	System.out.println("búið til event: " + newEvent.getEventName());
         eventService.createEvent(newEvent);
-
-        System.out.println(" sdf"+ eventName);
 
         // Return the view
         return "Events";
@@ -123,7 +122,7 @@ public class EventController {
     
     	System.out.println("SHOW ALL");
     	
-    	model.addAttribute("eventList", eventService.findAllEvents() );
+    	model.addAttribute("eventList", eventService.findAllEvents());
     	//model.addAttribute("user", temp );
     
     	
