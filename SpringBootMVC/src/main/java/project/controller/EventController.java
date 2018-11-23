@@ -54,11 +54,11 @@ public class EventController {
     }
     
     @RequestMapping(value = "/addEvent", method = RequestMethod.POST )
-    public String UserViewUser(@ModelAttribute("event") Event event,@RequestParam("eventName") String eventName, @RequestParam("eventInfo") String eventInfo,@RequestParam("groupID") long groupID, Model model ){
+    public String addEvent(@ModelAttribute("event") Event event,@RequestParam("eventName") String eventName, @RequestParam("eventInfo") String eventInfo, Model model ){
 
         // Save the Postit Note that we received from the form
-    	
-    	Event newEvent = new Event(eventName, eventInfo, groupID);
+    	long langt = 0;
+    	Event newEvent = new Event(eventName, eventInfo, langt);
     	System.out.println("búið til event: " + newEvent.getEventName());
         eventService.createEvent(newEvent);
         
