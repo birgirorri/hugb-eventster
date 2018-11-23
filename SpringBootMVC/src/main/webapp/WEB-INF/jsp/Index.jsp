@@ -17,15 +17,14 @@
 		<div class="login">
 			<h2>Login to your account</h2>
 
-			<sf:form action="/login" method="GET">
+			<sf:form action="/Login" modelAttribute="login" method="GET">
 				<div class="column">
 
-					<label> Email: <input type="email" path="email"
+					<label> Email: <input type="text" path="email"
 						placeholder="email here" name="email">
 					</label> <label> Password: <input type="text" path="password"
 						placeholder="password here" name="password">
-					</label><a> <input type="submit" VALUE="login">
-					</a>
+					</label><input type="submit" VALUE="login"/>
 				</div>
 			</sf:form>
 		</div>
@@ -35,15 +34,15 @@
 
 		<div class="signUp">
 			<h2>Dont have an account? Sign up here</h2>
-			<sf:form action="/signUp" method="GET">
+			<sf:form action="/signUp" method="POST">
 				<div class="column">
-					<label> Email: <input type="email" path="email"
+					<label> Email: <input type="text" path="email"
 						placeholder="email here" name="email">
 					</label> <label> Username: <input type="text" path="username"
 						placeholder="username here" name="username">
-					</label> <label> Password: <input type="password" path="password"
+					</label> <label> Password: <input type="text" path="password"
 						placeholder="password here" name="password">
-					</label> <label> Retype password: <input type="password"
+					</label> <label> Retype password: <input type="text"
 						path="password" placeholder="password here" name="password">
 					</label> <a href="/login"> <input type="submit" VALUE="Sign up">
 					</a>
