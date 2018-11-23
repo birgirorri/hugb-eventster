@@ -8,22 +8,31 @@
 <html>
 
     <head>
-        <title>Eventster</title>
+    <link rel="stylesheet" type="text/css"
+	href="<c:url value="/css/myPage.css"/>" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/css/Header.css"/>" />
+        <title>My Page</title>
     </head>
     <body>
+    <header>
+        <div class="header_grid">
+            <div class="header_title">
+                <h1> Eventster</h1>
+            </div>
+            <div class="header_pages">
+                <ul>
+                    <li><a href="/Events">Events</a> </li>
+                    <li><a href="/user">Users</a> </li>
+                    <li><a href="/Group">Groups</a></li>
+                    <li><a class = "pages_selected" href="/myPage">My Page</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
 
-    <h1>Halló heimur, þetta er Eventster</h1>
     <p>Evenster er best</p>
 	
-    <ul>
-        <li><a href="/postit">Click here for Persistence Layer Demo</a></li>
-        <li><a href="/user">user</a></li>
-        <li><a href="/Index">login</a></li>
-        <li><a href="/Group">Group page</a></li>
-        <li><a href="/Events">Events page</a></li>
-        
-        
-    </ul>
     </body>
     <footer>Class HBV501G, University of Iceland</footer>
 </html>
