@@ -26,8 +26,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findAll();
     
-    @Query(value = "SELECT p From Group p")
-    List<Group> findAllGroups();
+   
 
     // If we need a custom query that maybe doesn't fit the naming convention used by the JPA repository,
     // then we can write it quite easily with the @Query notation, like you see below.

@@ -34,7 +34,6 @@ public class GroupService{
 	    public Group addGroup(Group group) {
 	    	System.out.println("saving group==========================================");
 	    	return repository.save(group);
-	    	
 	    }
 
 	    
