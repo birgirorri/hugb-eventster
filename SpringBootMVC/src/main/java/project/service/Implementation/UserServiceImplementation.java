@@ -62,12 +62,13 @@ public class UserServiceImplementation implements UserService{
     public List<User> sortUser(String by, List<User> users){
         return users;
     }
-    
+  
     @Override
     public User findByEmail(String email){
         return repository.findByEmail(email);
     }
     
+    @Override
     public User findWhoLoggedIn() {
     	return repository.findWhoLoggedIn();
     }

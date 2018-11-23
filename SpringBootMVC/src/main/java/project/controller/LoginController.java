@@ -37,6 +37,7 @@ public class LoginController {
 			Model model) {
 
 		User login_user = userService.findByEmail(email);
+		
 		if(login_user != null) {
 			if (login_user.getPassword().equals(password)) {
 				login_user.setLoggedIn(true);
