@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import project.persistence.entities.Event;
 import project.persistence.entities.PostitNote;
-import project.persistence.entities.User;
 import project.service.*;
 import project.service.StringManipulationService;
 import project.service.UserService;
@@ -138,5 +137,18 @@ public class EventController {
         // Return the view
         return "ViewEvent";
     }
+	
+    @RequestMapping(value = "/LoadEvent", method = RequestMethod.GET)
+	public String preloadEvent(Model model) {
+    	long langt = 0;
+    	Event amli = new Event("afmæli", "partý hjá bubba", langt);
+		Event tnlkr = new Event("tónleikar", "valdimar í eldborg", langt);
+		Event bbq = new Event("bbq","pullupartý hjá marinó", langt);
+		eventService.createEvent(amli);
+		eventService.createEvent(tnlkr);
+		eventService.createEvent(bbq);
+		
+		return "Event";
+	}
     
 }
