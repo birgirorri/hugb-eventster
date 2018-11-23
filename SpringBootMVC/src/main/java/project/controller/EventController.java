@@ -54,6 +54,17 @@ public class EventController {
         return "Events";
     }
     
+    @RequestMapping(value = "/createEvent", method = RequestMethod.GET)
+    public String createEvent(Model model){
+
+        return "createEvent";
+    }
+    
+    @RequestMapping(value = "/ViewEvent", method = RequestMethod.GET)
+    public String viewEvent(Model model){
+
+        return "ViewEvent";
+    }
     
     @RequestMapping(value = "/addEvent", method = RequestMethod.POST )
     public String UserViewUser(@ModelAttribute("event") Event event,Model model ,@RequestParam("eventName") String eventName, @RequestParam("eventInfo") String eventInfo,@RequestParam("groupID") long groupID){
