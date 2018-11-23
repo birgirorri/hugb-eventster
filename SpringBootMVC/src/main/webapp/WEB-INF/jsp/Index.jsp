@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+  <div class="overlay">
 	<h1>Halló heimur, şetta er Eventster</h1>
 
 	<div class="container">
@@ -69,6 +69,6 @@
 	</ul>
 
 
-
+  </div>
 </body>
 </html>
