@@ -25,13 +25,13 @@ public class LoginController{
 		this.stringService = stringService;
 	}
 	
-	    
-	public void createNewUser(String username, String password, String email){
+	@RequestMapping(value = "/signUp", method = RequestMethod.GET)   
+	public void createNewUser(@RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("email") String email,Model model){
 		User newUser = new User(username,password, email);
 	    userService.createUser(newUser);
 	}
 	   
-	@RequestMapping(value = "/validLogin", method = RequestMethod.GET)
+	@RequestMapping(value = "/Login", method = RequestMethod.GET)
 	public String validLogin(@RequestParam("email") String email, @RequestParam("password") String password,Model model){
 		   
 		System.out.println(email + "  " + password + "------------------------------------------");
