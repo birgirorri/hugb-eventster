@@ -145,6 +145,8 @@ public class EventController {
 		eventService.createEvent(amli);
 		eventService.createEvent(tnlkr);
 		eventService.createEvent(bbq);
+		
+		model.addAttribute("eventList", eventService.findAllEvents());
 
 		return "Events";
 	}

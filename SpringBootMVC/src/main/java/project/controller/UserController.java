@@ -145,7 +145,7 @@ public class UserController {
 		return "User";
 	}
 
-	@RequestMapping(value = "/myPage", method = RequestMethod.POST)
+	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public String showMyPage(Model model) {
 
 		return "myPage";
