@@ -145,4 +145,10 @@ public class UserController {
 		return "User";
 	}
 
+	@RequestMapping(value = "/myPage", method = RequestMethod.POST)
+	public String showMyPage(Model model) {
+
+		return "myPage";
+	}
+
 }
