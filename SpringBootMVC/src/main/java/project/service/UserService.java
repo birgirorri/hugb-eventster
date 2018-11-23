@@ -27,6 +27,7 @@ public class UserService{
 	 
 
 	    public User createUser(User user) {
+	    	System.out.println("fer í service");
 	        return repository.save(user);
 	    }
 

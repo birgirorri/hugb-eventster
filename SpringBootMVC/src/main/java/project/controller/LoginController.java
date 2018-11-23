@@ -28,6 +28,7 @@ public class LoginController{
 	@RequestMapping(value = "/signUp", method = RequestMethod.POST)   
 	public void createNewUser(@RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("email") String email,Model model){
 		User newUser = new User(username,password, email);
+		System.out.println("emailið er: " + newUser.getEmail());
 	    userService.createUser(newUser);
 	}
 	   

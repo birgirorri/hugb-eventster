@@ -2,6 +2,7 @@
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 
 <html lang="en">
 <head>
@@ -17,14 +18,17 @@
 		<div class="login">
 			<h2>Login to your account</h2>
 
-			<sf:form action="/Login" modelAttribute="login" method="GET">
+			<sf:form method="GET" modelAttribute="login" action="/Login">
 				<div class="column">
-
+				
+				
 					<label> Email: <input type="text" path="email"
 						placeholder="email here" name="email">
 					</label> <label> Password: <input type="text" path="password"
 						placeholder="password here" name="password">
-					</label><input type="submit" VALUE="login"/>
+						
+					</label> <a> <input type="submit" VALUE="Login">
+					</a>
 				</div>
 			</sf:form>
 		</div>
@@ -43,7 +47,7 @@
 					</label> <label> Password: <input type="text" path="password"
 						placeholder="password here" name="password">
 					</label> <label> Retype password: <input type="text"
-						path="password" placeholder="password here" name="password">
+						path="password1" placeholder="password here" name="password1">
 					</label> <a href="/login"> <input type="submit" VALUE="Sign up">
 					</a>
 
