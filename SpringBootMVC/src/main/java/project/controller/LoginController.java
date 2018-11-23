@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import project.service.UserService;
+import project.service.*;
 import project.persistence.entities.*;
 
 @Controller
@@ -47,6 +47,17 @@ public class LoginController {
 		} else {
 			return "Index";
 		}
+	}
+	
+	@RequestMapping(value = "/Load", method = RequestMethod.GET)
+	public String preload(Model model) {
+		User birgir = new User("birgir","birgir","birgir@hi.is");
+		User adam = new User("adam","adam","adam@hi.is");
+		User marino = new User("marino","marino","marino@hi.is");
+		userService.createUser(birgir);
+		userService.createUser(adam);
+		userService.createUser(marino);
 		
+		return "Index";
 	}
 }
