@@ -38,20 +38,17 @@ public class LoginController {
 
 		System.out.println("fer inní login fallið");
 
-		User user = userService.validLogin(email);
+		User login_user = userService.validLogin(email);
 		
-		System.out.println(user.getPassword());
 
-		try {
-			if (user.getPassword() == password) {
-				return "Events";
-			} else {
-				System.out.println("farðu heim ");
-				return "Index";
-			}
-		} catch (Exception e) {
-			
-			return "Kalli bjarni";
+		
+		if (login_user.getPassword().equals(password)) {
+			return "Events";
 		}
+		else {
+			System.out.println("farðu heim ");
+			return "Index";
+		}
+		
 	}
 }
