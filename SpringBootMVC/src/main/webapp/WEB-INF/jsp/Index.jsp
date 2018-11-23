@@ -69,6 +69,8 @@
 
 
 	</ul>
+	
+	<a href="/Load" class="button">preload</a>
 
 
   </div>
