@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import project.persistence.entities.Event;
+import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
 import project.service.*;
 import project.service.StringManipulationService;
@@ -118,8 +119,24 @@ public class EventController {
     return "Events";
     }
     
-    
-    
-    
+    @RequestMapping(value = "/event/{id}", method = RequestMethod.GET)
+    public String goToViewEvent(@PathVariable Long id, Model model){
+
+    	
+    	Event eventview = eventService.findEventByID(id);
+    	
+    	model.addAttribute("currentEvent", eventview);
+    	
+        // Get all Postit Notes with this name and add them to the model
+        //model.addAttribute("postitNotes", postitNoteService.findByName(name));
+
+        // Add a new Postit Note to the model for the form
+        // If you look at the form in PostitNotes.jsp, you can see that we
+        // reference this attribute there by the name `postitNote`.
+        //model.addAttribute("postitNote", new PostitNote());
+
+        // Return the view
+        return "ViewEvent";
+    }
     
 }
