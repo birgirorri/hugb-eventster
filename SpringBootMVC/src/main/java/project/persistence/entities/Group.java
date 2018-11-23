@@ -6,7 +6,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "Group") // If you want to specify a table name, you can do so here
+@Table(name = "Groups") // If you want to specify a table name, you can do so here
 public class Group{
 
     // Declare that this attribute is the id
@@ -14,7 +14,7 @@ public class Group{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long id;
     
-    private String name;
+    private String group_name;
     //private int GroupID;
     private String info;
    
@@ -25,13 +25,13 @@ public class Group{
    
     
     public Group(String groupName, String groupInfo, Boolean visable){
-    	this.name = groupName;
+    	this.group_name = groupName;
     	this.info = groupInfo;
     	//this.visable = visable;
     }
     
     public Group(String groupName, String groupInfo){
-    	this.name = groupName;
+    	this.group_name = groupName;
     	this.info = groupInfo;
     	System.out.println("new Group created====================================");
     }
@@ -39,7 +39,7 @@ public class Group{
     public Group(String username, String email, String groupName) {
     	//this.username = username;
     	//this.email = email;
-    	this.name = groupName;
+    	this.group_name = groupName;
     }
     
     public void addUser(User user) {
@@ -65,11 +65,11 @@ public class Group{
     }
     
     public void setGroupName(String newGroupName) {
-    	this.name = newGroupName;
+    	this.group_name = newGroupName;
     }
     
     public String getGroupName() {
-    	return this.name;
+    	return this.group_name;
     }
     
     public void setGroupInfo(String info) {

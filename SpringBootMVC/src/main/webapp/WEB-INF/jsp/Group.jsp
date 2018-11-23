@@ -21,13 +21,10 @@
     <input type="text" path="groupName" name = "groupName">
     </label>
     
-     <label>GroupInfo
+     <label>about group
     <input type="text" path="groupInfo" name = "groupInfo">
     </label>
     
-     <label>email:
-    <input type="text" path="email" name="email">
-    </label>
     
      
     
@@ -37,8 +34,8 @@
     
     <sf:form method="POST" modelAttribute="groups" action="/findGroups">
     
-    <label>find user:
-    <input type=text path="username" name = "username">
+    <label>find group:
+    <input type=text path="groupName" name = "groupName">
     </label>
     <input type="submit" value="search!">
     
@@ -51,22 +48,22 @@
     
        <c:choose>
         <%--If the model has an attribute with the name `postitNotes`--%>
-        <c:when test="${not empty groups}">
+        <c:when test="${not empty groupsList}">
             <%--Create a table for the Postit Notes--%>
             <table class="users" border="1px gray">
 
                 <%--For each postit note, that is in the list that was passed in the model--%>
                 <%--generate a row in the table--%>
                 <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-                <c:forEach var="groupObj" items="${groups}">
+                <c:forEach var="groupObj" items="${groupsList}">
                     <tr>
                         <%--We can reference attributes of the Entity by just entering the name we gave--%>
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
                         <%--Create a link based on the name attribute value--%>
-                        <td>${groupObj.groupName}</td>
+                        <td>${groupObj.getGroupName()}</td>
                         <%--The String in the note attribute--%>
-                        <td>${groupObj.groupInfo}</td>
+                        <td>${groupObj.getGroupInfo()}</td>
                         
                        
                     </tr>

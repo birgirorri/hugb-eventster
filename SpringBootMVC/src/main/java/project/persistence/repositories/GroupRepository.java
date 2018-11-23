@@ -29,7 +29,7 @@ public interface GroupRepository extends JpaRepository<Group, Long> {
     // If we need a custom query that maybe doesn't fit the naming convention used by the JPA repository,
     // then we can write it quite easily with the @Query notation, like you see below.
     // This method returns all PostitNotes where the length of the name is equal or greater than 3 characters.
-    @Query(value = "SELECT p FROM Group p where length(p.name) >= 3 ")
+    @Query(value = "SELECT p FROM Group p where length(p.group_name) >= 3 ")
     List<User> findAllWithNameLongerThan3Chars();
 
     // Instead of the method findAllReverseOrder() in PostitNoteService.java,
@@ -41,11 +41,11 @@ public interface GroupRepository extends JpaRepository<Group, Long> {
     @Query(value = "SELECT p FROM Group p WHERE p.id = ?1")
     User findOne(Long id);
 
-    @Query(value = "SELECT p FROM Group p WHERE p.name LIKE %?1% ")
+    @Query(value = "SELECT p FROM Group p WHERE p.group_name LIKE %?1% ")
     List<Group> findByName(String groupName);
     
     
-    @Query(value = "SELECT p FROM Group p WHERE p.name = groupName")
+    @Query(value = "SELECT p FROM Group p WHERE p.group_name = groupName")
     List<User> findGroupMembers(String groupName);
     
    

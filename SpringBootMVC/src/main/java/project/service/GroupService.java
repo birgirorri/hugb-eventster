@@ -44,6 +44,7 @@ public class GroupService{
 	    }
 	    
 	    public List<Group> findAllGroups() {
+	    	System.out.println("finding groups============================");
 	        return repository.findAll();
 	    }
 	    

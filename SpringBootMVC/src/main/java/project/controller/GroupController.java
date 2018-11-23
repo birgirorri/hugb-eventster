@@ -46,8 +46,6 @@ public class GroupController {
         // Save the Postit Note that we received from the form
     	Group newGroup = new Group(groupName,groupInfo);
     	System.out.println(newGroup.getGroupName() + " --- " + newGroup.getGroupInfo());
-    	System.out.println("newGroup===============================================");
-    	System.out.println("newGroup===============================================");
         groupService.addGroup(newGroup);
     	System.out.println("Group added===============================================");
 
@@ -55,7 +53,7 @@ public class GroupController {
         
         
         // Here we get all the Postit Notes (in a reverse order) and add them to the model
-       model.addAttribute("groups", groupService.findAllGroups() );
+       model.addAttribute("groupsList", groupService.findAllGroups() );
         
 
         // Add a new Postit Note to the model for the form
@@ -67,4 +65,21 @@ public class GroupController {
         // Return the view
         return "Group";
     }
+    
+    @RequestMapping(value = "/findGroups", method = RequestMethod.POST )
+    public String SearchUser(@ModelAttribute("groups") Group group,Model model ,@RequestParam("groupName") String groupName){
+    
+    	System.out.println("calling service function================================");
+    	List<Group> search = groupService.findByName(groupName);
+    	
+    	
+    		model.addAttribute("groupsList", groupService.findByName(groupName) );
+    		//model.addAttribute("user", temp );
+    
+    	System.out.println("done looking ================================");
+    	
+    return "Group";
+    }
+    
+    
 }
