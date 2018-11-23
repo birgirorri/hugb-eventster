@@ -14,13 +14,10 @@ public class Group{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long id;
     
-    private String groupName="group";
-    private int GroupID=0;
-    private String groupInfo ="info";
+    private String name;
+    //private int GroupID;
+    private String info;
    
-    private Boolean visable= true;
-    private String username ="";
-    private String email ="";
     
     public Group() {
     	
@@ -28,21 +25,21 @@ public class Group{
    
     
     public Group(String groupName, String groupInfo, Boolean visable){
-    	this.groupName = groupName;
-    	this.groupInfo = groupInfo;
-    	this.visable = visable;
+    	this.name = groupName;
+    	this.info = groupInfo;
+    	//this.visable = visable;
     }
     
     public Group(String groupName, String groupInfo){
-    	this.groupName = groupName;
-    	this.groupInfo = groupInfo;
+    	this.name = groupName;
+    	this.info = groupInfo;
     	System.out.println("new Group created====================================");
     }
     
     public Group(String username, String email, String groupName) {
-    	this.username = username;
-    	this.email = email;
-    	this.groupName = groupName;
+    	//this.username = username;
+    	//this.email = email;
+    	this.name = groupName;
     }
     
     public void addUser(User user) {
@@ -63,23 +60,24 @@ public class Group{
     */
     
     public int getGroupID() {
-    	return this.GroupID;
+    	//return this.GroupID;
+    	return 1;
     }
     
     public void setGroupName(String newGroupName) {
-    	this.groupName = newGroupName;
+    	this.name = newGroupName;
     }
     
     public String getGroupName() {
-    	return this.groupName;
+    	return this.name;
     }
     
     public void setGroupInfo(String info) {
-    	this.groupInfo= info;
+    	this.info= info;
     }
     
     public String getGroupInfo() {
-    	return this.groupInfo;
+    	return this.info;
     }
     /*
     public void setMembers(List<User> members) {
@@ -91,11 +89,11 @@ public class Group{
     }
     */
     public void setVisable(Boolean vis) {
-    	this.visable = vis;
+    	//this.visable = vis;
     }
     
     public Boolean getVisable() {
-    	return this.visable;
+    	return true;
     }
     
     /* þessi aðferð verður aldrei notuð, það verður frekar notað addEvent()

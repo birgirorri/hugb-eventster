@@ -32,7 +32,7 @@ public class GroupService{
 	    }
 	    
 	    public Group addGroup(Group group) {
-	    	System.out.println("saving group==========================================");
+	    	System.out.println(group.getGroupName() +"=============================");
 	    	return repository.save(group);
 	    }
 

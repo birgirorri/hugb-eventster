@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
-import project.persistence.entities.Group;
+//import project.persistence.entities.Group;
 
 import java.util.List;
 
@@ -49,8 +49,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query(value = "SELECT p FROM User p WHERE p.email = ?1")
     User validLogin(String email);
     
-    @Query(value = "SELECT p FROM Group p WHERE p.groupName = gName")
-    List<User> findGroupMembers(String groupName);
+   // @Query(value = "SELECT p FROM Group p WHERE p.groupName = gName")
+    //List<User> findGroupMembers(String groupName);
     
    
     
