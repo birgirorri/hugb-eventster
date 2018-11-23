@@ -26,31 +26,11 @@ public class EventController {
     }
 	
     @RequestMapping(value = "/Events", method = RequestMethod.GET)
-    public String event(Model model){
+    public String event(Model model,@ModelAttribute("event") Event event){
 
-        // Here we will show how to add attributes to a model and send it to the view
-
-        // Since this small example is for a user, let's create some attributes
-        // that users might usually have in a system
-
-        // Since we want our attributes regarding the user always in the same format,
-        // we are going to convert some strings using our StringManipulationService
-
-        // Let's assume that the name, job and description always have
-        // the first character in upper case
-        
-        //name = stringService.convertsFirstCharInStringToUpperCase(name);
-        //job = stringService.convertsFirstCharInStringToUpperCase(job);
-       // description = stringService.convertsFirstCharInStringToUpperCase(description);
-
-        // Let's assume that we always want e-mail in lower case
-        //email = stringService.convertStringToLowerCase(email);
-
-        // Now let's add the attributes to the model      
-        
-        // By adding attributes to the model, we can pass information from the controller
-        // to the view (the .jsp file).
-        // Look at the User.jsp file in /main/webapp/WEB-INF/jsp/ to see how the data is accessed
+      
+    	model.addAttribute("eventList", eventService.findAllEvents());
+    	
         return "Events";
     }
     

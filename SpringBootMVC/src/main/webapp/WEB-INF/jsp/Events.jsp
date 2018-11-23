@@ -20,8 +20,8 @@
 
 	<sf:form method="POST" modelAttribute="event" action="/findEvent">
 
-		<label>find event: <input type=text path="eventName"
-			name="eventName">
+		<label>find event: 
+		<input type=text path="eventName" name="eventName">
 		</label>
 		<input type="submit" value="search!">
 
@@ -47,7 +47,7 @@
 						<%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
 						<%--Create a link based on the name attribute value--%>
-						<td>${userObj.username}</td>
+						<td>${userObj.eventname}</td>
 						<%--The String in the note attribute--%>
 						<td>${userObj.password}</td>
 						<td>${userObj.email}</td>
