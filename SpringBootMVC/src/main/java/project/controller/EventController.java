@@ -67,7 +67,7 @@ public class EventController {
     }
     
     @RequestMapping(value = "/addEvent", method = RequestMethod.POST )
-    public String UserViewUser(@ModelAttribute("event") Event event,Model model ,@RequestParam("eventName") String eventName, @RequestParam("eventInfo") String eventInfo,@RequestParam("groupID") long groupID){
+    public String UserViewUser(@ModelAttribute("event") Event event,@RequestParam("eventName") String eventName, @RequestParam("eventInfo") String eventInfo,@RequestParam("groupID") long groupID, Model model ){
 
         // Save the Postit Note that we received from the form
     	
@@ -75,14 +75,6 @@ public class EventController {
         eventService.createEvent(newEvent);
 
         System.out.println(" sdf"+ eventName);
-        
-        // Here we get all the Postit Notes (in a reverse order) and add them to the model
-        model.addAttribute("eventList", eventService.findAllEvents() );
-
-        // Add a new Postit Note to the model for the form
-        // If you look at the form in PostitNotes.jsp, you can see that we
-        // reference this attribute there by the name `postitNote`.
-        model.addAttribute("event", newEvent );
 
         // Return the view
         return "Events";
