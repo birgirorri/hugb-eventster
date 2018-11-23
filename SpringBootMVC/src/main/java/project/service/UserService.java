@@ -1,67 +1,24 @@
 package project.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import project.persistence.entities.User;
-import project.persistence.repositories.UserRepository;
-
-import java.util.Collections;
 import java.util.List;
 
-@Service
+public interface UserService {
+    public User createUser(User user);
 
-public class UserService{
-	
-	
-	 UserRepository repository;
-	
-	 
-	 @Autowired
-	    public UserService(UserRepository repository) {
-	        this.repository = repository;
-	    }
-	 
+    public void delete(User user);
 
-	    public User createUser(User user) {
-	    	System.out.println("fer í service");
-	        return repository.save(user);
-	    }
+    public List<User> findAllUsers();
 
-	    
-	    public void delete(User user) {
-	        repository.delete(user);
-	    }
-	    
-	    public List<User> findAllUsers() {
-	        return repository.findAll();
-	    }
-	    
-	    public User findUserByID(Long userID){
-	    	return repository.findOne(userID);
-	    }
-	    
-	    public List<User> findByUsername(String userName){
-	    	return repository.findByUsername(userName);
-	    }
-	    
-	    
-	    /*public List<Group> findUserByGroup(int GroupID) {
-	    	return repository.findGroupByID(groupID);
-	    }
-	    */
-	    
-	    public void updateUser(User user){
-	    	
-	    }
-	    
-	    public List<User> sortUser(String by, List<User> users){
-	    	return users;
-	    }
-	    
-	    public User validLogin(String email){
-	    	return repository.validLogin(email);
-	    }
-	    
-	    
+    public User findUserByID(Long userID);
+
+    public List<User> findByUsername(String userName);
+
+    public void updateUser(User user);
+
+    public List<User> sortUser(String by, List<User> users);
+
+    public User validLogin(String email);
 }

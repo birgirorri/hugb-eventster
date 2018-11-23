@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import project.persistence.entities.Event;
 import project.persistence.entities.PostitNote;
 import project.service.*;
-import project.service.StringManipulationService;
 import project.service.UserService;
 import java.util.List;
 import java.util.ArrayList;

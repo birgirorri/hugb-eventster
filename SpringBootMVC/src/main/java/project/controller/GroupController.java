@@ -13,7 +13,6 @@ import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
 import project.persistence.entities.Event;
 import project.persistence.entities.Group;
-import project.service.StringManipulationService;
 import project.service.GroupService;
 
 import java.util.ArrayList;
