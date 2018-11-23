@@ -49,8 +49,8 @@ public class LoginController {
 		}
 	}
 	
-	@RequestMapping(value = "/Load", method = RequestMethod.GET)
-	public String preload(Model model) {
+	@RequestMapping(value = "/LoadUser", method = RequestMethod.GET)
+	public String preloadUser(Model model) {
 		User birgir = new User("birgir","birgir","birgir@hi.is");
 		User adam = new User("adam","adam","adam@hi.is");
 		User marino = new User("marino","marino","marino@hi.is");

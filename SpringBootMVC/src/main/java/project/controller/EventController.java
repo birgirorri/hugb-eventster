@@ -148,7 +148,7 @@ public class EventController {
 		eventService.createEvent(tnlkr);
 		eventService.createEvent(bbq);
 		
-		return "Event";
+		return "Events";
 	}
     
 }
