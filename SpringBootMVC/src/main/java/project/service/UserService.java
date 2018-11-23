@@ -20,5 +20,7 @@ public interface UserService {
 
     public List<User> sortUser(String by, List<User> users);
 
-    public User validLogin(String email);
+    public User findByEmail(String email);
+    
+    public User findWhoLoggedIn();
 }

@@ -47,7 +47,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	List<User> findByUsername(String username);
 
 	@Query(value = "SELECT p FROM User p WHERE p.email = ?1")
-	User validLogin(String email);
+	User findByEmail(String email);
+	
+	@Query(value = "SELECT p FROM User p WHERE p.loggedIn = true")
+	User findWhoLoggedIn();
 
 	// @Query(value = "SELECT p FROM Group p WHERE p.groupName = gName")
 	// List<User> findGroupMembers(String groupName);

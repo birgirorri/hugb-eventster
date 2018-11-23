@@ -36,7 +36,7 @@ public class LoginController {
 	public String validLogin(@RequestParam("email") String email, @RequestParam("password") String password,
 			Model model) {
 
-		User login_user = userService.validLogin(email);
+		User login_user = userService.findByEmail(email);
 		if(login_user != null) {
 			if (login_user.getPassword().equals(password)) {
 				login_user.setLoggedIn(true);

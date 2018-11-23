@@ -64,8 +64,12 @@ public class UserServiceImplementation implements UserService{
     }
     
     @Override
-    public User validLogin(String email){
-        return repository.validLogin(email);
+    public User findByEmail(String email){
+        return repository.findByEmail(email);
+    }
+    
+    public User findWhoLoggedIn() {
+    	return repository.findWhoLoggedIn();
     }
 
     
