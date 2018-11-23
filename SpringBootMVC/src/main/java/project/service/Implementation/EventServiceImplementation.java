@@ -18,7 +18,7 @@ public class EventServiceImplementation implements EventService{
 	
 	 
 	 @Autowired
-	    public EventService(EventRepository repository) {
+	    public EventServiceImplementation (EventRepository repository) {
 	        this.repository = repository;
 	    }
 	 

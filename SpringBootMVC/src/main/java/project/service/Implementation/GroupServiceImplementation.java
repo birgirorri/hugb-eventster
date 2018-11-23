@@ -23,7 +23,7 @@ public class GroupServiceImplementation implements GroupService{
 	
 	 
 	 @Autowired
-	public GroupService(GroupRepository repository) {
+	public GroupServiceImplementation (GroupRepository repository) {
 	    this.repository = repository;
 	}
 	
