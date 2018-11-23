@@ -14,3 +14,15 @@ h2 {
 	font-size: 1.666667em;
 	color: black;
 }
+
+.myPage_container {
+	display: flex;
+	flex-direction: row;
+}
+
+.myPage_column {
+	display: flex;
+	flex-direction: columns;
+	width: 50%;
+	margin-top: 20px;
+}
