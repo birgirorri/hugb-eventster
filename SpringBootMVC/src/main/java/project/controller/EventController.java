@@ -31,6 +31,12 @@ public class EventController {
       
     	model.addAttribute("eventList", eventService.findAllEvents());
     	
+    	List<Event> ev = eventService.findAllEvents();
+    	
+    	if(!ev.isEmpty()) {
+    	System.out.println(ev.get(0).getEventName() +"========================");
+    	}
+    	
         return "Events";
     }
     
@@ -54,6 +60,8 @@ public class EventController {
     	Event newEvent = new Event(eventName, eventInfo, groupID);
     	System.out.println("búið til event: " + newEvent.getEventName());
         eventService.createEvent(newEvent);
+        
+        model.addAttribute("eventList", eventService.findAllEvents());
 
         // Return the view
         return "Events";
@@ -84,12 +92,12 @@ public class EventController {
     
     
     @RequestMapping(value = "/findEvent", method = RequestMethod.POST )
-    public String SearchUser(@ModelAttribute("event") Event event,Model model ,@RequestParam("eventName") long eventID){
+    public String SearchUser(@ModelAttribute("event") Event event,Model model ,@RequestParam("eventName") String eventName){
     
     	System.out.println("calling service function================================");
     	
     	
-    		model.addAttribute("eventList", eventService.findEventByID(eventID) );
+    		model.addAttribute("eventList", eventService.findEventByName(eventName) );
     		//model.addAttribute("user", temp );
     
     	System.out.println("done looking ================================");
@@ -109,4 +117,9 @@ public class EventController {
     	
     return "Events";
     }
+    
+    
+    
+    
+    
 }

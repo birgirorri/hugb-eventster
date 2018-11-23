@@ -40,6 +40,10 @@ public class EventService{
 	    	return repository.findOne(eventID);
 	    }
 	    
+	    public List<Event> findEventByName(String name){
+	    	return repository.findByEventName(name);
+	    }
+	    
 	    /*public List<Group> findUserByGroup(int GroupID) {
 	    	return repository.findGroupByID(groupID);
 	    }

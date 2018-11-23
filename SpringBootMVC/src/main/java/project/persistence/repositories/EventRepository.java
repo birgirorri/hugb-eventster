@@ -39,7 +39,7 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     Event findOne(Long id);
 
     @Query(value = "SELECT p FROM Event p WHERE p.eventName LIKE %?1% ")
-    List<Event> findByUsername(String eventName);
+    List<Event> findByEventName(String eventName);
     
     
     @Query(value = "SELECT p FROM Comment p WHERE p.eventID = eID")
