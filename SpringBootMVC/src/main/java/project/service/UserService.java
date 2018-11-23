@@ -61,14 +61,8 @@ public class UserService{
 	    	return users;
 	    }
 	    
-	    public Boolean validateLogin(String email, String password){
-	    	
-	    	User loginCheck = repository.validLogin(email);
-	    	
-	    	System.out.println( loginCheck.getPassword() + "-----------------------------------" );
-	    	
-	    	System.out.println("Service----------------------------------------");
-	    	return true;
+	    public User validLogin(String email){
+	    	return repository.validLogin(email);
 	    }
 	    
 	    
