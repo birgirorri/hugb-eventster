@@ -59,9 +59,8 @@ public class Group{
     }
     */
     
-    public int getGroupID() {
-    	//return this.GroupID;
-    	return 1;
+    public long getGroupID() {
+    	return this.id;
     }
     
     public void setGroupName(String newGroupName) {
