@@ -26,13 +26,15 @@ public class GroupService{
 	        this.repository = repository;
 	    }
 	 
-
+/*
 	    public Group createUser(Group group) {
 	        return repository.save(group);
 	    }
-	    
+*/   
 	    public Group addGroup(Group group) {
-	    	System.out.println(group.getGroupName() +"=============================");
+	    	System.out.println(group.getGroupName() +"=============================" + group.getGroupInfo() );
+	    	
+	    	
 	    	return repository.save(group);
 	    }
 
