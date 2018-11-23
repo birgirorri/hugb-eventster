@@ -10,33 +10,31 @@ import project.service.StringManipulationService;
 @Controller
 public class HomeController {
 
-    // Instance Variables
-    StringManipulationService stringService;
+	// Instance Variables
+	StringManipulationService stringService;
 
-    // Dependency Injection
-    @Autowired
-    public HomeController(StringManipulationService stringService) {
-        this.stringService = stringService;
-    }
+	// Dependency Injection
+	@Autowired
+	public HomeController(StringManipulationService stringService) {
+		this.stringService = stringService;
+	}
 
-    // Request mapping is the path that you want to map this method to
-    // In this case, the mapping is the root "/", so when the project
-    // is running and you enter "localhost:8080" into a browser, this
-    // method is called
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String home(){
+	// Request mapping is the path that you want to map this method to
+	// In this case, the mapping is the root "/", so when the project
+	// is running and you enter "localhost:8080" into a browser, this
+	// method is called
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home() {
 
-        // The string "Index" that is returned here is the name of the view
-        // (the Index.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
-        // If you change "Index" to something else, be sure you have a .jsp
-        // file that has the same name
-        return "Index";
-    }
+		// The string "Index" that is returned here is the name of the view
+		// (the Index.jsp file) that is in the path /main/webapp/WEB-INF/jsp/
+		// If you change "Index" to something else, be sure you have a .jsp
+		// file that has the same name
+		return "Index";
+	}
 
-   
-    
-    @RequestMapping(value = "/loginView", method = RequestMethod.GET)
-    public String loginView(Model model) {
-    	return "loginView";
-    }
+	@RequestMapping(value = "/loginView", method = RequestMethod.GET)
+	public String loginView(Model model) {
+		return "loginView";
+	}
 }

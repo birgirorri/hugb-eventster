@@ -4,117 +4,98 @@ import javax.persistence.*;
 import project.persistence.entities.User;
 import java.util.List;
 
-
 @Entity
 @Table(name = "Groups") // If you want to specify a table name, you can do so here
-public class Group{
+public class Group {
 
-    // Declare that this attribute is the id
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    private String group_name;
-    //private int GroupID;
-    private String info;
-   
-    
-    public Group() {
-    	
-    }
-   
-    
-    public Group(String groupName, String groupInfo, Boolean visable){
-    	this.group_name = groupName;
-    	this.info = groupInfo;
-    	//this.visable = visable;
-    }
-    
-    public Group(String groupName, String groupInfo){
-    	this.group_name = groupName;
-    	this.info = groupInfo;
-    	System.out.println("new Group created====================================");
-    }
-    
-    public Group(String username, String email, String groupName) {
-    	//this.username = username;
-    	//this.email = email;
-    	this.group_name = groupName;
-    }
-    
-    public void addUser(User user) {
-    	
-    }
-    
-    public void kickUser(User user) {
-    	
-    }
-    /* Á eftir að búa til Event klasa
-    public void addEvent(Event event) {
-    	
-    }
-    
-    public void deleteEvent(Event event) {
-    	
-    }
-    */
-    
-    public long getGroupID() {
-    	return this.id;
-    }
-    
-    public void setGroupName(String newGroupName) {
-    	this.group_name = newGroupName;
-    }
-    
-    public String getGroupName() {
-    	return this.group_name;
-    }
-    
-    public void setGroupInfo(String info) {
-    	this.info= info;
-    }
-    
-    public String getGroupInfo() {
-    	return this.info;
-    }
-    /*
-    public void setMembers(List<User> members) {
-    	this.members = members;
-    }
-    
-    public List<User> getMembers(){
-    	return this.members;
-    }
-    */
-    public void setVisable(Boolean vis) {
-    	//this.visable = vis;
-    }
-    
-    public Boolean getVisable() {
-    	return true;
-    }
-    
-    /* þessi aðferð verður aldrei notuð, það verður frekar notað addEvent()
-    public void setEvents(List<Event> eventList){
-    	this.eventsList = eventList;
-    }
-    */
-    
-    /*
-    public List<Event> getEvent(){
-    	return this.eventsList;
-    }
-    */
-    
-    
+	// Declare that this attribute is the id
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	private String group_name;
+	// private int GroupID;
+	private String info;
+
+	public Group() {
+
+	}
+
+	public Group(String groupName, String groupInfo, Boolean visable) {
+		this.group_name = groupName;
+		this.info = groupInfo;
+		// this.visable = visable;
+	}
+
+	public Group(String groupName, String groupInfo) {
+		this.group_name = groupName;
+		this.info = groupInfo;
+		System.out.println("new Group created====================================");
+	}
+
+	public Group(String username, String email, String groupName) {
+		// this.username = username;
+		// this.email = email;
+		this.group_name = groupName;
+	}
+
+	public void addUser(User user) {
+
+	}
+
+	public void kickUser(User user) {
+
+	}
+	/*
+	 * Á eftir að búa til Event klasa public void addEvent(Event event) {
+	 * 
+	 * }
+	 * 
+	 * public void deleteEvent(Event event) {
+	 * 
+	 * }
+	 */
+
+	public long getGroupID() {
+		return this.id;
+	}
+
+	public void setGroupName(String newGroupName) {
+		this.group_name = newGroupName;
+	}
+
+	public String getGroupName() {
+		return this.group_name;
+	}
+
+	public void setGroupInfo(String info) {
+		this.info = info;
+	}
+
+	public String getGroupInfo() {
+		return this.info;
+	}
+
+	/*
+	 * public void setMembers(List<User> members) { this.members = members; }
+	 * 
+	 * public List<User> getMembers(){ return this.members; }
+	 */
+	public void setVisable(Boolean vis) {
+		// this.visable = vis;
+	}
+
+	public Boolean getVisable() {
+		return true;
+	}
+
+	/*
+	 * þessi aðferð verður aldrei notuð, það verður frekar notað addEvent() public
+	 * void setEvents(List<Event> eventList){ this.eventsList = eventList; }
+	 */
+
+	/*
+	 * public List<Event> getEvent(){ return this.eventsList; }
+	 */
+
 }
-
-
-
-
-
-
-
-
-

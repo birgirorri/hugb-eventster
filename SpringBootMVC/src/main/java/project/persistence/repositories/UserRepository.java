@@ -21,35 +21,35 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	User save(User user);
 
-    void delete(User user);
+	void delete(User user);
 
-    List<User> findAll();
-    
-   
+	List<User> findAll();
 
-    // If we need a custom query that maybe doesn't fit the naming convention used by the JPA repository,
-    // then we can write it quite easily with the @Query notation, like you see below.
-    // This method returns all PostitNotes where the length of the name is equal or greater than 3 characters.
-    @Query(value = "SELECT p FROM User p where length(p.username) >= 3 ")
-    List<User> findAllWithNameLongerThan3Chars();
+	// If we need a custom query that maybe doesn't fit the naming convention used
+	// by the JPA repository,
+	// then we can write it quite easily with the @Query notation, like you see
+	// below.
+	// This method returns all PostitNotes where the length of the name is equal or
+	// greater than 3 characters.
+	@Query(value = "SELECT p FROM User p where length(p.username) >= 3 ")
+	List<User> findAllWithNameLongerThan3Chars();
 
-    // Instead of the method findAllReverseOrder() in PostitNoteService.java,
-    // We could have used this method by adding the words
-    // ByOrderByIdDesc, which mean: Order By Id in a Descending order
-    
-    List<User> findAllByOrderByIdDesc();
+	// Instead of the method findAllReverseOrder() in PostitNoteService.java,
+	// We could have used this method by adding the words
+	// ByOrderByIdDesc, which mean: Order By Id in a Descending order
 
-    @Query(value = "SELECT p FROM User p WHERE p.id = ?1")
-    User findOne(Long id);
+	List<User> findAllByOrderByIdDesc();
 
-    @Query(value = "SELECT p FROM User p WHERE p.username LIKE %?1% ")
-    List<User> findByUsername(String username);
-    
-    
-    @Query(value = "SELECT p FROM User p WHERE p.email = ?1")
-    User validLogin(String email);
-    
-   // @Query(value = "SELECT p FROM Group p WHERE p.groupName = gName")
-    //List<User> findGroupMembers(String groupName);
-    
-} 
+	@Query(value = "SELECT p FROM User p WHERE p.id = ?1")
+	User findOne(Long id);
+
+	@Query(value = "SELECT p FROM User p WHERE p.username LIKE %?1% ")
+	List<User> findByUsername(String username);
+
+	@Query(value = "SELECT p FROM User p WHERE p.email = ?1")
+	User validLogin(String email);
+
+	// @Query(value = "SELECT p FROM Group p WHERE p.groupName = gName")
+	// List<User> findGroupMembers(String groupName);
+
+}
