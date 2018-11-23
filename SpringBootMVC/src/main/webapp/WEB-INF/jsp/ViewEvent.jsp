@@ -13,8 +13,16 @@
 </head>
 <body>
 
-	<h1>Events Page</h1>
+
+<div modelAttribute="currentEvent">
+	<div var="eventObj"  items="currentEvent"> 
+		<h1> ${eventObj.getEventName()}</h1>
+		<p> ${eventObj.getEventInfo()}</p>
+	</div>
+	<h1> </h1>
 	<p>Here could be some event information</p>
+	
+</div>
 
 	<a href="/createEvent" class="button">Create an event</a>
 

@@ -47,7 +47,7 @@
 						<%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
 						<%--Create a link based on the name attribute value--%>
-						<td>${eventObj.getEventName()}</td>
+						<td><a href="/event/${eventObj.getEventID()}">${eventObj.getEventName()}</a></td>
 						<%--The String in the note attribute--%>
 						<td>${eventObj.getEventInfo()}</td>
 						
