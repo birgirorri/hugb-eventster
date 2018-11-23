@@ -9,11 +9,27 @@
 <head>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/css/Events.css"/>" />
-<title>Events Page</title>
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/css/Header.css"/>" />
+	<title>Events</title>
 </head>
 <body>
-
-	<h1>Events Page</h1>
+<header>
+        <div class="header_grid">
+            <div class="header_title">
+                <h1> Eventster</h1>
+            </div>
+            <div class="header_pages">
+                <ul>
+                    <li><a class = "pages_selected" href="/Events">Events</a> </li>
+                    <li><a href="/user">Users</a> </li>
+                    <li><a href="/Group">Groups</a></li>
+                    <li><a href="/myPage">My Page</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+	<main>
 	<p>Here could be some event information</p>
 
 	<a href="/createEvent" class="button">Create an event</a>
@@ -66,7 +82,7 @@
 	<a href="/LoadEvent" class="button1">preload</a>
 
 
-
+</main>
 </body>
 
 </html>

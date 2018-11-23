@@ -7,6 +7,8 @@
 <html lang="en">
 
     <head>
+    <link rel="stylesheet" type="text/css"
+	href="<c:url value="/css/Events.css"/>" />
         <title>Create an event</title>
     </head>
     <body>
@@ -37,6 +39,9 @@
      <input type="submit" VALUE="Create Event"/>
     </sf:form>
     
+    <ul>
+		<li><a href="/Events">Back</a></li>
+	</ul>
     
     </body>
 

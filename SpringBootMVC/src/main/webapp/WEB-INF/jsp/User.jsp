@@ -7,35 +7,30 @@
 <html lang="en">
 
     <head>
+    <link rel="stylesheet" type="text/css"
+	href="<c:url value="/css/User.css"/>" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/css/Header.css"/>" />
         <title>User Page</title>
     </head>
     <body>
-
-    <h1>User Page</h1>
+    <header>
+        <div class="header_grid">
+            <div class="header_title">
+                <h1> Eventster</h1>
+            </div>
+            <div class="header_pages">
+                <ul>
+                    <li><a href="/Events">Events</a> </li>
+                    <li><a class = "pages_selected" href="/user">Users</a> </li>
+                    <li><a href="/Group">Groups</a></li>
+                    <li><a href="/myPage">My Page</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+	<main>
     <p>Here could be some user information</p>
-
-    
-    <sf:form method="POST" modelAttribute="user" action="/addUser">
-    
-    <label>username:
-    <input type="text" path="username" name = "username">
-    </label>
-    
-     <label>password:
-    <input type="text" path="password" name = "password">
-    </label>
-    
-     <label>email:
-    <input type="text" path="email" name="email">
-    </label>
-    
-     
-    
-     <input type="submit" VALUE="add User"/>
-    </sf:form>
-    
-    
-    
     
     <sf:form method="POST" modelAttribute="user" action="/findUser">
     
@@ -83,7 +78,7 @@
     </c:choose>
     
     
-    
+    </main>
     </body>
 
 </html>

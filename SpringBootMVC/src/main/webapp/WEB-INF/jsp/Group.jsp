@@ -7,31 +7,34 @@
 <html lang="en">
 
     <head>
+    <link rel="stylesheet" type="text/css"
+	href="<c:url value="/css/Group.css"/>" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/css/Header.css"/>" />
         <title>Groups</title>
     </head>
     <body>
+    <header>
+        <div class="header_grid">
+            <div class="header_title">
+                <h1> Eventster</h1>
+            </div>
+            <div class="header_pages">
+                <ul>
+                    <li><a href="/Events">Events</a> </li>
+                    <li><a href="/user">Users</a> </li>
+                    <li><a class = "pages_selected" href="/Group">Groups</a></li>
+                    <li><a href="/myPage">My Page</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
 
-    <h1>Group page</h1>
-    <p>Here could be some user information</p>
-
+    <p>Here could be some group information</p>
     
-    <sf:form method="POST" modelAttribute="groups" action="/addGroup">
-    <h2>create group</h2>
-    <label>Group name
-    <input type="text" path="groupName" name = "groupName">
-    </label>
-    
-     <label>about group
-    <input type="text" path="groupInfo" name = "groupInfo">
-    </label>
-    
-    
-     
-    
-     <input type="submit" VALUE="create Group"/>
-    </sf:form>
-    
-    
+       <a href="/createGroup" class="button">Create a group</a>
+        
     <sf:form method="POST" modelAttribute="groups" action="/findGroups">
     
     <label>find group:
@@ -77,8 +80,9 @@
         </c:otherwise>
     </c:choose>
     
+    <a href="/LoadGroup" class="button1">preload</a>
     
-    
+    </main>
     </body>
 
 </html>

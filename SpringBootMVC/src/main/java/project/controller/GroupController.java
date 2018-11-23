@@ -13,7 +13,6 @@ import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
 import project.persistence.entities.Event;
 import project.persistence.entities.Group;
-import project.service.StringManipulationService;
 import project.service.GroupService;
 
 import java.util.ArrayList;
@@ -36,10 +35,13 @@ public class GroupController {
     // To call this method, enter "localhost:8080/user" into a browser
     @RequestMapping(value = "/Group", method = RequestMethod.GET)
     public String user(Model model){
-
-      
-    
         return "Group";
+    }
+    
+    @RequestMapping(value = "/createGroup", method = RequestMethod.GET)
+    public String createEvent(Model model){
+
+        return "createGroup";
     }
     
     @RequestMapping(value = "/addGroup", method = RequestMethod.POST )
@@ -117,6 +119,18 @@ public class GroupController {
     	
     return "Group";
     }
+    
+    @RequestMapping(value = "/LoadGroup", method = RequestMethod.GET)
+	public String preloadEvent(Model model) {
+    	Group annunaki = new Group("Nörd", "allir meðlimir nörd");
+		Group bubb = new Group("bubb og co.", "vinir hans bubba");
+		Group brh = new Group("BRH BOYS","adam og bróðir hans");
+		groupService.addGroup(annunaki);
+		groupService.addGroup(bubb);
+		groupService.addGroup(brh);
+		
+		return "Group";
+	}
     
     
 }
