@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
+import project.persistence.entities.Event;
 import project.persistence.entities.Group;
 import project.service.StringManipulationService;
 import project.service.GroupService;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -77,6 +80,40 @@ public class GroupController {
     		//model.addAttribute("user", temp );
     
     	System.out.println("done looking ================================");
+    	
+    return "Group";
+    }
+    
+    @RequestMapping(value = "/group/{id}", method = RequestMethod.GET)
+    public String goToViewGroup(@PathVariable Long id, Model model){
+
+    	
+    	List<Group> groupview = new ArrayList();
+    	groupview.add(groupService.findGroupByID(id) );
+    	
+    	model.addAttribute("currentGroup", groupview);
+    	
+        // Get all Postit Notes with this name and add them to the model
+        //model.addAttribute("postitNotes", postitNoteService.findByName(name));
+
+        // Add a new Postit Note to the model for the form
+        // If you look at the form in PostitNotes.jsp, you can see that we
+        // reference this attribute there by the name `postitNote`.
+        //model.addAttribute("postitNote", new PostitNote());
+
+        // Return the view
+        return "ViewGroup";
+    }
+    
+    @RequestMapping(value = "/showAllGroups", method = RequestMethod.POST )
+    public String showAll(Model model){
+    
+    	System.out.println("SHOW ALL");
+    	
+    	model.addAttribute("groupsList", groupService.findAllGroups() );
+    	//model.addAttribute("user", temp );
+    
+    	
     	
     return "Group";
     }

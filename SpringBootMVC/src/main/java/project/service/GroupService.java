@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
+import project.persistence.entities.Event;
 import project.persistence.entities.Group;
 import project.persistence.repositories.PostitNoteRepository;
 import project.persistence.repositories.GroupRepository;
@@ -47,9 +48,14 @@ public class GroupService{
 	    	System.out.println("finding groups============================");
 	        return repository.findAll();
 	    }
-	    
+/*  
 	    public User findUserByID(Long userID){
 	    	return repository.findOne(userID);
+	    }
+*/
+	    
+	    public Group findGroupByID(Long ID){
+	    	return repository.findOne(ID);
 	    }
 	    
 	    public List<Group> findByName(String name){

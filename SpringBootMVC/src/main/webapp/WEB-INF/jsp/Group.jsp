@@ -41,7 +41,7 @@
     
     </sf:form>
     
-    <sf:form method="POST" modelAttribute="user" action="/showAllUsers">
+    <sf:form method="POST" modelAttribute="groups" action="/showAllGroups">
     <input type="submit" value="show all">
     </sf:form>
     
@@ -61,7 +61,7 @@
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
                         <%--Create a link based on the name attribute value--%>
-                        <td>${groupObj.getGroupName()}</td>
+                        <td> <a href="/group/${groupObj.getGroupID()}" >${groupObj.getGroupName()}</a></td>
                         <%--The String in the note attribute--%>
                         <td>${groupObj.getGroupInfo()}</td>
                         

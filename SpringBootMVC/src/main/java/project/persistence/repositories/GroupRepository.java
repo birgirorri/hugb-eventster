@@ -39,7 +39,7 @@ public interface GroupRepository extends JpaRepository<Group, Long> {
     List<User> findAllByOrderByIdDesc();
 
     @Query(value = "SELECT p FROM Group p WHERE p.id = ?1")
-    User findOne(Long id);
+    Group findOne(Long id);
 
     @Query(value = "SELECT p FROM Group p WHERE p.group_name LIKE %?1% ")
     List<Group> findByName(String groupName);
