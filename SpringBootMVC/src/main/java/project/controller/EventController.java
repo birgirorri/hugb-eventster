@@ -15,6 +15,7 @@ import project.service.*;
 import project.service.StringManipulationService;
 import project.service.UserService;
 import java.util.List;
+import java.util.ArrayList;
 
 
 @Controller
@@ -122,7 +123,8 @@ public class EventController {
     public String goToViewEvent(@PathVariable Long id, Model model){
 
     	
-    	Event eventview = eventService.findEventByID(id);
+    	List<Event> eventview = new ArrayList();
+    	eventview.add(eventService.findEventByID(id) );
     	
     	model.addAttribute("currentEvent", eventview);
     	
