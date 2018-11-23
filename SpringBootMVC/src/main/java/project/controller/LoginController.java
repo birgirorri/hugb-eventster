@@ -3,12 +3,10 @@ package project.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import project.service.StringManipulationService;
 import project.service.UserService;
 import project.persistence.entities.*;
 
@@ -25,28 +23,28 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/signUp", method = RequestMethod.POST)
-	public void createNewUser(Model model, @RequestParam("username") String username,
+	public String createNewUser(Model model, @RequestParam("username") String username,
 			@RequestParam("password") String password, @RequestParam("email") String email) {
 		User newUser = new User(username, password, email);
 		System.out.println("emailið er: " + newUser.getEmail());
 		userService.createUser(newUser);
+		
+		return "Index";
 	}
 
 	@RequestMapping(value = "/Login", method = RequestMethod.GET)
 	public String validLogin(@RequestParam("email") String email, @RequestParam("password") String password,
 			Model model) {
 
-		System.out.println("fer inní login fallið");
-
 		User login_user = userService.validLogin(email);
-		
-
-		
-		if (login_user.getPassword().equals(password)) {
-			return "Events";
-		}
-		else {
-			System.out.println("farðu heim ");
+		if(login_user != null) {
+			if (login_user.getPassword().equals(password)) {
+				login_user.setLoggedIn(true);
+				return "Events";
+			} else {
+				return "Index";
+			}
+		} else {
 			return "Index";
 		}
 		

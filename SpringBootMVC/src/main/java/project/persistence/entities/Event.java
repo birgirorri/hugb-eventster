@@ -19,11 +19,13 @@ public class Event{
     // Declare that this attribute is the id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     private Long id;
+    private Long id;
     
     private String eventName;
     private String eventInfo;
     private Long groupID;
+    private ArrayList<Comment> comments;
+    private ArrayList<String> tags;
   
     public Event() {
     }
@@ -37,11 +39,11 @@ public class Event{
     }
     
     public void addComment(Comment comment) {
-    	//this.comments.add(comment);
+    	this.comments.add(comment);
     }
     
     public void deleteComment(Comment comment) {
-    	//this.comments.remove(comment);
+    	this.comments.remove(comment);
     }
     
     public Long getEventID() {
@@ -65,7 +67,7 @@ public class Event{
     }
     
     public void addTag(String tag) {
-    	//this.tags.add(tag);
+    	this.tags.add(tag);
     }
     
     public void setGroupID(Long groupID) {
@@ -75,12 +77,6 @@ public class Event{
     public Long getGroupID() {
     	return this.groupID;
     }
-    
-    
-    public void setComment(Comment comment) {
-    	//this.comments.add(comment);
-    }
-    
 }
 
 

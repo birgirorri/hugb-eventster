@@ -26,6 +26,7 @@ public class User{
     private String zodiac ="3";
 
     private String email;
+    private boolean loggedIn;
    
 
     // Notice the empty constructor, because we need to be able to create an empty PostitNote to add
@@ -88,6 +89,14 @@ public class User{
     
     public String getZodiac() {
     	return this.zodiac;
+    }
+    
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
+    }
+    
+    public boolean getLoggedIn() {
+    	return this.loggedIn;
     }
    
 

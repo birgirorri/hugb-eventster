@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
-import project.persistence.entities.Group;
+//import project.persistence.entities.Group;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	User save(User user);
-	
+
     void delete(User user);
 
     List<User> findAll();
@@ -36,7 +36,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // Instead of the method findAllReverseOrder() in PostitNoteService.java,
     // We could have used this method by adding the words
     // ByOrderByIdDesc, which mean: Order By Id in a Descending order
-    //
+    
     List<User> findAllByOrderByIdDesc();
 
     @Query(value = "SELECT p FROM User p WHERE p.id = ?1")
@@ -49,11 +49,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query(value = "SELECT p FROM User p WHERE p.email = ?1")
     User validLogin(String email);
     
-    @Query(value = "SELECT p FROM Group p WHERE p.groupName = gName")
-    List<User> findGroupMembers(String groupName);
-    
-   
-    
-    
+   // @Query(value = "SELECT p FROM Group p WHERE p.groupName = gName")
+    //List<User> findGroupMembers(String groupName);
     
 } 
