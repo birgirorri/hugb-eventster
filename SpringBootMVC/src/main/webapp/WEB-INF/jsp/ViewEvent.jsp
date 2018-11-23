@@ -14,11 +14,19 @@
 <body>
 
 
-<div modelAttribute="currentEvent">
-	<div var="eventObj"  items="currentEvent"> 
-		<h1> ${eventObj.getEventName()}</h1>
-		<p> ${eventObj.getEventInfo()}</p>
-	</div>
+<div>
+	<c:when test="${not empty currentEvent}">
+			<c:forEach var="eventObj" items="${currentEvent}">
+				<h1>${eventObj.getEventName()}</h1>
+
+				</c:forEach>
+	
+	</c:when>
+	
+	<c:otherwise>
+		<h3>Úps villa!</h3>
+	</c:otherwise>
+	
 	<h1> </h1>
 	<p>Here could be some event information</p>
 	
