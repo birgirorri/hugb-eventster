@@ -62,6 +62,8 @@
 			<h3>No events!</h3>
 		</c:otherwise>
 	</c:choose>
+	
+	<a href="/LoadEvent" class="button1">preload</a>
 
 
 

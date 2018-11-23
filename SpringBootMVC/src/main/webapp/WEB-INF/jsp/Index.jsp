@@ -70,7 +70,7 @@
 
 	</ul>
 	
-	<a href="/Load" class="button">preload</a>
+	<a href="/LoadUser" class="button">preload</a>
 
 
   </div>
