@@ -148,7 +148,7 @@ public class UserController {
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public String showMyPage(Model model) {
 		
-		System.out.println(userService.findWhoLoggedIn().getEmail());
+		//System.out.println(userService.findWhoLoggedIn().getEmail());
 		
 		return "myPage";
 	}
