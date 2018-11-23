@@ -22,13 +22,14 @@
 
 					<label> Email: <input type="email" path="email"
 						placeholder="email here" name="email">
-					</label> <label> password: <input type="text" path="password"
+					</label> <label> Password: <input type="text" path="password"
 						placeholder="password here" name="password">
-					</label> <a href="/login"> <input type="submit" VALUE="login">
+					</label><a> <input type="submit" VALUE="login">
 					</a>
 				</div>
+			</sf:form>
 		</div>
-		</sf:form>
+		
 
 
 
@@ -40,22 +41,23 @@
 						placeholder="email here" name="email">
 					</label> <label> Username: <input type="text" path="username"
 						placeholder="username here" name="username">
-					</label> <label> password: <input type="password" path="password"
+					</label> <label> Password: <input type="password" path="password"
 						placeholder="password here" name="password">
-					</label> <label> retype password: <input type="password"
+					</label> <label> Retype password: <input type="password"
 						path="password" placeholder="password here" name="password">
 					</label> <a href="/login"> <input type="submit" VALUE="Sign up">
 					</a>
 
 				</div>
+			</sf:form>
 		</div>
 	</div>
 
-	</sf:form>
+	
 
 	<ul>
 		<li><a href="/postit">Click here for Persistence Layer Demo</a></li>
-		<li><a href="/user">user</a></li>
+		<li><a href="/user">User</a></li>
 		<li><a href="/myPage">My Page</a></li>
 		<li><a href="/Group">Group page</a></li>
 		<li><a href="/Events">Events page</a></li>
