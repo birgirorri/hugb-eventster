@@ -1,10 +1,27 @@
 header{
     height: 150px;
-    background-color: #88E042;
+    background: transparent url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/170VMZp/elegant-waving-canvas-yellow-green-background-loop_ny50oveve__F0000.png) no-repeat fixed 80% 80%;
 }
 
-li, a, h1 {
+header li {
 	font-family: 'Arial';
+	color: white;
+	font-family: 'Arial';
+	text-shadow: 4px 4px 8px #45C94E;
+}
+
+header a {
+	font-family: 'Arial';
+	color: white;
+	font-family: 'Arial';
+	text-shadow: 4px 4px 8px #45C94E;
+}
+
+header h1 {
+	font-family: 'Arial';
+	color: white;
+	font-family: 'Arial';
+	text-shadow: 4px 4px 8px #45C94E;
 }
 
 .header_grid{
@@ -47,6 +64,7 @@ header ul{
     display: flex;
     flex-direction: row;
     margin: auto;
+    padding: 0px;
 }
 
 header ul li {
@@ -54,14 +72,12 @@ header ul li {
 }
 
 header ul li a{
-	transition: color 0.4s ease;
-	color: black;
-    font-weight: bold;
+	transition: font-weight 0.4s ease;
     text-decoration: none;
 }
 
 header ul li a:hover{
-    color: white;
+    font-weight: bold;
 }
 
 header ul li .pages_selected{
