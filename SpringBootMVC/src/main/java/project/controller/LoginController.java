@@ -43,7 +43,6 @@ public class LoginController {
 		
 		if(login_user != null) {
 			if (login_user.getPassword().equals(password)) {
-				login_user.setLoggedIn(true);
 				
 				userService.setCurrentUser(login_user);
 				
@@ -64,6 +63,15 @@ public class LoginController {
 		userService.createUser(birgir);
 		userService.createUser(adam);
 		userService.createUser(marino);
+		
+		return "Index";
+	}
+	
+	@RequestMapping(value = "/GuestUser", method = RequestMethod.GET)
+	public String GuestSignIn(Model model) {
+		User Guest = new User("guest","guest","guest@email.is");
+		userService.createUser(Guest);
+		userService.setCurrentUser(Guest);
 		
 		return "Index";
 	}
