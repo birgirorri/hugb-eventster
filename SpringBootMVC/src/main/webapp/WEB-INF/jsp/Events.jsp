@@ -46,7 +46,7 @@
 		<%--If the model has an attribute with the name `postitNotes`--%>
 		<c:when test="${not empty eventList}">
 			<%--Create a table for the Postit Notes--%>
-			<table class="events" border="1px gray">
+			<table class="users" border="1px gray">
 
 				<%--For each postit note, that is in the list that was passed in the model--%>
 				<%--generate a row in the table--%>

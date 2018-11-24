@@ -46,20 +46,3 @@ a.button1 {
     float: right;
     padding: 10px;
 }
-
-table.events {
-    border: 1px black solid;
-}
-
-.events td {
-    padding: 15px;
-    text-align: left;
-}
-
-table.events tr:nth-child(even) {
-    background-color: antiquewhite;
-}
-
-table.events tr:nth-child(odd) {
-    background-color: azure;
-}
