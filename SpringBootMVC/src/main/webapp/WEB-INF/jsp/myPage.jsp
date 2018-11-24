@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 
-<html>
+<html lang="is">
 
 <head>
 <link rel="stylesheet" type="text/css"
@@ -37,6 +37,10 @@
 			<c:forEach var="userObj" items="${currentSession}">
 				<h1>${userObj.getUsername()}</h1>
 				<p>${userObj.getEmail()}</p>
+				<p>${userObj.getBirthday()}</p>
+				<p>${userObj.getPhone()}</p>
+				<p>${userObj.getZodiac()}</p>
+
 			</c:forEach>
 	</c:when>
 	
@@ -141,6 +145,26 @@
 			</c:choose>
 		</div>
 	</div>
+	
+	<sf:form method="POST" modelAttribute="userInfo" action="/changeUserInfo" border="1px gray">
+
+		<label>Birthday:
+		<input type=text path="birthday" name="birthday">
+		</label>
+		
+		<label>phone number:
+		<input type=text path="phone" name="phone">
+		</label>
+		
+		<label>Zodiac:
+		<input type=text path="zodiac" name="zodiac">
+		</label>
+		
+		<input type="submit" value="edit">
+
+	</sf:form>
+	
+	
 	</main>
 </body>
 <footer>Class HBV501G, University of Iceland</footer>

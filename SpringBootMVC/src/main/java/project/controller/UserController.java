@@ -165,6 +165,7 @@ public class UserController {
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
 	public String postitNoteGetNotesFromName(@PathVariable long id, Model model) {
 		
+		
 		List<User> userview = new ArrayList();
 		userview.add(userService.findUserByID(id));
 
@@ -173,6 +174,30 @@ public class UserController {
 	
 		// Return the view
 		return "ViewUser";
+	}
+	
+	
+	@RequestMapping(value = "/changeUserInfo" , method = RequestMethod.POST)
+	public String editUserInfo(Model model,
+			@RequestParam("birthday") String birthday, @RequestParam("phone") String phone,
+			@RequestParam("zodiac") String zodiac) {
+		
+		User user = userService.getCurrentUser();
+		
+		if(!birthday.isEmpty()) {
+		user.setBirthday(birthday);	
+		}
+		
+		if(!phone.isEmpty()) {
+			user.setPhone(phone);
+		}
+		
+		if(!zodiac.isEmpty()) {
+			user.setZodiac(zodiac);	
+		}
+		
+		return showMyPage(model);
+		
 	}
 	
 	
