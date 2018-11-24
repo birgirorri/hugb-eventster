@@ -13,15 +13,18 @@ import project.persistence.entities.Event;
 import project.persistence.entities.PostitNote;
 import project.service.*;
 import project.service.UserService;
+import project.service.GroupService;
 import java.util.List;
 import java.util.ArrayList;
 
 @Controller
 public class EventController {
 	EventService eventService;
+	GroupService groupService;
 
-	public EventController(EventService eventService) {
+	public EventController(EventService eventService, GroupService groupService) {
 		this.eventService = eventService;
+		this.groupService = groupService;
 	}
 
 	@RequestMapping(value = "/Events", method = RequestMethod.GET)
@@ -40,7 +43,8 @@ public class EventController {
 
 	@RequestMapping(value = "/createEvent", method = RequestMethod.GET)
 	public String createEvent(Model model) {
-
+		
+		model.addAttribute("groupsList", groupService.findAllGroups());
 		return "createEvent";
 	}
 
@@ -123,9 +127,7 @@ public class EventController {
 		eventview.add(eventService.findEventByID(id));
 
 		model.addAttribute("currentEvent", eventview);
-
 	
-
 		// Return the view
 		return "ViewEvent";
 	}

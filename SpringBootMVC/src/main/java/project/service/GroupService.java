@@ -32,7 +32,7 @@ public interface GroupService{
 	
 	public List<User> findAllUsersInGroup(Long id);
 	
-	public void addMember(String username,String email, String groupName);
+	public void addMember(User user, Long id);
 	
 	public Group getCurrentGroup();
 	

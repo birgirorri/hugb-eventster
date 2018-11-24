@@ -17,8 +17,8 @@ public class Group {
 	private String group_name;
 	// private int GroupID;
 	private String info;
-	private ArrayList<User> members;
-
+	private ArrayList<String> members = new ArrayList<String>();
+	
 	public Group() {
 
 	}
@@ -27,6 +27,7 @@ public class Group {
 		this.group_name = groupName;
 		this.info = groupInfo;
 		// this.visable = visable;
+		
 	}
 
 	public Group(String groupName, String groupInfo) {
@@ -43,7 +44,9 @@ public class Group {
 
 	public void addUser(User user) {
 		System.out.println(user.getUsername() +"----------------------");
-		this.members.add(user);
+		
+		
+		this.members.add(user.getEmail());
 		System.out.println(user.getUsername() +"----------------------");
 	}
 
@@ -81,11 +84,11 @@ public class Group {
 	}
 
 	
-	public void setMembers(ArrayList<User> members) { 
+	public void setMembers(ArrayList<String> members) { 
 		this.members = members; 
 	}
 	 
-	public List<User> getMembers(){
+	public ArrayList<String> getMembers(){
 		return this.members; 
 	}
 	 
