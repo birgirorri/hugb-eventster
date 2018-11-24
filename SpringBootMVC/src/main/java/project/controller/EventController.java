@@ -124,13 +124,7 @@ public class EventController {
 
 		model.addAttribute("currentEvent", eventview);
 
-		// Get all Postit Notes with this name and add them to the model
-		// model.addAttribute("postitNotes", postitNoteService.findByName(name));
-
-		// Add a new Postit Note to the model for the form
-		// If you look at the form in PostitNotes.jsp, you can see that we
-		// reference this attribute there by the name `postitNote`.
-		// model.addAttribute("postitNote", new PostitNote());
+	
 
 		// Return the view
 		return "ViewEvent";

@@ -9,9 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import project.persistence.entities.Event;
 import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
 import project.service.UserService;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -152,5 +155,21 @@ public class UserController {
 		
 		return "myPage";
 	}
+	
+	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+	public String postitNoteGetNotesFromName(@PathVariable long id, Model model) {
+		
+		List<User> userview = new ArrayList();
+		userview.add(userService.findUserByID(id));
+
+		model.addAttribute("currentUser", userview);
+
+	
+		// Return the view
+		return "ViewUser";
+	}
+	
+	
+	
 
 }

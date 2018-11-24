@@ -97,6 +97,10 @@ public class User {
 	public boolean getLoggedIn() {
 		return this.loggedIn;
 	}
+	
+	public Long getUserID() {
+		return this.id;
+	}
 
 	// This is for easier debug.
 	/*
