@@ -3,6 +3,7 @@ package project.persistence.entities;
 import javax.persistence.*;
 import project.persistence.entities.User;
 import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "Groups") // If you want to specify a table name, you can do so here
@@ -16,6 +17,7 @@ public class Group {
 	private String group_name;
 	// private int GroupID;
 	private String info;
+	private ArrayList<User> members;
 
 	public Group() {
 
@@ -40,7 +42,9 @@ public class Group {
 	}
 
 	public void addUser(User user) {
-
+		System.out.println(user.getUsername() +"----------------------");
+		this.members.add(user);
+		System.out.println(user.getUsername() +"----------------------");
 	}
 
 	public void kickUser(User user) {
@@ -76,11 +80,15 @@ public class Group {
 		return this.info;
 	}
 
-	/*
-	 * public void setMembers(List<User> members) { this.members = members; }
-	 * 
-	 * public List<User> getMembers(){ return this.members; }
-	 */
+	
+	public void setMembers(ArrayList<User> members) { 
+		this.members = members; 
+	}
+	 
+	public List<User> getMembers(){
+		return this.members; 
+	}
+	 
 	public void setVisable(Boolean vis) {
 		// this.visable = vis;
 	}

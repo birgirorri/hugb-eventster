@@ -30,8 +30,12 @@ public interface GroupService{
 	
 	public List<User> sortUser(String by, List<User> users);
 	
-	public List<User> findAllUsersInGroup(String groupName);
+	public List<User> findAllUsersInGroup(Long id);
 	
 	public void addMember(String username,String email, String groupName);
+	
+	public Group getCurrentGroup();
+	
+	public void setCurrentGroup(Group group);
 	
 }

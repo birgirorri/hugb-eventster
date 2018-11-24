@@ -14,6 +14,7 @@ import project.persistence.entities.User;
 import project.persistence.entities.Event;
 import project.persistence.entities.Group;
 import project.service.GroupService;
+import project.service.UserService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +25,13 @@ public class GroupController {
 	// Instance Variables
 	// StringManipulationService stringService;
 	GroupService groupService;
+	UserService userService;
 
 	// Dependency Injection
 	@Autowired
-	public GroupController(GroupService groupService) {
+	public GroupController(GroupService groupService, UserService userService) {
 		this.groupService = groupService;
+		this.userService = userService;
 	}
 
 	// To call this method, enter "localhost:8080/user" into a browser
@@ -86,9 +89,13 @@ public class GroupController {
 	public String goToViewGroup(@PathVariable Long id, Model model) {
 
 		List<Group> groupview = new ArrayList();
-		groupview.add(groupService.findGroupByID(id));
+		
+		Group view = groupService.findGroupByID(id);
+		groupview.add(view);
 
 		model.addAttribute("currentGroup", groupview);
+		
+		groupService.setCurrentGroup(view);
 
 		// Get all Postit Notes with this name and add them to the model
 		// model.addAttribute("postitNotes", postitNoteService.findByName(name));
@@ -124,5 +131,21 @@ public class GroupController {
 
 		return "Group";
 	}
+	
+	@RequestMapping(value = "/addmember", method = RequestMethod.POST)
+	public String addMemberToGroup(Model model,@RequestParam("userName") String userName,
+			@RequestParam("email") String email) {
+		
+		User new_member = userService.findByEmail(email);//villa hér
+		
+		Group currentGroup = groupService.getCurrentGroup();
+		currentGroup.addUser(new_member);
+		
+		model.addAttribute("membersOfgroup", currentGroup.getMembers());
+		
+		return "ViewGroup";
+	}
+	
+	
 
 }

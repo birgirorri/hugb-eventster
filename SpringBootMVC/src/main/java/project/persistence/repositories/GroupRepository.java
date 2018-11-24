@@ -45,7 +45,7 @@ public interface GroupRepository extends JpaRepository<Group, Long> {
 	@Query(value = "SELECT p FROM Group p WHERE p.group_name LIKE %?1% ")
 	List<Group> findByName(String groupName);
 
-	@Query(value = "SELECT p FROM Group p WHERE p.group_name = groupName")
-	List<User> findGroupMembers(String groupName);
+	@Query(value = "SELECT members FROM Group p WHERE p.id = id")
+	List<User> findGroupMembers(Long id);
 
 }

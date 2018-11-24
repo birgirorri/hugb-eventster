@@ -20,6 +20,8 @@ public class GroupServiceImplementation implements GroupService{
 	
 	
 	 GroupRepository repository;
+	 
+	 Group currentGroup;
 	
 	 
 	 @Autowired
@@ -84,12 +86,23 @@ public class GroupServiceImplementation implements GroupService{
 	
 	
 	@Override
-	public List<User> findAllUsersInGroup(String groupName){
-		return repository.findGroupMembers(groupName);
+	public List<User> findAllUsersInGroup(Long id){
+		return repository.findGroupMembers(id);
 	}
 	
 	@Override
 	public void addMember(String username,String email, String groupName) {
 		repository.save( new Group(username,email,groupName));
+	}
+	
+	@Override
+	public Group getCurrentGroup() {
+		System.out.println(this.currentGroup.getGroupName() +"=========================================");
+		return this.currentGroup;
+	}
+	
+	@Override
+	public void setCurrentGroup(Group group) {
+		this.currentGroup = group;
 	}
 }
