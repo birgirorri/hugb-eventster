@@ -73,6 +73,6 @@ public class LoginController {
 		userService.createUser(Guest);
 		userService.setCurrentUser(Guest);
 		
-		return "Index";
+		return "Events";
 	}
 }
