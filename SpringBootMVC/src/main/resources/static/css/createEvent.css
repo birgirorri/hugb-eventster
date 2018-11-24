@@ -1,0 +1,59 @@
+html {
+	font-size: 18px;
+}
+
+body {
+	margin: 0;
+}
+
+main {
+	margin: 8px;
+}
+
+h1 {
+	font-size: 2.5em;
+	margin-bottom: 2em;
+	border-bottom: 1px solid #999;
+	margin:0 auto;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1.666667em;
+	color: black;
+}
+
+.category{
+	margin-bottom: 15px;
+		margin-top: 15px;
+}
+
+.category_chooser{
+	display: inline-block;
+	width: 30px;
+	margin-left: 10px;
+	color: #0098AE;
+}
+
+.catecory_select{
+	width: 100px;
+	height: 20px;
+}
+
+.groupSelect{
+	margin-bottom: 15px;
+		margin-top: 15px;
+}
+
+.group_chooser{
+	display: inline-block;
+	width: 30px;
+	margin-left: 10px;
+	color: #0098AE;
+}
+
+.group_select{
+	width: 100px;
+	height: 20px;
+}
+
