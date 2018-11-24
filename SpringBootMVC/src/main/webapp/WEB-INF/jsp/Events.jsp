@@ -46,25 +46,25 @@
 		<%--If the model has an attribute with the name `postitNotes`--%>
 		<c:when test="${not empty eventList}">
 			<%--Create a table for the Postit Notes--%>
-			<table class="users" border="1px gray">
+			<div class="events" border="1px gray">
 
 				<%--For each postit note, that is in the list that was passed in the model--%>
 				<%--generate a row in the table--%>
 				<%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
 				<c:forEach var="eventObj" items="${eventList}">
-					<tr>
+					<div>
 						<%--We can reference attributes of the Entity by just entering the name we gave--%>
 						<%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
 						<%--Create a link based on the name attribute value--%>
-						<td><a href="/event/${eventObj.getEventID()}">${eventObj.getEventName()}</a></td>
+						<h1><a href="/event/${eventObj.getEventID()}">${eventObj.getEventName()}</a></h1>
 						<%--The String in the note attribute--%>
-						<td>${eventObj.getEventInfo()}</td>
+						<p>${eventObj.getEventInfo()}</p>
 
 
-					</tr>
+					</div>
 				</c:forEach>
-			</table>
+			</div>
 		</c:when>
 
 		<%--If all tests are false, then do this--%>
