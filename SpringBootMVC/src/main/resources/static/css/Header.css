@@ -1,6 +1,10 @@
 header{
     height: 150px;
-    background-color: #afb281;
+    background-color: #88E042;
+}
+
+li, a, h1 {
+	font-family: 'Arial';
 }
 
 .header_grid{
@@ -18,10 +22,10 @@ header{
 }
 
 .header_title h1{
-	font-size: 40px;
+	font-size: 2.5rem;
     padding-top: 20px;
     margin-bottom: 2em;
-	border-bottom: 1px solid #999;
+	border: none;
 	margin:0 auto;
 	text-align: center;
 }
@@ -34,6 +38,8 @@ header{
 
 .header_pages ul li a{
 	font-size: 24px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 header ul{

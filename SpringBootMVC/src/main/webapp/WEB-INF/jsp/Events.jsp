@@ -11,44 +11,38 @@
 	href="<c:url value="/css/Events.css"/>" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/css/Header.css"/>" />
-	<title>Events</title>
+<title>Events</title>
 </head>
 <body>
-<header>
-        <div class="header_grid">
-            <div class="header_title">
-                <h1> Eventster</h1>
-            </div>
-            <div class="header_pages">
-                <ul>
-                    <li><a class = "pages_selected" href="/Events">Events</a> </li>
-                    <li><a href="/user">Users</a> </li>
-                    <li><a href="/Group">Groups</a></li>
-                    <li><a href="/myPage">My Page</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+	<header>
+		<div class="header_grid">
+			<div class="header_title">
+				<h1>Eventster</h1>
+			</div>
+			<div class="header_pages">
+				<ul>
+					<li><a class="pages_selected" href="/Events">Events</a></li>
+					<li><a href="/user">Users</a></li>
+					<li><a href="/Group">Groups</a></li>
+					<li><a href="/myPage">My Page</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
 	<main>
 	<p>Here could be some event information</p>
 
-	<a href="/createEvent" class="button">Create an event</a>
+	<a href="/createEvent" class="button">Create an event</a> <sf:form
+		method="POST" modelAttribute="event" action="/findEvent">
 
-	<sf:form method="POST" modelAttribute="event" action="/findEvent">
-
-		<label>find event: 
-		<input type=text path="eventName" name="eventName">
+		<label>find event: <input type=text path="eventName"
+			name="eventName">
 		</label>
 		<input type="submit" value="search!">
 
-	</sf:form>
-
-	<sf:form method="POST" modelAttribute="event" action="/showAllEvents">
+	</sf:form> <sf:form method="POST" modelAttribute="event" action="/showAllEvents">
 		<input type="submit" value="show all">
-	</sf:form>
-
-
-	<c:choose>
+	</sf:form> <c:choose>
 		<%--If the model has an attribute with the name `postitNotes`--%>
 		<c:when test="${not empty eventList}">
 			<%--Create a table for the Postit Notes--%>
@@ -66,7 +60,7 @@
 						<td><a href="/event/${eventObj.getEventID()}">${eventObj.getEventName()}</a></td>
 						<%--The String in the note attribute--%>
 						<td>${eventObj.getEventInfo()}</td>
-						
+
 
 					</tr>
 				</c:forEach>
@@ -77,12 +71,7 @@
 		<c:otherwise>
 			<h3>No events!</h3>
 		</c:otherwise>
-	</c:choose>
-	
-	<a href="/LoadEvent" class="button1">preload</a>
-
-
-</main>
+	</c:choose> <a href="/LoadEvent" class="button1">preload</a> </main>
 </body>
 
 </html>

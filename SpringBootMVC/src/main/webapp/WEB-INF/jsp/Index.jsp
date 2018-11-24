@@ -10,10 +10,22 @@
 	href="<c:url value="/css/login.css"/>" />
 </head>
 
-<body>
-  <div class="overlay">
-	<h1>Halló heimur, şetta er Eventster</h1>
+<head>
 
+    <meta charset="utf-8">
+    <title>Eventster!</title>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/css/login.css"/>" />
+</head>
+
+<body>
+	<header>
+      <div class = "protection">
+        <div class="headText">
+          <h1>Eventster</h1>
+          <h2>Mögulega besta vefsíğa í heimi</h2>
+        </div>
+      </div>
+    </header>
 	<div class="container">
 		<div class="login">
 			<h2>Login to your account</h2>
@@ -71,8 +83,5 @@
 	</ul>
 	
 	<a href="/LoadUser" class="button">preload</a>
-
-
-  </div>
 </body>
 </html>
