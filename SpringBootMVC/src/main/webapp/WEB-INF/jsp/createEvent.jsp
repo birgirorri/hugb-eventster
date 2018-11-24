@@ -52,7 +52,7 @@
 				<div class="groupSelect" border="1px gray">
 					<label class="group_chooser" for="group"></label> <select
 						class="group_select" field="*{size}">
-						<option value="Group" disabled="disabled" selected="true">Group</option>
+						<option value="public" selected="true">Public Event</option>
 						<%--For each postit note, that is in the list that was passed in the model--%>
 						<%--generate a row in the table--%>
 						<%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
@@ -63,7 +63,6 @@
 							<%--Create a link based on the name attribute value--%>
 							<option value="/group/${groupObj.getGroupID()}">${groupObj.getGroupName()}</option>
 						</c:forEach>
-						<option value="/public">Public Event</option>
 					</select>
 				</div>
 			</c:when>
@@ -73,8 +72,7 @@
 				<div class="groupSelect" border="1px gray">
 					<label class="group_chooser" for="group"></label> <select
 						class="group_select" field="*{size}">
-						<option value="Group" disabled="disabled" selected="true">Group</option>
-							<option value="/public">Public Event</option>
+						<option value="public" selected="true">Public Event</option>
 					</select>
 				</div>
 			</c:otherwise>
