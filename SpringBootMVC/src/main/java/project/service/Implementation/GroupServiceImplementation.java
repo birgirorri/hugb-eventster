@@ -91,8 +91,14 @@ public class GroupServiceImplementation implements GroupService{
 	}
 	
 	@Override
-	public void addMember(String username,String email, String groupName) {
-		repository.save( new Group(username,email,groupName));
+	public void addMember(User user, Long id) {
+		Group group = repository.findOne(id);
+		
+		group.addUser(user);
+		
+		repository.save(group);
+		System.out.println("group saved =========");
+		
 	}
 	
 	@Override
