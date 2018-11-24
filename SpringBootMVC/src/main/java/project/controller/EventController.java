@@ -56,12 +56,13 @@ public class EventController {
 
 	@RequestMapping(value = "/addEvent", method = RequestMethod.POST)
 	public String addEvent(@ModelAttribute("event") Event event, @RequestParam("eventName") String eventName,
-			@RequestParam("eventInfo") String eventInfo, Model model) {
+			@RequestParam("eventInfo") String eventInfo, @RequestParam("category") String tag, Model model) {
 
 		// Save the Postit Note that we received from the form
 		long langt = 0;
-		Event newEvent = new Event(eventName, eventInfo, langt);
+		Event newEvent = new Event(eventName, eventInfo, langt, tag);
 		System.out.println("búið til event: " + newEvent.getEventName());
+		System.out.println("Taggið á event er: " + newEvent.getTag());
 		eventService.createEvent(newEvent);
 
 		model.addAttribute("eventList", eventService.findAllEvents());
@@ -135,9 +136,9 @@ public class EventController {
 	@RequestMapping(value = "/LoadEvent", method = RequestMethod.GET)
 	public String preloadEvent(Model model) {
 		long langt = 0;
-		Event amli = new Event("afmæli", "partý hjá bubba", langt);
-		Event tnlkr = new Event("tónleikar", "valdimar í eldborg", langt);
-		Event bbq = new Event("bbq", "pullupartý hjá marinó", langt);
+		Event amli = new Event("afmæli", "partý hjá bubba", langt, "bolti");
+		Event tnlkr = new Event("tónleikar", "valdimar í eldborg", langt, "Karfa");
+		Event bbq = new Event("bbq", "pullupartý hjá marinó", langt, "Sjúddan");
 		eventService.createEvent(amli);
 		eventService.createEvent(tnlkr);
 		eventService.createEvent(bbq);

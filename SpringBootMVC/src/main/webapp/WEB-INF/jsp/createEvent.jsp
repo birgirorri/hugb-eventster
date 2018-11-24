@@ -28,8 +28,8 @@
 		</label>
 
 		<div class="category">
-			<label class="category_chooser" for="cat"></label> <select
-				class="catecory_select" field="*{size}">
+			<label class="category_chooser"></label> <select
+				class="catecory_select" field="*{size}" path="category">
 				<option value="Category" disabled="disabled" selected="true">Category</option>
 				<option value="bbq">BBQ</option>
 				<option value="birthday">Birthday</option>

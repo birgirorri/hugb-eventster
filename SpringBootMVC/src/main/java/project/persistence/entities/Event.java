@@ -25,16 +25,17 @@ public class Event {
 	private String eventInfo;
 	private Long groupID;
 	private ArrayList<Comment> comments;
-	private ArrayList<String> tags;
+	private String tags;
 
 	public Event() {
 	}
 
-	public Event(String eventName, String eventInfo, Long groupID) {
+	public Event(String eventName, String eventInfo, Long groupID, String tag) {
 
 		this.eventName = eventName;
 		this.eventInfo = eventInfo;
 		this.groupID = groupID;
+		this.tags = tag;
 
 	}
 
@@ -65,9 +66,13 @@ public class Event {
 	public String getEventInfo() {
 		return this.eventInfo;
 	}
+	
+	public String getTag() {
+		return this.tags;
+	}
 
 	public void addTag(String tag) {
-		this.tags.add(tag);
+		this.tags = tag;
 	}
 
 	public void setGroupID(Long groupID) {
