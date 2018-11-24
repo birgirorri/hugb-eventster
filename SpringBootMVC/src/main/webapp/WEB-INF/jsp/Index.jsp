@@ -44,8 +44,6 @@
 				</div>
 			</sf:form>
 		</div>
-		
-
 
 
 		<div class="signUp">
@@ -81,6 +79,8 @@
 
 
 	</ul>
+	
+	<a href="/GuestUser" class="buttonGuest">Sign in as guest</a>
 	
 	<a href="/LoadUser" class="button">preload</a>
 </body>
