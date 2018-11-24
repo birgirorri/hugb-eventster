@@ -23,6 +23,7 @@ public class UserController {
 	// Instance Variables
 	// StringManipulationService stringService;
 	UserService userService;
+	
 
 	// Dependency Injection
 	@Autowired
@@ -152,6 +153,11 @@ public class UserController {
 	public String showMyPage(Model model) {
 		
 		//System.out.println(userService.findWhoLoggedIn().getEmail());
+		
+		List<User> userview = new ArrayList();
+		userview.add(userService.getCurrentUser() );
+
+		model.addAttribute("currentSession", userview);
 		
 		return "myPage";
 	}

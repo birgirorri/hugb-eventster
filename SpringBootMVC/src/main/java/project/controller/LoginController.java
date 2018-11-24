@@ -1,5 +1,8 @@
 package project.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,6 +44,9 @@ public class LoginController {
 		if(login_user != null) {
 			if (login_user.getPassword().equals(password)) {
 				login_user.setLoggedIn(true);
+				
+				userService.setCurrentUser(login_user);
+				
 				return "Events";
 			} else {
 				return "Index";

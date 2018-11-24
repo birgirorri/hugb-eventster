@@ -15,6 +15,8 @@ import java.util.List;
 public class UserServiceImplementation implements UserService{
     
     UserRepository repository;
+    User current_user;
+    
 
     @Autowired
     public UserServiceImplementation(UserRepository repository) {
@@ -47,6 +49,17 @@ public class UserServiceImplementation implements UserService{
     public List<User> findByUsername(String userName){
         return repository.findByUsername(userName);
     }
+    
+    @Override
+    public User getCurrentUser() {
+    	return this.current_user;
+    }
+    
+    @Override 
+    public void setCurrentUser(User user) {
+    	this.current_user = user;
+    }
+    
 
     /*public List<Group> findUserByGroup(int GroupID) {
         return repository.findGroupByID(groupID);

@@ -31,6 +31,19 @@
 		</div>
 	</header>
 	<main>
+	
+	<c:choose>
+	<c:when test="${not empty currentSession}">
+			<c:forEach var="userObj" items="${currentSession}">
+				<h1>${userObj.getUsername()}</h1>
+				<p>${userObj.getEmail()}</p>
+			</c:forEach>
+	</c:when>
+	
+	<c:otherwise>
+		<h3>Úps villa!</h3>
+	</c:otherwise>
+</c:choose>
 
 	<div class="myPage_container">
 		<div class="myPage_column">

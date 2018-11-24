@@ -4,6 +4,7 @@ import project.persistence.entities.User;
 import java.util.List;
 
 public interface UserService {
+	
     public User createUser(User user);
 
     public void delete(User user);
@@ -21,4 +22,8 @@ public interface UserService {
 	public User findByEmail(String email);
 	
     public User findWhoLoggedIn();
+    
+    public User getCurrentUser();
+    
+    public void setCurrentUser(User user);
 }
