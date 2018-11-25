@@ -147,6 +147,22 @@ public class EventController {
 		eventService.setCurrentEvent(eventService.findEventByID(id));
 
 		model.addAttribute("currentEvent", eventview);
+		
+		Event currentEvent = eventService.getCurrentEvent();
+		
+		ArrayList<String> memberEmails = currentEvent.getGoing();
+		ArrayList<User> members = new ArrayList<User>();
+		
+		for(String em : memberEmails) {
+			System.out.println(em);
+			User u = userService.findByEmail(em);
+			members.add(u);
+			System.out.println(u.getEmail());
+		}
+		
+		model.addAttribute("usersGoing", members );
+		
+		
 	
 		// Return the view
 		return "ViewEvent";
@@ -192,5 +208,7 @@ public class EventController {
 		
 		return goToViewEvent(updatedEvent.getEventID(), model);
 	}
+	
+	
 
 }
