@@ -53,17 +53,18 @@
 				<%--generate a row in the table--%>
 				<%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
 				<c:forEach var="eventObj" items="${eventList}">
+				<a  href="/event/${eventObj.getEventID()}">
 					<div>
 						<%--We can reference attributes of the Entity by just entering the name we gave--%>
 						<%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
 						<%--Create a link based on the name attribute value--%>
-						<h1><a href="/event/${eventObj.getEventID()}">${eventObj.getEventName()}</a></h1>
+						<h1>${eventObj.getEventName()}</h1>
 						<%--The String in the note attribute--%>
 						<p>${eventObj.getEventInfo()}</p>
-
-
+						<img src="https://notendur.hi.is/ajj10/myndir/${eventObj.getTag()}.jpg">
 					</div>
+					</a>
 				</c:forEach>
 			</div>
 		</c:when>

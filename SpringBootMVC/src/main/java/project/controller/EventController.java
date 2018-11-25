@@ -60,12 +60,14 @@ public class EventController {
 
 		// Save the Postit Note that we received from the form
 		long langt = 0;
+		System.out.println(tag);
 		Event newEvent = new Event(eventName, eventInfo, langt, tag);
 		System.out.println("búið til event: " + newEvent.getEventName());
 		System.out.println("Taggið á event er: " + newEvent.getTag());
 		eventService.createEvent(newEvent);
 
 		model.addAttribute("eventList", eventService.findAllEvents());
+		out.println("<p style='color:red;'>User or password incorrect!</p>");
 
 		// Return the view
 		return "Events";
@@ -136,9 +138,9 @@ public class EventController {
 	@RequestMapping(value = "/LoadEvent", method = RequestMethod.GET)
 	public String preloadEvent(Model model) {
 		long langt = 0;
-		Event amli = new Event("afmæli", "partý hjá bubba", langt, "bolti");
-		Event tnlkr = new Event("tónleikar", "valdimar í eldborg", langt, "Karfa");
-		Event bbq = new Event("bbq", "pullupartý hjá marinó", langt, "Sjúddan");
+		Event amli = new Event("afmæli", "partý hjá bubba", langt, "Birthday");
+		Event tnlkr = new Event("tónleikar", "valdimar í eldborg", langt, "Concert");
+		Event bbq = new Event("bbq", "pullupartý hjá marinó", langt, "BBQ");
 		eventService.createEvent(amli);
 		eventService.createEvent(tnlkr);
 		eventService.createEvent(bbq);
