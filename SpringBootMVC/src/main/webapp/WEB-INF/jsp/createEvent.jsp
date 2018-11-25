@@ -97,15 +97,15 @@
 			</c:otherwise>
 		</c:choose>
 
+		<div class="dateSelect">
+			<input type="date" class="date_input" name="startDate" /> <input
+				type="date" class="date_input" name="endDate" />
+		</div>
+
+
 		<input type="submit" VALUE="Create Event" />
 	</sf:form>
 
-	<div class="dateSelect">
-		<input type="date" class="date_input" placeholder="Start date"
-			name="startDate" field="*{date}" /> <input type="date"
-			class="date_input" placeholder="End date" name="endDate"
-			/>
-	</div>
 
 	<ul>
 		<li><a href="/Events">Back</a></li>

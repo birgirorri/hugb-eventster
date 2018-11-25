@@ -26,17 +26,20 @@ public class Event {
 	private Long groupID;
 	private ArrayList<Comment> comments;
 	private String tags;
+	private String startDate;
+	private String endDate;
 
 	public Event() {
 	}
 
-	public Event(String eventName, String eventInfo, Long groupID, String tag) {
+	public Event(String eventName, String eventInfo, Long groupID, String tag, String startDate, String endDate) {
 
 		this.eventName = eventName;
 		this.eventInfo = eventInfo;
 		this.groupID = groupID;
 		this.tags = tag;
-
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 
 	public void addComment(Comment comment) {

@@ -56,19 +56,31 @@ public class EventController {
 
 	@RequestMapping(value = "/addEvent", method = RequestMethod.POST)
 	public String addEvent(@ModelAttribute("event") Event event, @RequestParam("eventName") String eventName,
-			@RequestParam("eventInfo") String eventInfo, @RequestParam("category") String tag, Model model) {
+			@RequestParam("eventInfo") String eventInfo, @RequestParam("category") String tag, @RequestParam("startDate") 
+			String startDate, @RequestParam("endDate") String endDate, Model model) {
 
 		// Save the Postit Note that we received from the form
 		long langt = 0;
 		System.out.println(tag);
-		Event newEvent = new Event(eventName, eventInfo, langt, tag);
-		System.out.println("búið til event: " + newEvent.getEventName());
-		System.out.println("Taggið á event er: " + newEvent.getTag());
-		eventService.createEvent(newEvent);
+		Event newEvent = new Event(eventName, eventInfo, langt, tag, startDate, endDate);
+		
+		String errorString = "";
+		int startYear = Integer.parseInt(startDate.substring(0, 4));
+		int endYear = Integer.parseInt(endDate.substring(0, 4));
+		int startMonth = Integer.parseInt(startDate.substring(5, 7));
+		int endMonth = Integer.parseInt(endDate.substring(5, 7));
+		int startDay = Integer.parseInt(startDate.substring(8, 10));
+		int endDay = Integer.parseInt(endDate.substring(8, 10));
+		System.out.println(startDay + "/" + startMonth + "/" + startYear);
+		System.out.println(endDay + "/" + endMonth + "/" + endYear);
+		//if()
 
+		model.addAttribute("errorMsg", errorString);
+		
 		model.addAttribute("eventList", eventService.findAllEvents());
-		out.println("<p style='color:red;'>User or password incorrect!</p>");
 
+		
+		eventService.createEvent(newEvent);
 		// Return the view
 		return "Events";
 	}
@@ -138,9 +150,9 @@ public class EventController {
 	@RequestMapping(value = "/LoadEvent", method = RequestMethod.GET)
 	public String preloadEvent(Model model) {
 		long langt = 0;
-		Event amli = new Event("afmæli", "partý hjá bubba", langt, "Birthday");
-		Event tnlkr = new Event("tónleikar", "valdimar í eldborg", langt, "Concert");
-		Event bbq = new Event("bbq", "pullupartý hjá marinó", langt, "BBQ");
+		Event amli = new Event("afmæli", "partý hjá bubba", langt, "Birthday", "2018-12-24",  "2018-12-25");
+		Event tnlkr = new Event("tónleikar", "valdimar í eldborg", langt, "Concert", "2018-12-31",  "2019-1-1");
+		Event bbq = new Event("bbq", "pullupartý hjá marinó", langt, "BBQ", "2019-2-10", "2019-2-10");
 		eventService.createEvent(amli);
 		eventService.createEvent(tnlkr);
 		eventService.createEvent(bbq);
