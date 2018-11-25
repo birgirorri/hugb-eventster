@@ -214,6 +214,12 @@ public class UserController {
 		
 		return showMyPage(model);
 		
+		@RequestMapping(value = "/signOut" , method = RequestMethod.GET)
+		public String editUserInfo(Model model) {
+			userService.setCurrentUser(null);
+			return "Index";
+		}
+		
 	}
 	
 	
