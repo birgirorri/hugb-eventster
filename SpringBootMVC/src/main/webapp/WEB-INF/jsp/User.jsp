@@ -26,6 +26,7 @@
                     <li><a href="/Group">Groups</a></li>
                     <li><a href="/myPage">My Page</a></li>
                 </ul>
+                <button class="btn"> <a href="/signOut">Log Out</a> </button>
             </div>
         </div>
     </header>

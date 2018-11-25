@@ -21,9 +21,9 @@
 			</div>
 			<div class="header_pages">
 				<ul>
-					<li><a class="pages_selected" href="/Events">Events</a></li>
+					<li><a href="/Events">Events</a></li>
 					<li><a href="/user">Users</a></li>
-					<li><a href="/Group">Groups</a></li>
+					<li><a class="pages_selected" href="/Group">Groups</a></li>
 					<li><a href="/myPage">My Page</a></li>
 				</ul>
 				<button class="btn"> <a href="/signOut">Log Out</a> </button>
