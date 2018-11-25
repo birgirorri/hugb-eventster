@@ -34,8 +34,16 @@
     
     <sf:form method="POST" modelAttribute="user" action="/findUser">
     
+    <label>find user by username:
+    	<input type=text path="username" name = "username">
+    </label>
+    <input type="submit" value="search!">
+    </sf:form>
+    
+    <sf:form method="POST" modelAttribute="user" action="/findUserbyEmail">
+    
     <label>find user:
-    <input type=text path="username" name = "username">
+    <input type=text path="email" name = "email">
     </label>
     <input type="submit" value="search!">
     

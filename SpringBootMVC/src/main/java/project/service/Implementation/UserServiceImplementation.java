@@ -81,5 +81,9 @@ public class UserServiceImplementation implements UserService{
         return repository.findByEmail(email);
     }
 
+    @Override
+    public List<User> findbyEmailSubstring(String sub){
+    	return repository.findBySubEmail(sub);
+    }
     
 }

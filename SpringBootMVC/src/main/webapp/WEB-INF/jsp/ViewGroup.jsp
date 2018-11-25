@@ -63,7 +63,7 @@
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
                         <%--Create a link based on the name attribute value--%>
-                        <td><a href="/user/${userObj.getUserID()}">${userObj.username}</td>
+                        <td><a href="/user/${userObj.getUserID()}">${userObj.username}</a></td>
                         <%--The String in the note attribute--%>
                         <td>${userObj.password}</td>
                         <td>${userObj.email}</td>
@@ -99,10 +99,11 @@
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
                         <%--Create a link based on the name attribute value--%>
-                        <td><a href="/user/${userObj.getUserID()}">${userObj.username}</td>
+                        <td><a href="/user/${userObj.getUserID()}">${userObj.username}</a></td>
                         <%--The String in the note attribute--%>
                         <td>${userObj.password}</td>
                         <td>${userObj.email}</td>
+                        <td><a href="/addMember/${userObj.email}">add to group</a></td>
                        
                     </tr>
                 </c:forEach>

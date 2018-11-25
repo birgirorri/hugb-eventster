@@ -182,6 +182,32 @@ public class GroupController {
 		return goToViewGroup(currentGroup.getGroupID(),model);
 	}
 	
+	@RequestMapping(value = "/addMember/{email}", method = RequestMethod.GET)
+	public String addThisUser(@ModelAttribute("userInfo") User user,Model model,@PathVariable String email) {
+		
+		System.out.println("ADDING MEMBER TO THIS GROUP");
+		User new_member = userService.findByEmail(email);
+		
+		Group currentGroup = groupService.getCurrentGroup();
+		
+		groupService.addMember(new_member, currentGroup.getGroupID() );
+		
+		Group updatedGroup = groupService.findGroupByID(currentGroup.getGroupID());
+		
+		ArrayList<String> memberEmails = updatedGroup.getMembers();
+		ArrayList<User> members = new ArrayList<User>();
+		
+		for(String em : memberEmails) {
+			User u = userService.findByEmail(em);
+			members.add(u);
+			System.out.println(u.getEmail());
+		}
+		
+		model.addAttribute("membersOfgroup", members );
+		
+		return goToViewGroup(updatedGroup.getGroupID(),model);
+	}
+	
 	
 
 }

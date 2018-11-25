@@ -129,7 +129,23 @@ public class UserController {
 		System.out.println("calling service function================================");
 		List<User> search = userService.findByUsername(username);
 
-		model.addAttribute("userList", userService.findByUsername(username));
+		model.addAttribute("userList", search);
+		// model.addAttribute("user", temp );
+
+		System.out.println("done looking ================================");
+
+		return "User";
+	}
+	
+	@RequestMapping(value = "/findUserbyEmail", method = RequestMethod.POST)
+	public String SearchUserEmail(@ModelAttribute("user") User user, Model model,
+			@RequestParam("email") String email) {
+
+		System.out.println("calling service function================================");
+		List<User> search = userService.findbyEmailSubstring(email);
+		
+		
+		model.addAttribute("userList", search);
 		// model.addAttribute("user", temp );
 
 		System.out.println("done looking ================================");

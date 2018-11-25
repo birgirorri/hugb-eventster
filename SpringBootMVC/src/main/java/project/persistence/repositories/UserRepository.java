@@ -51,6 +51,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	@Query(value = "SELECT p FROM User p WHERE p.email = ?1")
 	User findByEmail(String email);
+	
+	@Query(value = "SELECT p FROM User p WHERE p.email LIKE %?1% ")
+	List<User> findBySubEmail(String email);
 
 	// @Query(value = "SELECT p FROM Group p WHERE p.groupName = gName")
 	// List<User> findGroupMembers(String groupName);
