@@ -18,7 +18,6 @@ public interface EventRepository extends JpaRepository<Event, Long> {
 
 	Event save(Event event);
 
-	Comment save(Group group);
 
 	void delete(Event event);
 

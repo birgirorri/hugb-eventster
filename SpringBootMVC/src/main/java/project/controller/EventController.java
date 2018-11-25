@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import project.persistence.entities.Event;
-import project.persistence.entities.PostitNote;
+import project.persistence.entities.Group;
+import project.persistence.entities.User;
 import project.service.*;
 import project.service.UserService;
 import project.service.GroupService;
@@ -21,10 +22,12 @@ import java.util.ArrayList;
 public class EventController {
 	EventService eventService;
 	GroupService groupService;
+	UserService userService;
 
-	public EventController(EventService eventService, GroupService groupService) {
+	public EventController(EventService eventService, GroupService groupService , UserService userService) {
 		this.eventService = eventService;
 		this.groupService = groupService;
+		this.userService = userService;
 	}
 
 	@RequestMapping(value = "/Events", method = RequestMethod.GET)
@@ -140,6 +143,8 @@ public class EventController {
 
 		List<Event> eventview = new ArrayList();
 		eventview.add(eventService.findEventByID(id));
+		
+		eventService.setCurrentEvent(eventService.findEventByID(id));
 
 		model.addAttribute("currentEvent", eventview);
 	
@@ -160,6 +165,32 @@ public class EventController {
 		model.addAttribute("eventList", eventService.findAllEvents());
 
 		return "Events";
+	}
+	
+	@RequestMapping(value = "/addmemberToGoing", method = RequestMethod.POST)
+	public String addMemberToGoing(@ModelAttribute("userInfo") User user,Model model,@RequestParam("userName") String userName,
+			@RequestParam("email") String email) {
+		
+		
+		User new_member = userService.findByEmail(email);
+		Event currentEvent = eventService.getCurrentEvent();
+		
+		eventService.goingToEvent(new_member, currentEvent.getEventID() );
+		Event updatedEvent = eventService.findEventByID(currentEvent.getEventID());
+	
+		ArrayList<String> memberEmails = updatedEvent.getGoing();
+		ArrayList<User> members = new ArrayList<User>();
+		
+		for(String em : memberEmails) {
+			System.out.println(em);
+			User u = userService.findByEmail(em);
+			members.add(u);
+			System.out.println(u.getEmail());
+		}
+		
+		model.addAttribute("usersGoing", members );
+		
+		return goToViewEvent(updatedEvent.getEventID(), model);
 	}
 
 }

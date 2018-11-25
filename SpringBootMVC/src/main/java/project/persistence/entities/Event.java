@@ -28,6 +28,7 @@ public class Event {
 	private String tags;
 	private String startDate;
 	private String endDate;
+	private ArrayList<String> going;
 
 	public Event() {
 	}
@@ -40,6 +41,7 @@ public class Event {
 		this.tags = tag;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		going = new ArrayList<String>();
 	}
 
 	public void addComment(Comment comment) {
@@ -100,5 +102,13 @@ public class Event {
 
 	public String getEndDate() {
 		return this.endDate;
+	}
+	
+	public ArrayList<String> getGoing(){
+		return this.going;
+	}
+	
+	public void addToGoing(String email) {
+		this.going.add(email);
 	}
 }

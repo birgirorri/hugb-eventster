@@ -46,6 +46,58 @@
 	</c:otherwise>
 </c:choose>
 
+
+<div border="1px black">
+	<sf:form method="POST" modelAttribute="userInfo" action="/addmemberToGoing">
+	<label> Add Member to going:
+	
+		<label>Username:
+		<input type=text path="userName" name="userName">
+		</label>
+		
+		<label>Email:
+		<input type=text path="email" name="email">
+		</label>
+		
+	</label>
+	
+		
+		<input type="submit" value="edit">
+
+	</sf:form>
+</div>
+
+
+<c:choose>
+        <%--If the model has an attribute with the name `postitNotes`--%>
+        <c:when test="${not empty usersGoing}">
+            <%--Create a table for the Postit Notes--%>
+            <table class="users" border="1px gray">
+
+                <%--For each postit note, that is in the list that was passed in the model--%>
+                <%--generate a row in the table--%>
+                <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
+                <c:forEach var="userObj" items="${usersGoing}">
+                    <tr>
+                        <%--We can reference attributes of the Entity by just entering the name we gave--%>
+                        <%--it in the singular item var, and then just a dot followed by the attribute name--%>
+
+                        <%--Create a link based on the name attribute value--%>
+                        <td><a href="/user/${userObj.getUserID()}">${userObj.username}</a></td>
+                        <%--The String in the note attribute--%>
+                        <td>${userObj.email}</td>
+                       
+                    </tr>
+                </c:forEach>
+            </table>
+        </c:when>
+
+        <%--If all tests are false, then do this--%>
+        <c:otherwise>
+            <h3>None going!</h3>
+        </c:otherwise>
+    </c:choose>
+
 </div>
 
 </body>

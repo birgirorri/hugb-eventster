@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import project.persistence.entities.Event;
+import project.persistence.entities.Group;
+import project.persistence.entities.User;
 import project.persistence.repositories.*;
 import project.service.EventService;
 
@@ -15,6 +17,8 @@ public class EventServiceImplementation implements EventService{
 	
 	
 	 EventRepository repository;
+	 
+	 private Event currentEvent;
 	
 	 
 	 @Autowired
@@ -63,4 +67,30 @@ public class EventServiceImplementation implements EventService{
 	    public List<Event> sortEvent(String by, List<Event> events){
 	    	return events;
 	    }
+		
+		@Override
+		public void goingToEvent(User user, Long id) {
+			System.out.println("find by id");
+			Event event = repository.findOne(id);
+			
+			System.out.println("adding if not in");
+			
+			
+			System.out.println("adding if not " + user.getEmail());
+			event.addToGoing(user.getEmail() );
+			System.out.println("adding if not " + user.getEmail());
+			
+			System.out.println("save event");
+			repository.save(event);
+		}
+		
+		@Override
+		public Event getCurrentEvent() {
+			return this.currentEvent;
+		}
+		
+		@Override
+		public void setCurrentEvent(Event event) {
+			this.currentEvent = event;
+		}
 }
