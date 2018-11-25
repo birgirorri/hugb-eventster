@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import project.persistence.entities.Event;
+import project.persistence.entities.Group;
 import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
 import project.service.UserService;
+import project.service.GroupService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +25,13 @@ public class UserController {
 	// Instance Variables
 	// StringManipulationService stringService;
 	UserService userService;
-	
+	GroupService groupService;
 
 	// Dependency Injection
 	@Autowired
-	public UserController(UserService userService) {
+	public UserController(UserService userService,GroupService groupService) {
 		this.userService = userService;
+		this.groupService = groupService;
 	}
 
 	// To call this method, enter "localhost:8080/user" into a browser
@@ -212,6 +215,7 @@ public class UserController {
 			user.setZodiac(zodiac);	
 		}
 		
+		userService.createUser(user);// save changes
 		return showMyPage(model);
 		
 		
@@ -221,6 +225,54 @@ public class UserController {
 	public String editUserInfo(Model model) {
 		userService.setCurrentUser(null);
 		return "Index";
+	}
+	
+	@RequestMapping(value = "/showGroupsImIn", method = RequestMethod.POST)
+	public String showGroupsImIn(Model model) {
+
+		System.out.println("SHOW ALL");
+		List<Group> search = groupService.findAllGroups();
+		
+		User user = userService.getCurrentUser();
+		
+		List<Group> show = new ArrayList<Group>();
+		
+		for(Group g : search) {
+			if(g.getMembers().contains(user.getEmail())) {
+				show.add(g);
+			}
+		}
+
+
+		model.addAttribute("groupsList", show);
+		// model.addAttribute("user", temp );
+
+		return showMyPage(model);
+	}
+	
+	
+	@RequestMapping(value = "/findGroupsImIn", method = RequestMethod.POST)
+	public String SearchGroupsImin(@ModelAttribute("groups") Group group, Model model,
+			@RequestParam("groupName") String groupName) {
+
+		System.out.println("calling service function================================");
+		List<Group> search = groupService.findByName(groupName);
+		User user = userService.getCurrentUser();
+		
+		List<Group> show = new ArrayList<Group>();
+		
+		for(Group g : search) {
+			if(g.getMembers().contains(user.getEmail())) {
+				show.add(g);
+			}
+		}
+
+		model.addAttribute("groupsList", show);
+		// model.addAttribute("user", temp );
+
+		System.out.println("done looking ================================");
+
+		return showMyPage(model);
 	}
 	
 	
