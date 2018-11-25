@@ -43,20 +43,22 @@
 		<label>Info of event: <input type="text" path="eventInfo"
 			name="eventInfo">
 		</label>
-		<label class="category_chooser"></label> <select
-			class="catecory_select" field="*{size}" path="category">
+		<label class="category_chooser"></label> 
+		
+		<select class="catecory_select" field="*{size}" path="category" name = "category">
 			<option value="Category" disabled="disabled" selected="true">Category</option>
-			<option value="bbq">BBQ</option>
-			<option value="birthday">Birthday</option>
-			<option value="dinnerParty">Dinner Party</option>
-			<option value="gig">Gig/Show</option>
-			<option value="graduation">Graduation</option>
-			<option value="lan">LAN</option>
-			<option value="party">Party</option>
-			<option value="sports">Sports</option>
-			<option value="studySession">Study Session</option>
-			<option value="theatre">Theatre</option>
-			<option value="wedding">Wedding</option>
+			<option value="BBQ">BBQ</option>
+			<option value="Birthday">Birthday</option>
+			<option value="Concert">Concert</option>
+			<option value="Dinner">Dinner Party</option>
+			<option value="Gig/Show">Gig/Show</option>
+			<option value="Graduation">Graduation</option>
+			<option value="LAN">LAN</option>
+			<option value="Party">Party</option>
+			<option value="Sports">Sports</option>
+			<option value="Study-session">Study-session</option>
+			<option value="Theatre">Theatre</option>
+			<option value="Wedding">Wedding</option>
 		</select>
 
 		<c:choose>

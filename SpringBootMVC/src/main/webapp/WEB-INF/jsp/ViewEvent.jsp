@@ -37,6 +37,7 @@
 			<c:forEach var="eventObj" items="${currentEvent}">
 				<h1>${eventObj.getEventName()}</h1>
 				<p>${eventObj.getEventInfo()}</p>
+				<img src="https://notendur.hi.is/ajj10/myndir/${eventObj.getTag()}.jpg">
 			</c:forEach>
 	</c:when>
 	
