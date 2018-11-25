@@ -55,11 +55,13 @@ public class GroupController {
 		User user = userService.getCurrentUser();
 		System.out.println(visable);
 		Boolean vis = false;
+		
+		System.out.println(visable + "----------------------");
 
-		if(visable == "private") {
+		if(visable.contains("private")) {
 			vis = false;
 		}
-		else if(visable == "public") {
+		else if(visable.contains("public") )  {
 			vis = true;
 		}
 		Group newGroup = new Group(groupName, groupInfo,vis);
