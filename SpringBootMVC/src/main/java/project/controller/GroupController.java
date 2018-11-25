@@ -143,6 +143,22 @@ public class GroupController {
 		return "Group";
 	}
 	
+	@RequestMapping(value = "/findUserToAdd", method = RequestMethod.POST)
+	public String SearchUser(@ModelAttribute("user") User user, Model model,
+			@RequestParam("username") String username) {
+
+		Group currentGroup = groupService.getCurrentGroup();
+		System.out.println("calling service function================================");
+		List<User> search = userService.findByUsername(username);
+
+		model.addAttribute("userList", search);
+		// model.addAttribute("user", temp );
+
+		System.out.println("done looking ================================");
+
+		return goToViewGroup(currentGroup.getGroupID(),model);
+	}
+	
 	@RequestMapping(value = "/addmember", method = RequestMethod.POST)
 	public String addMemberToGroup(@ModelAttribute("userInfo") User user,Model model,@RequestParam("userName") String userName,
 			@RequestParam("email") String email) {
@@ -185,7 +201,6 @@ public class GroupController {
 	@RequestMapping(value = "/addMember/{email}", method = RequestMethod.GET)
 	public String addThisUser(@ModelAttribute("userInfo") User user,Model model,@PathVariable String email) {
 		
-		System.out.println("ADDING MEMBER TO THIS GROUP");
 		User new_member = userService.findByEmail(email);
 		
 		Group currentGroup = groupService.getCurrentGroup();

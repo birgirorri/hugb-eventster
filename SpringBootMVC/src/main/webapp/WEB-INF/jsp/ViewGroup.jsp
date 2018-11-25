@@ -81,6 +81,14 @@
     
     
     
+    <sf:form method="POST" modelAttribute="user" action="/findUserToAdd">
+    
+    	<label>find user by username:
+    		<input type=text path="username" name = "username">
+   		</label>
+   		<input type="submit" value="search!">
+    </sf:form>
+    
     <sf:form method="POST" modelAttribute="user" action="/showUsersToAdd">
     <input type="submit" value="show all">
     </sf:form>

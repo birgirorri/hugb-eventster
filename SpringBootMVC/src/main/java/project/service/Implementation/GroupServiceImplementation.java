@@ -94,7 +94,11 @@ public class GroupServiceImplementation implements GroupService{
 	public void addMember(User user, Long id) {
 		Group group = repository.findOne(id);
 		
-		group.addUser(user);
+		if( !group.getMembers().contains(user.getEmail() ) ){
+			group.addUser(user);
+		}
+		
+		
 		
 		repository.save(group);
 		System.out.println("group saved =========");
