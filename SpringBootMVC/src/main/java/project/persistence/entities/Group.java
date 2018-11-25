@@ -19,6 +19,7 @@ public class Group {
 	private String info;
 	private ArrayList<String> members = new ArrayList<String>();
 	
+	
 	public Group() {
 
 	}

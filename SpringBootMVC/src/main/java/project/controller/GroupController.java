@@ -224,5 +224,32 @@ public class GroupController {
 	}
 	
 	
+	@RequestMapping(value = "/CreateGroup_findUser", method = RequestMethod.POST)
+	public String SearchUserCreateGroup(@ModelAttribute("user") User user, Model model,
+			@RequestParam("username") String username) {
+
+		System.out.println("calling service function================================");
+		List<User> search = userService.findByUsername(username);
+
+		model.addAttribute("userList", search);
+		// model.addAttribute("user", temp );
+
+		System.out.println("done looking ================================");
+
+		return "createGroup";
+	}
+	
+	
+	@RequestMapping(value = "/CreateGroup_showAllUsers", method = RequestMethod.POST)
+	public String showAllCreateGroup(Model model) {
+
+		System.out.println("SHOW ALL");
+
+		model.addAttribute("userList", userService.findAllUsers());
+		// model.addAttribute("user", temp );
+
+		return "createGroup";
+	}
+	
 
 }
