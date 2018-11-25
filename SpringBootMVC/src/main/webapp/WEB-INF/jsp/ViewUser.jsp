@@ -37,6 +37,10 @@
 			<c:forEach var="userObj" items="${currentUser}">
 				<h1>${userObj.getUsername()}</h1>
 				<p>Email: ${userObj.getEmail()}</p>
+				<p>Birthday: ${userObj.getBirthday()}</p>
+				<p>phone number: ${userObj.getPhone()}</p>
+				<p>Zodiac: ${userObj.getZodiac()}</p>
+				
 			</c:forEach>
 	</c:when>
 	

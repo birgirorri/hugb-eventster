@@ -100,7 +100,7 @@
 
 		<div class="myPage_column">
 
-			<sf:form method="POST" modelAttribute="groups" action="/findGroups">
+			<sf:form method="POST" modelAttribute="groups" action="/findGroupsImIn">
 
 				<label>find group: <input type=text path="groupName"
 					name="groupName">
@@ -110,7 +110,7 @@
 			</sf:form>
 
 			<sf:form method="POST" modelAttribute="groups"
-				action="/showAllGroups">
+				action="/showGroupsImIn">
 				<input type="submit" value="show all">
 			</sf:form>
 
@@ -158,7 +158,22 @@
 		</label>
 		
 		<label>Zodiac:
-		<input type=text path="zodiac" name="zodiac">
+		<select path="zodiac" name="zodiac">
+			<option>idk</option>
+			<option>Aquarius</option>
+			<option>Pisces</option>
+			<option>Aries</option>
+			<option>Taurus</option>
+			<option>Gemini</option>
+			<option>Cancer</option>
+			<option>Leo</option>
+			<option>Virgo</option>
+			<option>Libra</option>
+			<option>Scorpio</option>
+			<option>Sagittarius</option>
+			<option>Capricorn</option>
+			
+		</select>
 		</label>
 		
 		<input type="submit" value="edit">

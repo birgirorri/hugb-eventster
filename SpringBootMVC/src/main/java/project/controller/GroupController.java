@@ -258,6 +258,7 @@ public class GroupController {
 		return goToViewGroup(updatedGroup.getGroupID(),model);
 	}
 	
+
 	
 	
 	
