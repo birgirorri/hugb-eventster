@@ -48,17 +48,29 @@ public class GroupController {
 
 	@RequestMapping(value = "/addGroup", method = RequestMethod.POST)
 	public String groupViewGroup(@ModelAttribute("groups") Group groups, Model model,
-			@RequestParam("groupInfo") String groupInfo, @RequestParam("groupName") String groupName) {
+			@RequestParam("groupInfo") String groupInfo, @RequestParam("groupName") String groupName,@RequestParam("groupVisable") String visable) {
 
 		// Save the Postit Note that we received from the form
-		Group newGroup = new Group(groupName, groupInfo);
+		
+		User user = userService.getCurrentUser();
+		System.out.println(visable);
+		Boolean vis = false;
+
+		if(visable == "private") {
+			vis = false;
+		}
+		else if(visable == "public") {
+			vis = true;
+		}
+		Group newGroup = new Group(groupName, groupInfo,vis);
+		
 		System.out.println(newGroup.getGroupName() + " --- " + newGroup.getGroupInfo());
 		groupService.addGroup(newGroup);
 		System.out.println("Group added===============================================");
-
+		groupService.addMember(user, newGroup.getGroupID());
 		// Here we get all the Postit Notes (in a reverse order) and add them to the
 		// model
-		model.addAttribute("groupsList", groupService.findAllGroups());
+		
 
 		// Add a new Postit Note to the model for the form
 		// If you look at the form in PostitNotes.jsp, you can see that we
@@ -67,7 +79,7 @@ public class GroupController {
 
 		System.out.println("virkar===============================================");
 		// Return the view
-		return "Group";
+		return showAll(model);
 	}
 
 	@RequestMapping(value = "/findGroups", method = RequestMethod.POST)
@@ -76,8 +88,17 @@ public class GroupController {
 
 		System.out.println("calling service function================================");
 		List<Group> search = groupService.findByName(groupName);
+		User user = userService.getCurrentUser();
+		
+		List<Group> show = new ArrayList<Group>();
+		
+		for(Group g : search) {
+			if(g.getVisable() || g.getMembers().contains(user.getEmail())) {
+				show.add(g);
+			}
+		}
 
-		model.addAttribute("groupsList", groupService.findByName(groupName));
+		model.addAttribute("groupsList", show);
 		// model.addAttribute("user", temp );
 
 		System.out.println("done looking ================================");
@@ -124,8 +145,20 @@ public class GroupController {
 	public String showAll(Model model) {
 
 		System.out.println("SHOW ALL");
+		List<Group> search = groupService.findAllGroups();
+		
+		User user = userService.getCurrentUser();
+		
+		List<Group> show = new ArrayList<Group>();
+		
+		for(Group g : search) {
+			if(g.getVisable() || g.getMembers().contains(user.getEmail())) {
+				show.add(g);
+			}
+		}
 
-		model.addAttribute("groupsList", groupService.findAllGroups());
+
+		model.addAttribute("groupsList", show);
 		// model.addAttribute("user", temp );
 
 		return "Group";
@@ -133,9 +166,9 @@ public class GroupController {
 
 	@RequestMapping(value = "/LoadGroup", method = RequestMethod.GET)
 	public String preloadEvent(Model model) {
-		Group annunaki = new Group("Nörd", "allir meðlimir nörd");
-		Group bubb = new Group("bubb og co.", "vinir hans bubba");
-		Group brh = new Group("BRH BOYS", "adam og bróðir hans");
+		Group annunaki = new Group("Nörd", "allir meðlimir nörd",true);
+		Group bubb = new Group("bubb og co.", "vinir hans bubba",true);
+		Group brh = new Group("BRH BOYS", "adam og bróðir hans",true);
 		groupService.addGroup(annunaki);
 		groupService.addGroup(bubb);
 		groupService.addGroup(brh);
@@ -224,32 +257,9 @@ public class GroupController {
 	}
 	
 	
-	@RequestMapping(value = "/CreateGroup_findUser", method = RequestMethod.POST)
-	public String SearchUserCreateGroup(@ModelAttribute("user") User user, Model model,
-			@RequestParam("username") String username) {
-
-		System.out.println("calling service function================================");
-		List<User> search = userService.findByUsername(username);
-
-		model.addAttribute("userList", search);
-		// model.addAttribute("user", temp );
-
-		System.out.println("done looking ================================");
-
-		return "createGroup";
-	}
 	
 	
-	@RequestMapping(value = "/CreateGroup_showAllUsers", method = RequestMethod.POST)
-	public String showAllCreateGroup(Model model) {
-
-		System.out.println("SHOW ALL");
-
-		model.addAttribute("userList", userService.findAllUsers());
-		// model.addAttribute("user", temp );
-
-		return "createGroup";
-	}
+	
 	
 
 }

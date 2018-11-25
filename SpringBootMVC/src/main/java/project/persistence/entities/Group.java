@@ -18,7 +18,7 @@ public class Group {
 	// private int GroupID;
 	private String info;
 	private ArrayList<String> members = new ArrayList<String>();
-	
+	private boolean isVisable;
 	
 	public Group() {
 
@@ -27,8 +27,7 @@ public class Group {
 	public Group(String groupName, String groupInfo, Boolean visable) {
 		this.group_name = groupName;
 		this.info = groupInfo;
-		// this.visable = visable;
-		
+		this.isVisable = visable;
 	}
 
 	public Group(String groupName, String groupInfo) {
@@ -94,11 +93,11 @@ public class Group {
 	}
 	 
 	public void setVisable(Boolean vis) {
-		// this.visable = vis;
+		 this.isVisable = vis;
 	}
 
-	public Boolean getVisable() {
-		return true;
+	public Boolean getVisable(){
+		return this.isVisable;
 	}
 
 	/*
