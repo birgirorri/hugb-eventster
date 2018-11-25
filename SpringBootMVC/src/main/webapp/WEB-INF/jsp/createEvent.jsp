@@ -38,11 +38,11 @@
 
 	<sf:form method="POST" modelAttribute="event" action="/addEvent">
 
-		<label>Name of event: <input type="text" path="eventName"
+		<label>Name of event: <input type="text" placeholder ="Event Name"
 			name="eventName">
 		</label>
 
-		<label>Info of event: <input type="text" path="eventInfo"
+		<label>Info of event: <input type="text" placeholder="Info"
 			name="eventInfo">
 		</label>
 		<label class="category_chooser"></label>
@@ -101,6 +101,10 @@
 			<input type="date" class="date_input" name="startDate" /> <input
 				type="date" class="date_input" name="endDate" />
 		</div>
+
+
+		<label>Location: <input type="text" placeholder="Location"
+			name="eventName"></label>
 
 
 		<input type="submit" VALUE="Create Event" />
