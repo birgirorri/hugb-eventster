@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import project.persistence.entities.Event;
 import project.persistence.entities.Group;
-import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
 import project.service.UserService;
 import project.service.GroupService;

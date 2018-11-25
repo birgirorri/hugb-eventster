@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
 import project.persistence.entities.Event;
 import project.persistence.entities.Group;
