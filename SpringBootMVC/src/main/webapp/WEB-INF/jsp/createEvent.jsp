@@ -21,7 +21,7 @@
 			</div>
 			<div class="header_pages">
 				<ul>
-					<li><a class="pages_selected" href="/Events">Events</a></li>
+					<li><a href="/Events">Events</a></li>
 					<li><a href="/user">Users</a></li>
 					<li><a href="/Group">Groups</a></li>
 					<li><a href="/myPage">My Page</a></li>
@@ -43,24 +43,21 @@
 		<label>Info of event: <input type="text" path="eventInfo"
 			name="eventInfo">
 		</label>
-
-		<div class="category">
-			<label class="category_chooser"></label> <select
-				class="catecory_select" field="*{size}" path="category">
-				<option value="Category" disabled="disabled" selected="true">Category</option>
-				<option value="bbq">BBQ</option>
-				<option value="birthday">Birthday</option>
-				<option value="dinnerParty">Dinner Party</option>
-				<option value="gig">Gig/Show</option>
-				<option value="graduation">Graduation</option>
-				<option value="lan">LAN</option>
-				<option value="party">Party</option>
-				<option value="sports">Sports</option>
-				<option value="studySession">Study Session</option>
-				<option value="theatre">Theatre</option>
-				<option value="wedding">Wedding</option>
-			</select>
-		</div>
+		<label class="category_chooser"></label> <select
+			class="catecory_select" field="*{size}" path="category">
+			<option value="Category" disabled="disabled" selected="true">Category</option>
+			<option value="bbq">BBQ</option>
+			<option value="birthday">Birthday</option>
+			<option value="dinnerParty">Dinner Party</option>
+			<option value="gig">Gig/Show</option>
+			<option value="graduation">Graduation</option>
+			<option value="lan">LAN</option>
+			<option value="party">Party</option>
+			<option value="sports">Sports</option>
+			<option value="studySession">Study Session</option>
+			<option value="theatre">Theatre</option>
+			<option value="wedding">Wedding</option>
+		</select>
 
 		<c:choose>
 			<%--If the model has an attribute with the name `postitNotes`--%>
