@@ -42,6 +42,7 @@
 				<form class = "guest" action="/GuestUser">
     				<button type="submit">Login as Guest</button>
 				</form>
+				<c:if test="${not empty errorMsg}"><div style="color:red; font-weight: bold; margin: 30px 0px;">${errorMsg}</div></c:if>
 			</div>
 
 
@@ -61,6 +62,7 @@
 						<button type="submit">Sign up</button>
 					</div>
 				</sf:form>
+				<c:if test="${not empty errorMsg}"><div style="color:red; font-weight: bold; margin: 30px 0px;">${errorMsg}</div></c:if>
 			</div>
 		</div>
 	</main>

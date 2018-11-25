@@ -41,6 +41,8 @@ public class LoginController {
 
 		User login_user = userService.findByEmail(email);
 		
+		//model.addAttribute("errorMsg", "VILLA MAÐUR!");
+		
 		if(login_user != null) {
 			if (login_user.getPassword().equals(password)) {
 				
