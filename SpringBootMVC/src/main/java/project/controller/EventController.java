@@ -67,6 +67,7 @@ public class EventController {
 		eventService.createEvent(newEvent);
 
 		model.addAttribute("eventList", eventService.findAllEvents());
+		out.println("<p style='color:red;'>User or password incorrect!</p>");
 
 		// Return the view
 		return "Events";

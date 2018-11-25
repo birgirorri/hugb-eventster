@@ -9,7 +9,7 @@
 <head>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/css/createEvent.css"/>" />
-	<link rel="stylesheet" type="text/css"
+<link rel="stylesheet" type="text/css"
 	href="<c:url value="/css/Header.css"/>" />
 <title>Create an event</title>
 </head>
@@ -26,7 +26,9 @@
 					<li><a href="/Group">Groups</a></li>
 					<li><a href="/myPage">My Page</a></li>
 				</ul>
-				<button class="btn"> <a href="/signOut">Log Out</a> </button>
+				<button class="btn">
+					<a href="/signOut">Log Out</a>
+				</button>
 			</div>
 		</div>
 	</header>
@@ -43,9 +45,10 @@
 		<label>Info of event: <input type="text" path="eventInfo"
 			name="eventInfo">
 		</label>
-		<label class="category_chooser"></label> 
-		
-		<select class="catecory_select" field="*{size}" path="category" name = "category">
+		<label class="category_chooser"></label>
+
+		<select class="catecory_select" field="*{size}" path="category"
+			name="category">
 			<option value="Category" disabled="disabled" selected="true">Category</option>
 			<option value="BBQ">BBQ</option>
 			<option value="Birthday">Birthday</option>
@@ -96,6 +99,13 @@
 
 		<input type="submit" VALUE="Create Event" />
 	</sf:form>
+
+	<div class="dateSelect">
+		<input type="date" class="date_input" placeholder="Start date"
+			name="startDate" field="*{date}" /> <input type="date"
+			class="date_input" placeholder="End date" name="endDate"
+			/>
+	</div>
 
 	<ul>
 		<li><a href="/Events">Back</a></li>
