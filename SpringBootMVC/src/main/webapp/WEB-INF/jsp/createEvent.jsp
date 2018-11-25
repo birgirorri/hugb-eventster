@@ -42,9 +42,11 @@
 			name="eventName">
 		</label>
 
-		<label>Info of event: <input type="text" placeholder="Info"
-			name="eventInfo">
-		</label>
+		<label>Info of event: </label>
+		<textarea rows=10"" cols="10" name= "eventInfo">
+		
+		</textarea>
+		
 		<label class="category_chooser"></label>
 
 		<select class="catecory_select" field="*{size}" path="category"
