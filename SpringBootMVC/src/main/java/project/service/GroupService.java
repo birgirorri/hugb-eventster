@@ -9,7 +9,6 @@ import project.persistence.entities.Event;
 import project.persistence.entities.Group;
 import project.persistence.repositories.PostitNoteRepository;
 import project.persistence.repositories.GroupRepository;
-import project.service.PostitNoteService;
 
 import java.util.Collections;
 import java.util.List;

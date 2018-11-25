@@ -2,17 +2,10 @@ package project.service.Implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import project.persistence.entities.PostitNote;
 import project.persistence.entities.User;
-import project.persistence.entities.Event;
 import project.persistence.entities.Group;
-import project.persistence.repositories.PostitNoteRepository;
 import project.persistence.repositories.GroupRepository;
 import project.service.GroupService;
-import project.service.PostitNoteService;
-
-import java.util.Collections;
 import java.util.List;
 
 @Service
