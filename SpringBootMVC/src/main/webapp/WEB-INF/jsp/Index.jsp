@@ -29,7 +29,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="columnheader">
-					<h2>Login to your account</h2>
+					<h2>Login to your account or as guest</h2>
 				</div>	
 
 				<sf:form method="GET" action="/Login">
@@ -39,18 +39,16 @@
 						<button type="submit">Login</button>
 					</div>
 				</sf:form>
-				
+				<form class = "guest" action="/GuestUser">
+    				<button type="submit">Login as Guest</button>
+				</form>
 			</div>
 
 
 			<div class="row">
 				<div class="columnheader">
-					<h2> Sign up or Login as guest</h2>
+					<h2> Create an account</h2>
 				</div>
-				
-				<form action="/GuestUser">
-    				<button type="submit">Sign in as Guest</button>
-				</form>
 
 				<sf:form method="POST" action="/signUp">
 					<div class="column">

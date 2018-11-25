@@ -15,20 +15,21 @@
     </head>
     <body>
     <header>
-        <div class="header_grid">
-            <div class="header_title">
-                <h1> Eventster</h1>
-            </div>
-            <div class="header_pages">
-                <ul>
-                    <li><a href="/Events">Events</a> </li>
-                    <li><a href="/user">Users</a> </li>
-                    <li><a class = "pages_selected" href="/Group">Groups</a></li>
-                    <li><a href="/myPage">My Page</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+		<div class="header_grid">
+			<div class="header_title">
+				<h1>Eventster</h1>
+			</div>
+			<div class="header_pages">
+				<ul>
+					<li><a class="pages_selected" href="/Events">Events</a></li>
+					<li><a href="/user">Users</a></li>
+					<li><a href="/Group">Groups</a></li>
+					<li><a href="/myPage">My Page</a></li>
+				</ul>
+				<button class="btn"> <a href="/signOut">Log Out</a> </button>
+			</div>
+		</div>
+	</header>
     <main>
 
     <p>Here could be some group information</p>

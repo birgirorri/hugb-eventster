@@ -103,6 +103,11 @@ button {
 	transition: background-color 0.3s ease-in-out;
 	margin-bottom: 20px;
 	font-size: 14px;
+	
+}
+
+.guest {
+	display: flex;
 }
 
 button:hover {
