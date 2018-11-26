@@ -61,13 +61,13 @@ public class EventController {
 	public String addEvent(@ModelAttribute("event") Event event, @RequestParam("eventName") String eventName,
 			@RequestParam("eventInfo") String eventInfo, @RequestParam("category") String tag, @RequestParam("startDate") 
 			String startDate, @RequestParam("endDate") String endDate, @RequestParam("eventLocation") String location, 
-			@RequestParam("maxSeats") int eventSeats, @RequestParam(value = "group", required = false) Long groupID, Model model) {
+			@RequestParam("maxSeats") int eventSeats, @RequestParam("group") String groupID, Model model) {
 
 		// Save the Postit Note that we received from the form
-		//Long langt = new Long(0);
-		//if (new Long(groupID) != null) {
-			//langt = new Long(groupID);
-		//}
+		Long langt = new Long(0);
+		if (!groupID.equals("public")) {
+			langt = new Long(Integer.parseInt(groupID));
+		}
 		
 		int startYear = Integer.parseInt(startDate.substring(0, 4));
 		int endYear = Integer.parseInt(endDate.substring(0, 4));
@@ -83,7 +83,7 @@ public class EventController {
 		
 		//if(error dæmi )
 		
-		Event newEvent = new Event(eventName, eventInfo, groupID, tag, startdate, enddate, location, eventSeats);
+		Event newEvent = new Event(eventName, eventInfo, langt, tag, startdate, enddate, location, eventSeats);
 
 		model.addAttribute("errorMsg", errorString);
 		

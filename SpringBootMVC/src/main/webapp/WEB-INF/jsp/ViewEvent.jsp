@@ -37,6 +37,7 @@
 			<c:forEach var="eventObj" items="${currentEvent}">
 				<h1>${eventObj.getEventName()}</h1>
 				<p>${eventObj.getEventInfo()}</p>
+				<p>${eventObj.getGroupID()}</p>
 				<img src="https://notendur.hi.is/ajj10/myndir/${eventObj.getTag()}.jpg">
 			</c:forEach>
 	</c:when>
@@ -86,6 +87,7 @@
                         <td><a href="/user/${userObj.getUserID()}">${userObj.username}</a></td>
                         <%--The String in the note attribute--%>
                         <td>${userObj.email}</td>
+           
                        
                     </tr>
                 </c:forEach>

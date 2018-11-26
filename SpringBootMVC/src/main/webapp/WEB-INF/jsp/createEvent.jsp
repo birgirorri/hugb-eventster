@@ -79,7 +79,7 @@
 				<%--Create a table for the Postit Notes--%>
 				<div class="groupSelect" border="1px gray">
 					<label class="group_chooser" for="group"></label> <select
-						class="group_select" field="*{size}">
+						class="group_select" field="*{size}" name = "group">
 						<option value="public" selected="true">Public Event</option>
 						<%--For each postit note, that is in the list that was passed in the model--%>
 						<%--generate a row in the table--%>
@@ -89,7 +89,7 @@
 							<%--We can reference attributes of the Entity by just entering the name we gave--%>
 							<%--it in the singular item var, and then just a dot followed by the attribute name--%>
 							<%--Create a link based on the name attribute value--%>
-							<option value="/group/${groupObj.getGroupID()}" name = "group">${groupObj.getGroupName()}</option>
+							<option value="${groupObj.getGroupID()}">${groupObj.getGroupName()}</option>
 						</c:forEach>
 					</select>
 				</div>
