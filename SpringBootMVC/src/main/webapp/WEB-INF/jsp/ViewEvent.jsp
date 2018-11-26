@@ -101,6 +101,20 @@
     </c:choose>
     
     <button><a href="/attend">Attend this event</a> </button>
+    
+    <label>Sætisfjöldi: </label>
+    <c:choose>
+	<c:when test="${not empty currentEvent}">
+			<c:forEach var="eventObj" items="${currentEvent}">
+				<p>${eventObj.getGoing().size()}/${eventObj.getEventSeats()}</p>
+			</c:forEach>
+	</c:when>
+	
+	<c:otherwise>
+		<h3>Úps villa!</h3>
+	</c:otherwise>
+</c:choose>
+    
 
 </div>
 
