@@ -63,7 +63,7 @@ public class Group {
 	 * }
 	 */
 
-	public long getGroupID() {
+	public Long getGroupID() {
 		return this.id;
 	}
 

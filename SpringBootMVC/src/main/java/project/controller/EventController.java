@@ -60,23 +60,30 @@ public class EventController {
 	@RequestMapping(value = "/addEvent", method = RequestMethod.POST)
 	public String addEvent(@ModelAttribute("event") Event event, @RequestParam("eventName") String eventName,
 			@RequestParam("eventInfo") String eventInfo, @RequestParam("category") String tag, @RequestParam("startDate") 
-			String startDate, @RequestParam("endDate") String endDate, Model model) {
+			String startDate, @RequestParam("endDate") String endDate, @RequestParam("eventLocation") String location, 
+			@RequestParam("maxSeats") int eventSeats, @RequestParam(value = "group", required = false) Long groupID, Model model) {
 
 		// Save the Postit Note that we received from the form
-		long langt = 0;
-		System.out.println(tag);
-		Event newEvent = new Event(eventName, eventInfo, langt, tag, startDate, endDate);
+		//Long langt = new Long(0);
+		//if (new Long(groupID) != null) {
+			//langt = new Long(groupID);
+		//}
 		
-		String errorString = "";
 		int startYear = Integer.parseInt(startDate.substring(0, 4));
 		int endYear = Integer.parseInt(endDate.substring(0, 4));
 		int startMonth = Integer.parseInt(startDate.substring(5, 7));
 		int endMonth = Integer.parseInt(endDate.substring(5, 7));
 		int startDay = Integer.parseInt(startDate.substring(8, 10));
 		int endDay = Integer.parseInt(endDate.substring(8, 10));
-		System.out.println(startDay + "/" + startMonth + "/" + startYear);
-		System.out.println(endDay + "/" + endMonth + "/" + endYear);
-		//if()
+		
+		String startdate = startDay + "." + startMonth + " " + startYear;
+		String enddate = endDay + "." + endMonth + " " + endYear; 
+		
+		String errorString = null;
+		
+		//if(error dæmi )
+		
+		Event newEvent = new Event(eventName, eventInfo, groupID, tag, startdate, enddate, location, eventSeats);
 
 		model.addAttribute("errorMsg", errorString);
 		
@@ -170,13 +177,28 @@ public class EventController {
 
 	@RequestMapping(value = "/LoadEvent", method = RequestMethod.GET)
 	public String preloadEvent(Model model) {
-		long langt = 0;
-		Event amli = new Event("afmæli", "partý hjá bubba", langt, "Birthday", "2018-12-24",  "2018-12-25");
-		Event tnlkr = new Event("tónleikar", "valdimar í eldborg", langt, "Concert", "2018-12-31",  "2019-1-1");
-		Event bbq = new Event("bbq", "pullupartý hjá marinó", langt, "BBQ", "2019-2-10", "2019-2-10");
-		eventService.createEvent(amli);
-		eventService.createEvent(tnlkr);
+		Long langt = new Long(0);
+		Long langt1 = new Long(1);
+		Long langt2 = new Long(2);
+		
+		Event ammli = new Event("Afmæli", "Næstkomandi föstudag kl 8, langar mig til að halda smá teiti og þér er boðið, ekki láta þig vanta í fjörið. P.S. BYOB", 
+				langt, "Birthday", "2018-12-24",  "2018-12-25", "Markaflöt 25", 120);
+		Event tonleikar = new Event("Tónleikar", "Valdimar mun trylla líðin í  Eldborg næstkomandi föstudag, léttar veitingar verða á boðstólnum!", 
+				langt, "Concert", "2018-12-31",  "2019-1-1", "Harpa Concert Hall", 250);
+		Event bbq = new Event("BBQ", "Öllum boðið í pullupartý heima hjá mér, marínó, og það verður sko fjör. Ég mun plögga mat og drykkjum fyrir alla", 
+				langt1, "BBQ", "2019-2-10", "2019-2-10", "Grafarvogur", 0);
+		Event brudkaup = new Event("Göngum í það heilaga", "Á föstudaginn næstkomandi munum ég og Halli hanga í það heilaga og viljum við bjóða ykkur að koma og fagna því með okkur kl 8 í glersalnum í Kópavogi.", 
+				langt, "Wedding", "2018-11-30",  "2018-11-31", "203 Kópavogur", 150);
+		Event gigg = new Event("Trúbbakvöld", "Fullt af uppkomandi trúbbum munu fá að spreyta sig í kvöld á amateur trúbba kvöldinu okkar. láttu þig ekki vanta @Prikið í kvöld kl 22:00", 
+				langt, "Gig", "2019-01-08",  "2019-01-08", "Prikið", 0);
+		Event party = new Event("PARTY ALDARINNAR", "PARTY hjá Mér, MÆTTU!!", 
+				langt2, "Party", "2018-12-31", "2019-01-01", "BRH", 0);
+		eventService.createEvent(ammli);
+		eventService.createEvent(tonleikar);
 		eventService.createEvent(bbq);
+		eventService.createEvent(brudkaup);
+		eventService.createEvent(gigg);
+		eventService.createEvent(party);
 		
 		model.addAttribute("eventList", eventService.findAllEvents());
 

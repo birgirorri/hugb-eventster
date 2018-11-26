@@ -29,11 +29,13 @@ public class Event {
 	private String startDate;
 	private String endDate;
 	private ArrayList<String> going;
+	private String location;
+	private int eventSeats;
 
 	public Event() {
 	}
 
-	public Event(String eventName, String eventInfo, Long groupID, String tag, String startDate, String endDate) {
+	public Event(String eventName, String eventInfo, Long groupID, String tag, String startDate, String endDate, String location, int eventSeats) {
 
 		this.eventName = eventName;
 		this.eventInfo = eventInfo;
@@ -42,6 +44,8 @@ public class Event {
 		this.startDate = startDate;
 		this.endDate = endDate;
 		going = new ArrayList<String>();
+		this.location = location;
+		this.eventSeats = eventSeats;
 	}
 
 	public void addComment(Comment comment) {
@@ -110,5 +114,21 @@ public class Event {
 	
 	public void addToGoing(String email) {
 		this.going.add(email);
+	}
+	
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+	public String getLocation() {
+		return this.location;
+	}
+	
+	public void setEventSeats(int eventSeats) {
+		this.eventSeats = eventSeats;
+	}
+	
+	public int getEventSeats() {
+		return this.eventSeats;
 	}
 }

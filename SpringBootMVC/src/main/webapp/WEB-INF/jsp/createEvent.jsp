@@ -38,16 +38,19 @@
 
 	<sf:form method="POST" modelAttribute="event" action="/addEvent">
 
-		<label>Name of event: <input type="text" placeholder ="Event Name"
-			name="eventName">
-		</label>
+		<input type="text" placeholder="Event Name" name="eventName">
 
 		<label>Info of event: </label>
-		<textarea rows=10"" cols="10" name= "eventInfo">
-		
+		<textarea rows="10" cols="20" placeholder="Info about the event..."
+			name="eventInfo">
 		</textarea>
-		
-		<label class="category_chooser"></label>
+
+		<input type="text" placeholder="Location" name="eventLocation">
+
+		<div class="dateSelect">
+			<input type="date" class="date_input" name="startDate" /> <input
+				type="date" class="date_input" name="endDate" />
+		</div>
 
 		<select class="catecory_select" field="*{size}" path="category"
 			name="category">
@@ -66,6 +69,10 @@
 			<option value="Wedding">Wedding</option>
 		</select>
 
+		<input type="text" placeholder="Maximum seats" name="maxSeats">
+
+
+
 		<c:choose>
 			<%--If the model has an attribute with the name `postitNotes`--%>
 			<c:when test="${not empty groupsList}">
@@ -82,7 +89,7 @@
 							<%--We can reference attributes of the Entity by just entering the name we gave--%>
 							<%--it in the singular item var, and then just a dot followed by the attribute name--%>
 							<%--Create a link based on the name attribute value--%>
-							<option value="/group/${groupObj.getGroupID()}">${groupObj.getGroupName()}</option>
+							<option value="/group/${groupObj.getGroupID()}" name = "group">${groupObj.getGroupName()}</option>
 						</c:forEach>
 					</select>
 				</div>
@@ -98,15 +105,6 @@
 				</div>
 			</c:otherwise>
 		</c:choose>
-
-		<div class="dateSelect">
-			<input type="date" class="date_input" name="startDate" /> <input
-				type="date" class="date_input" name="endDate" />
-		</div>
-
-
-		<label>Location: <input type="text" placeholder="Location"
-			name="eventName"></label>
 
 
 		<input type="submit" VALUE="Create Event" />
