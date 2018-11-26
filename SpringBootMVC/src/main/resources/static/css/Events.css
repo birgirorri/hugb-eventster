@@ -18,6 +18,16 @@ h1 {
 	text-align: center;
 }
 
+.top_container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.top_container button {
+	margin: 0;
+}
+
+
 h2 {
 	font-size: 1.666667em;
 	color: black;

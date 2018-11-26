@@ -50,6 +50,34 @@ header h1 {
 	font-size: 1rem;
 }
 
+button {
+	height: 40px;
+	border-radius: 10px;
+	margin: auto;
+	width: 130px;
+	background-color: #88E042;
+	transition: background-color 0.3s ease-in-out;
+	margin-bottom: 20px;
+	font-size: 14px;
+	border: none;
+	text-decoration: none;
+	color: white;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+}
+
+button:hover {
+	background-color: #4EE097;
+}
+
+header button:hover {
+	background-color: transparent;
+}
+
 .header_title{
     margin: 0 auto;
     text-align: center;
