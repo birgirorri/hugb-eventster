@@ -35,7 +35,7 @@
 				<sf:form method="GET" action="/Login">
 					<div class="column">
 						<input type="text" path="email" placeholder="Email" name="email">
-						<input type="text" path="password" placeholder="Password" name="password">
+						<input type="password" path="password" placeholder="Password" name="password">
 						<button type="submit">Login</button>
 					</div>
 				</sf:form>
@@ -56,8 +56,8 @@
 						<input type="text" path="email" placeholder="Email" name="email">
 						<input type="text" path="username" placeholder="Username" name="username">
 						<div class="passwords">
-							<input type="text" path="password" placeholder="Password" name="password">
-							<input type="text"path="password1" placeholder="Password" name="password1">
+							<input type="password" path="password" placeholder="Password" name="password">
+							<input type="password" path="password1" placeholder="Retype password" name="password1">
 						</div>
 						<button type="submit">Sign up</button>
 					</div>

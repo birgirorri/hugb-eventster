@@ -54,7 +54,7 @@
 	<label> Add Member:</label>
 		<input type=text placeholder="email.." name="email">
 		
-		<button type="submit">Add Member</button>
+		<button class = "butt" type="submit">Add Member</button>
 
 	</sf:form>
 </div>
@@ -63,25 +63,24 @@
         <%--If the model has an attribute with the name `postitNotes`--%>
         <c:when test="${not empty membersOfgroup}">
             <%--Create a table for the Postit Notes--%>
-            <table class="users" border="1px gray">
+            <div class="users" border="1px gray">
 
                 <%--For each postit note, that is in the list that was passed in the model--%>
                 <%--generate a row in the table--%>
                 <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
                 <c:forEach var="userObj" items="${membersOfgroup}">
-                    <tr>
+                    <div class = "user_row">
                         <%--We can reference attributes of the Entity by just entering the name we gave--%>
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
 
                         <%--Create a link based on the name attribute value--%>
-                        <td><a href="/user/${userObj.getUserID()}">${userObj.username}</a></td>
+                        <p><a href="/user/${userObj.getUserID()}">${userObj.username}</a></p>
                         <%--The String in the note attribute--%>
-                        <td>${userObj.password}</td>
-                        <td>${userObj.email}</td>
+                        <p>${userObj.email}</p>
                        
-                    </tr>
+                    </div>
                 </c:forEach>
-            </table>
+            </div>
         </c:when>
 
         <%--If all tests are false, then do this--%>
@@ -97,11 +96,11 @@
     	<label>find user by username:
     		<input type=text path="username" name = "username">
    		</label>
-   		<button type="submit">Search!</button>
+   		<button class = "butt" type="submit">Search!</button>
     </sf:form>
     
     <sf:form method="POST" modelAttribute="user" action="/showUsersToAdd">
-    <button type="submit">Show all users</button>
+    <button class = "butt" type="submit">Show all users</button>
     </sf:form>
     <c:choose>
         <%--If the model has an attribute with the name `postitNotes`--%>
