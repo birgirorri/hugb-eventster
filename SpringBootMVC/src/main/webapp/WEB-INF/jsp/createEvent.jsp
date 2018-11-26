@@ -23,7 +23,7 @@
 				<ul>
 					<li><a href="/showAllEvents">Events</a></li>
 					<li><a href="/user">Users</a></li>
-					<li><a href="/Group">Groups</a></li>
+					<li><a href="/showAllGroups">Groups</a></li>
 					<li><a href="/myPage">My Page</a></li>
 				</ul>
 				<button class="btn">
