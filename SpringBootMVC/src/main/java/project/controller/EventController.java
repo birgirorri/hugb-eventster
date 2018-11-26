@@ -47,7 +47,19 @@ public class EventController {
 	@RequestMapping(value = "/createEvent", method = RequestMethod.GET)
 	public String createEvent(Model model) {
 		
-		model.addAttribute("groupsList", groupService.findAllGroups());
+		
+		User currentUser = userService.getCurrentUser();
+		List<Group> allGroups = groupService.findAllGroups();
+		List<Group> show = new ArrayList<Group>();
+		
+		for(Group g : allGroups) {
+			if(g.getMembers().contains(currentUser.getEmail())) {
+				show.add(g);
+			}
+		}
+		
+		model.addAttribute("groupsList", show );
+		
 		return "createEvent";
 	}
 
@@ -64,11 +76,17 @@ public class EventController {
 			@RequestParam("maxSeats") int eventSeats, @RequestParam("group") String groupID, Model model) {
 
 		// Save the Postit Note that we received from the form
+		
+		Boolean vis = true;
 		Long langt = new Long(0);
 		if (!groupID.equals("public")) {
 			langt = new Long(Integer.parseInt(groupID));
+			vis = false;
+			System.out.println("prenta ut group id public");
 		}
 		
+		
+		System.out.println("prenta ut group id " + groupID); 
 		int startYear = Integer.parseInt(startDate.substring(0, 4));
 		int endYear = Integer.parseInt(endDate.substring(0, 4));
 		int startMonth = Integer.parseInt(startDate.substring(5, 7));
@@ -90,7 +108,10 @@ public class EventController {
 			return "createEvent";
 		}
 		
-		Event newEvent = new Event(eventName, eventInfo, langt, tag, startdate, enddate, location, eventSeats);
+		Event newEvent = new Event(eventName, eventInfo, langt, tag, startdate, enddate, location, eventSeats,vis);
+		
+		
+		
 
 		model.addAttribute("errorMsg", errorString);
 		
@@ -145,8 +166,29 @@ public class EventController {
 	public String showAll(Model model) {
 
 		System.out.println("SHOW ALL");
-
-		model.addAttribute("eventList", eventService.findAllEvents());
+		System.out.println("SHOW ALL");
+		User currentUser = userService.getCurrentUser();
+		List<Event> allEvents = eventService.findAllEvents();
+		List<Event> show = new ArrayList<Event>();
+		
+		for(Event e: allEvents) {
+			System.out.println("group id : " + e.getGroupID());
+			Group gr = groupService.findGroupByID(e.getGroupID());
+			System.out.println("group name : " + gr.getGroupName() );
+			
+			if(e.getGroupID() < 1) {
+				show.add(e);
+			}
+			else if(e.getGroupID() >= 1) {
+				Group g = groupService.findGroupByID(e.getGroupID());
+				if(g.getMembers().contains(currentUser.getEmail() )) {
+					show.add(e);
+				}
+			}
+		}
+		
+		System.out.println("4");
+		model.addAttribute("eventList", show );
 		// model.addAttribute("user", temp );
 
 		return "Events";
@@ -189,17 +231,17 @@ public class EventController {
 		Long langt2 = new Long(2);
 		
 		Event ammli = new Event("Afmæli", "Næstkomandi föstudag kl 8, langar mig til að halda smá teiti og þér er boðið, ekki láta þig vanta í fjörið. P.S. BYOB", 
-				langt, "Birthday", "24.12.2018",  "25.12.2018", "Markaflöt 25", 120);
+				langt, "Birthday", "24.12.2018",  "25.12.2018", "Markaflöt 25", 120,true);
 		Event tonleikar = new Event("Tónleikar", "Valdimar mun trylla líðin í  Eldborg næstkomandi föstudag, léttar veitingar verða á boðstólnum!", 
-				langt, "Concert", "31.12.2018",  "01.01.2019", "Harpa Concert Hall", 250);
+				langt, "Concert", "31.12.2018",  "01.01.2019", "Harpa Concert Hall", 250,true);
 		Event bbq = new Event("BBQ", "Öllum boðið í pullupartý heima hjá mér, marínó, og það verður sko fjör. Ég mun plögga mat og drykkjum fyrir alla", 
-				langt1, "BBQ", "10.02.2019", "10.02.2019", "Grafarvogur", 0);
+				langt1, "BBQ", "10.02.2019", "10.02.2019", "Grafarvogur", 0,true);
 		Event brudkaup = new Event("Göngum í það heilaga", "Á föstudaginn næstkomandi munum ég og Halli hanga í það heilaga og viljum við bjóða ykkur að koma og fagna því með okkur kl 8 í glersalnum í Kópavogi.", 
-				langt, "Wedding", "30.11.2018",  "31.11.2018", "203 Kópavogur", 150);
+				langt, "Wedding", "30.11.2018",  "31.11.2018", "203 Kópavogur", 150,true);
 		Event gigg = new Event("Trúbbakvöld", "Fullt af uppkomandi trúbbum munu fá að spreyta sig í kvöld á amateur trúbba kvöldinu okkar. láttu þig ekki vanta @Prikið í kvöld kl 22:00", 
-				langt, "Gig", "08.01.2019",  "09.01.2019", "Prikið", 0);
+				langt, "Gig", "08.01.2019",  "09.01.2019", "Prikið", 0,true);
 		Event party = new Event("PARTY ALDARINNAR", "PARTY hjá Mér, MÆTTU!!", 
-				langt2, "Party", "31.12.2018", "01.01.2019", "BRH", 0);
+				langt2, "Party", "31.12.2018", "01.01.2019", "BRH", 0,true);
 		eventService.createEvent(ammli);
 		eventService.createEvent(tonleikar);
 		eventService.createEvent(bbq);

@@ -31,11 +31,12 @@ public class Event {
 	private ArrayList<String> going;
 	private String location;
 	private int eventSeats;
+	private Boolean visable;
 
 	public Event() {
 	}
 
-	public Event(String eventName, String eventInfo, Long groupID, String tag, String startDate, String endDate, String location, int eventSeats) {
+	public Event(String eventName, String eventInfo, Long groupID, String tag, String startDate, String endDate, String location, int eventSeats,Boolean vis) {
 
 		this.eventName = eventName;
 		this.eventInfo = eventInfo;
@@ -46,6 +47,7 @@ public class Event {
 		going = new ArrayList<String>();
 		this.location = location;
 		this.eventSeats = eventSeats;
+		this.visable = vis;
 	}
 
 	public void addComment(Comment comment) {
@@ -131,4 +133,13 @@ public class Event {
 	public int getEventSeats() {
 		return this.eventSeats;
 	}
+	
+	public Boolean getVisable() {
+		return this.visable;
+	}
+	
+	public void setVisable(Boolean vis) {
+		this.visable = vis;
+	}
+	
 }
