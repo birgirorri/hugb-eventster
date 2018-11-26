@@ -18,8 +18,54 @@ h1 {
 	text-align: center;
 }
 
+.top_container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.top_container button {
+	margin: 0;
+	font-size: 16px;
+}
+
 h2 {
 	font-size: 1.666667em;
 	color: black;
+}
+
+.Users {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.card h1 {
+	margin-top: 10px;
+	border-color: white;
+	font-size: 22px;
+}
+
+.Users a {
+	width: 15%;
+	margin:10px;
+	background-color: #88E042;
+	border-radius: 20px;
+	padding: 20px;
+	text-decoration: none;
+	color: white;
+	font-family: 'Arial';
+}
+
+.Users a:hover {
+	background-color: #4EE097;
+}
+
+.img_container {
+	height: 100px;
+	
+}
+
+img {
+	height: 100%
 }
 
