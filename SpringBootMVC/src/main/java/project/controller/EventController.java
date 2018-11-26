@@ -77,11 +77,18 @@ public class EventController {
 		int endDay = Integer.parseInt(endDate.substring(8, 10));
 		
 		String startdate = startDay + "." + startMonth + " " + startYear;
-		String enddate = endDay + "." + endMonth + " " + endYear; 
+		String enddate = endDay + "." + endMonth + " " + endYear;
+		
+		
+		int start = startYear+startMonth+startDay;
+		int end = endYear+endMonth+endDay;
 		
 		String errorString = null;
 		
-		//if(error dæmi )
+		if((end-start)<0) {
+			//error msg myndi vera hér
+			return "createEvent";
+		}
 		
 		Event newEvent = new Event(eventName, eventInfo, langt, tag, startdate, enddate, location, eventSeats);
 
@@ -182,17 +189,17 @@ public class EventController {
 		Long langt2 = new Long(2);
 		
 		Event ammli = new Event("Afmæli", "Næstkomandi föstudag kl 8, langar mig til að halda smá teiti og þér er boðið, ekki láta þig vanta í fjörið. P.S. BYOB", 
-				langt, "Birthday", "2018-12-24",  "2018-12-25", "Markaflöt 25", 120);
+				langt, "Birthday", "24.12.2018",  "25.12.2018", "Markaflöt 25", 120);
 		Event tonleikar = new Event("Tónleikar", "Valdimar mun trylla líðin í  Eldborg næstkomandi föstudag, léttar veitingar verða á boðstólnum!", 
-				langt, "Concert", "2018-12-31",  "2019-1-1", "Harpa Concert Hall", 250);
+				langt, "Concert", "31.12.2018",  "01.01.2019", "Harpa Concert Hall", 250);
 		Event bbq = new Event("BBQ", "Öllum boðið í pullupartý heima hjá mér, marínó, og það verður sko fjör. Ég mun plögga mat og drykkjum fyrir alla", 
-				langt1, "BBQ", "2019-2-10", "2019-2-10", "Grafarvogur", 0);
+				langt1, "BBQ", "10.02.2019", "10.02.2019", "Grafarvogur", 0);
 		Event brudkaup = new Event("Göngum í það heilaga", "Á föstudaginn næstkomandi munum ég og Halli hanga í það heilaga og viljum við bjóða ykkur að koma og fagna því með okkur kl 8 í glersalnum í Kópavogi.", 
-				langt, "Wedding", "2018-11-30",  "2018-11-31", "203 Kópavogur", 150);
+				langt, "Wedding", "30.11.2018",  "31.11.2018", "203 Kópavogur", 150);
 		Event gigg = new Event("Trúbbakvöld", "Fullt af uppkomandi trúbbum munu fá að spreyta sig í kvöld á amateur trúbba kvöldinu okkar. láttu þig ekki vanta @Prikið í kvöld kl 22:00", 
-				langt, "Gig", "2019-01-08",  "2019-01-08", "Prikið", 0);
+				langt, "Gig", "08.01.2019",  "09.01.2019", "Prikið", 0);
 		Event party = new Event("PARTY ALDARINNAR", "PARTY hjá Mér, MÆTTU!!", 
-				langt2, "Party", "2018-12-31", "2019-01-01", "BRH", 0);
+				langt2, "Party", "31.12.2018", "01.01.2019", "BRH", 0);
 		eventService.createEvent(ammli);
 		eventService.createEvent(tonleikar);
 		eventService.createEvent(bbq);
