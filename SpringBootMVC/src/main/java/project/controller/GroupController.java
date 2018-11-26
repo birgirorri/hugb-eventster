@@ -31,6 +31,234 @@ public class GroupController {
 	public GroupController(GroupService groupService, UserService userService) {
 		this.groupService = groupService;
 		this.userService = userService;
+		
+		/*Group annunaki = new Group("Nörd", "Allir meðlimir nörd. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",true);
+		Group bubb = new Group("Bubb og co.", "Allir vinir hans bubba. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",true);
+		Group brh = new Group("BRH BOYS", "Bara fyrir boys úr Breiðholti. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",true);
+		Group golf = new Group("Golf Crew", "ef þú hefur áhuga á golfi.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", true);
+		Group fjolla = new Group("Fjöllan", "Blöndal ættin. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", false);
+		Group bolta = new Group("BumbuBolti", "Bolti fyrir fólk með bumbu. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", true);
+		Group afm = new Group("Afmæli", "Vinum mínum sem er boðið í afmæli mitt. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", false);
+		Group bio = new Group("Bíóklúbburinn", "Bíó alla þriðjudaga, PEPP! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", true);
+		Group laera = new Group("Study-hópur", "Study hópur í hugbúnaðarverkefni 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", false);
+		
+		
+		groupService.addGroup(annunaki);
+		groupService.addGroup(bubb);
+		groupService.addGroup(brh);
+		groupService.addGroup(golf);
+		groupService.addGroup(fjolla);
+		groupService.addGroup(bolta);
+		groupService.addGroup(afm);
+		groupService.addGroup(bio);
+		groupService.addGroup(laera);*/
+		
+		
+		
+		//groupService.addMember(userService.findByUsername("adam").get(0), laera.getGroupID());
+		//groupService.addMember(userService.findByUsername("birgir").get(0), laera.getGroupID());
+		//groupService.addMember(userService.findByUsername("marino").get(0), laera.getGroupID());
+		/*groupService.addMember(userService.findByUsername("umballreopen").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("bonnykelvin").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("journeyblakehope").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("alleetyped").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("despairingflavoured").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("walruspainter").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("stunnervegetarian").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("broadjockey").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("hulaquarterdeck").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("codingcozy").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("sleautycallaly").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("bruiseungodly").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("alongsidebeamer").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("audiwobble").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("contributionbanners").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("gutlessharmful").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("senatorswin").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("avowrouting").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("hilloklahoma").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("remarkablelittle").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("layingspirit").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("phantombewitched").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("bellacrobat").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("signsbriefcase").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("hacksawmoonshine").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("examshowy").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("caviermartin").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("nemocolourless").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("snorkelcriticize").get(0), annunaki.getGroupID());
+		groupService.addMember(userService.findByUsername("pecanexcuse").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("followingshopper").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("towermixture").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("steadypastebin").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("sedatenon").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("snowinesseye").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("normanjoyous").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("gustynorma").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("moristonsignpost").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("devonposh").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("hedgingproxy").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("maeparents").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("crepespew").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("finartforsa").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("countapproval").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("bungfang").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("genuinereputably").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("origintaxonomy").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("jerryprodigal").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("sugarsophronia").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("ziplipstick").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("battalionbanker").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("argybargyrecycling").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("appreciatedeficient").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("arrowheadshumping").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("planeapproval").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("wortyplaytime").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("guideaward").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("groovingcows").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("expanddribbling").get(0), bubb.getGroupID());
+		groupService.addMember(userService.findByUsername("husheddisregard").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("stingrayjag").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("cozinessmateo").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("scramblerepona").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("belleratio").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("sinkantler").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("specimendomestic").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("brushwandought").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("outspokenplane").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("jokinglysample").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("gidgetthurso").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("payphonetony").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("quartilestinchar").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("gogglesshove").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("dumplongfellow").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("cohesivefraser").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("fieldramb").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("futureanalysis").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("ceilgrasp").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("rackmeasle").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("kivafuneral").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("objectivekenzi").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("silversialoquent").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("deanfiscally").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("priedrecast").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("joggingjackson").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("supperengine").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("richnessdominique").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("retainingcoaching").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("conditionpeach").get(0), brh.getGroupID());
+		groupService.addMember(userService.findByUsername("thesistherapist").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("sdraughtdelirium").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("thoroughsqueak").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("treadmillsample").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("delicacyshadily").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("trolleybusserjeant").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("ridersport").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("attemptomissible").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("slabsimmonds").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("foggyimproving").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("holystonestylus").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("busdating").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("whinesethimble").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("clyindividual").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("volleyamazingly").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("ogmoreambush").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("knitseverity").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("gurukrypton").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("revelationunreeve").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("antimonygem").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("duchessquickest").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("linkedlifting").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("flapreward").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("crakepacked").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("pipetzoologist").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("halfeasel").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("ulcersangellist").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("sunburnvehicle").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("delicatechisholm").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("buttercreamchoice").get(0), golf.getGroupID());
+		groupService.addMember(userService.findByUsername("signorrocket").get(0), fjolla.getGroupID());
+		groupService.addMember(userService.findByUsername("tauntshivering").get(0), fjolla.getGroupID());
+		groupService.addMember(userService.findByUsername("venusfoal").get(0), fjolla.getGroupID());
+		groupService.addMember(userService.findByUsername("cambridgelavender").get(0), fjolla.getGroupID());
+		groupService.addMember(userService.findByUsername("deletionbearnaise").get(0), fjolla.getGroupID());
+		groupService.addMember(userService.findByUsername("chillmatter").get(0), fjolla.getGroupID());
+		groupService.addMember(userService.findByUsername("completestalwart").get(0), fjolla.getGroupID());
+		groupService.addMember(userService.findByUsername("untoldcost").get(0), fjolla.getGroupID());
+		groupService.addMember(userService.findByUsername("sheriffdozed").get(0), fjolla.getGroupID());
+		groupService.addMember(userService.findByUsername("slorwardbuzz").get(0), fjolla.getGroupID());
+		groupService.addMember(userService.findByUsername("sierrainclude").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("baffleslap").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("supermanstaff").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("shawdonedge").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("eridanusgloater").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("utahbrooklyn ").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("bramleylola").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("savedcoat").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("trooppassed").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("prefercurtsy").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("stirsnushy").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("snazzyhushroom").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("graphguide").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("eachpeated").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("headfirstroulette").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("congenialcello").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("swooshlethargic").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("excavatorshank").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("disarmmost").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("winnersenator").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("wingrearview").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("wombatgarage").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("cageygolf").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("snizortopengl").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("nylonsurd").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("turnipscratch").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("blatancymarkham").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("diligentshindig").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("ascensionsquire").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("foundergit").get(0), bolta.getGroupID());
+		groupService.addMember(userService.findByUsername("outriggerplural").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("alkalinesuck").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("scoutafrican").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("unchinbrennand").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("couldcanning").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("footagecavernous").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("knutterbased").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("apricotsdressage").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("weeniereliably").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("ankarabarr").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("paellaorchy").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("batmancrewmember").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("directerased").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("fruitfinance").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("deceitskimpily").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("learnedspur").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("yendisappointed").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("disasterdrinking").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("zombieyear").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("coupallearing").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("scroorsprawl").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("scopeodiferous").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("smallweedrights").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("shannonprotest").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("sphericalperfume").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("locksfeedback").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("siftcollide").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("finchfreedom").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("maddancing").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("numbingandromeda").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("shotcountless").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("reformistsky").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("maskedroman").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("haltingdream").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("jaggedslushy").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("baziloutmatch").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("synergytrapping").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("crisparklekindle").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("overlyingbeatrice").get(0), bio.getGroupID());
+		groupService.addMember(userService.findByUsername("kittybagpipe").get(0), bio.getGroupID());*/
+		
+		
 	}
 
 	// To call this method, enter "localhost:8080/user" into a browser
@@ -142,7 +370,7 @@ public class GroupController {
 		return "ViewGroup";
 	}
 
-	@RequestMapping(value = "/showAllGroups", method = RequestMethod.POST)
+	@RequestMapping(value = "/showAllGroups", method = RequestMethod.GET)
 	public String showAll(Model model) {
 
 		System.out.println("SHOW ALL");
@@ -167,12 +395,26 @@ public class GroupController {
 
 	@RequestMapping(value = "/LoadGroup", method = RequestMethod.GET)
 	public String preloadEvent(Model model) {
-		Group annunaki = new Group("Nörd", "allir meðlimir nörd",true);
-		Group bubb = new Group("bubb og co.", "vinir hans bubba",true);
-		Group brh = new Group("BRH BOYS", "adam og bróðir hans",true);
+		Group annunaki = new Group("Nörd", "Allir meðlimir nörd. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",true);
+		Group bubb = new Group("Bubb og co.", "Allir vinir hans bubba. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",true);
+		Group brh = new Group("BRH BOYS", "Bara fyrir boys úr Breiðholti. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",true);
+		Group golf = new Group("Golf Crew", "ef þú hefur áhuga á golfi.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", true);
+		Group fjolla = new Group("Fjöllan", "Blöndal ættin. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", false);
+		Group bolta = new Group("BumbuBolti", "Bolti fyrir fólk með bumbu. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", true);
+		Group afm = new Group("Afmæli", "Vinum mínum sem er boðið í afmæli mitt. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", false);
+		Group bio = new Group("Bíóklúbburinn", "Bíó alla þriðjudaga, PEPP! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", true);
+		Group laera = new Group("Study-hópur", "Study hópur í hugbúnaðarverkefni 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", false);
+		
+		
 		groupService.addGroup(annunaki);
 		groupService.addGroup(bubb);
 		groupService.addGroup(brh);
+		groupService.addGroup(golf);
+		groupService.addGroup(fjolla);
+		groupService.addGroup(bolta);
+		groupService.addGroup(afm);
+		groupService.addGroup(bio);
+		groupService.addGroup(laera);
 
 		return "Group";
 	}
