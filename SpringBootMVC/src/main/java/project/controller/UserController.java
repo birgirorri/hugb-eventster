@@ -69,6 +69,8 @@ public class UserController {
 		model.addAttribute("job", "Húgbó");
 		model.addAttribute("email", "mak78");
 		model.addAttribute("description", "Marinó er bestur");
+		
+		model.addAttribute("userList", userService.findAllUsers());
 
 		// By adding attributes to the model, we can pass information from the
 		// controller
@@ -98,6 +100,7 @@ public class UserController {
 		// If you look at the form in PostitNotes.jsp, you can see that we
 		// reference this attribute there by the name `postitNote`.
 		model.addAttribute("user", newUser);
+		
 
 		// Return the view
 		return "User";

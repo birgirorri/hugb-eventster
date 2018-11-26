@@ -72,7 +72,6 @@
                         <%--Create a link based on the name attribute value--%>
                         <td><a href="/user/${userObj.getUserID()}">${userObj.username}</td>
                         <%--The String in the note attribute--%>
-                        <td>${userObj.password}</td>
                         <td>${userObj.email}</td>
                        
                     </tr>
