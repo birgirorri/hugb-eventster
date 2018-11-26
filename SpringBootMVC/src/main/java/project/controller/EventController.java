@@ -24,10 +24,34 @@ public class EventController {
 	GroupService groupService;
 	UserService userService;
 
+	@Autowired
 	public EventController(EventService eventService, GroupService groupService , UserService userService) {
 		this.eventService = eventService;
 		this.groupService = groupService;
 		this.userService = userService;
+		
+		Long langt = new Long(0);
+		Long langt1 = new Long(1);
+		Long langt2 = new Long(2);
+		
+		Event ammli = new Event("Afmæli", "Næstkomandi föstudag kl 8, langar mig til að halda smá teiti og þér er boðið, ekki láta þig vanta í fjörið. P.S. BYOB", 
+				langt, "Birthday", "24.12.2018",  "25.12.2018", "Markaflöt 25", 120,true);
+		Event tonleikar = new Event("Tónleikar", "Valdimar mun trylla líðin í  Eldborg næstkomandi föstudag, léttar veitingar verða á boðstólnum!", 
+				langt, "Concert", "31.12.2018",  "01.01.2019", "Harpa Concert Hall", 250,true);
+		Event bbq = new Event("BBQ", "Öllum boðið í pullupartý heima hjá mér, marínó, og það verður sko fjör. Ég mun plögga mat og drykkjum fyrir alla", 
+				langt1, "BBQ", "10.02.2019", "10.02.2019", "Grafarvogur", 0,true);
+		Event brudkaup = new Event("Göngum í það heilaga", "Á föstudaginn næstkomandi munum ég og Halli hanga í það heilaga og viljum við bjóða ykkur að koma og fagna því með okkur kl 8 í glersalnum í Kópavogi.", 
+				langt, "Wedding", "30.11.2018",  "31.11.2018", "203 Kópavogur", 150,true);
+		Event gigg = new Event("Trúbbakvöld", "Fullt af uppkomandi trúbbum munu fá að spreyta sig í kvöld á amateur trúbba kvöldinu okkar. láttu þig ekki vanta @Prikið í kvöld kl 22:00", 
+				langt, "Gig", "08.01.2019",  "09.01.2019", "Prikið", 0,true);
+		Event party = new Event("PARTY ALDARINNAR", "PARTY hjá Mér, MÆTTU!!", 
+				langt2, "Party", "31.12.2018", "01.01.2019", "BRH", 0,true);
+		eventService.createEvent(ammli);
+		eventService.createEvent(tonleikar);
+		eventService.createEvent(bbq);
+		eventService.createEvent(brudkaup);
+		eventService.createEvent(gigg);
+		eventService.createEvent(party);
 	}
 
 	@RequestMapping(value = "/Events", method = RequestMethod.GET)
@@ -225,9 +249,7 @@ public class EventController {
 			}
 		}
 		
-		System.out.println("4");
 		model.addAttribute("eventList", show );
-		
 
 		return "Events";
 	}
@@ -262,35 +284,6 @@ public class EventController {
 		return "ViewEvent";
 	}
 
-	@RequestMapping(value = "/LoadEvent", method = RequestMethod.GET)
-	public String preloadEvent(Model model) {
-		Long langt = new Long(0);
-		Long langt1 = new Long(1);
-		Long langt2 = new Long(2);
-		
-		Event ammli = new Event("Afmæli", "Næstkomandi föstudag kl 8, langar mig til að halda smá teiti og þér er boðið, ekki láta þig vanta í fjörið. P.S. BYOB", 
-				langt, "Birthday", "24.12.2018",  "25.12.2018", "Markaflöt 25", 120,true);
-		Event tonleikar = new Event("Tónleikar", "Valdimar mun trylla líðin í  Eldborg næstkomandi föstudag, léttar veitingar verða á boðstólnum!", 
-				langt, "Concert", "31.12.2018",  "01.01.2019", "Harpa Concert Hall", 250,true);
-		Event bbq = new Event("BBQ", "Öllum boðið í pullupartý heima hjá mér, marínó, og það verður sko fjör. Ég mun plögga mat og drykkjum fyrir alla", 
-				langt1, "BBQ", "10.02.2019", "10.02.2019", "Grafarvogur", 0,true);
-		Event brudkaup = new Event("Göngum í það heilaga", "Á föstudaginn næstkomandi munum ég og Halli hanga í það heilaga og viljum við bjóða ykkur að koma og fagna því með okkur kl 8 í glersalnum í Kópavogi.", 
-				langt, "Wedding", "30.11.2018",  "31.11.2018", "203 Kópavogur", 150,true);
-		Event gigg = new Event("Trúbbakvöld", "Fullt af uppkomandi trúbbum munu fá að spreyta sig í kvöld á amateur trúbba kvöldinu okkar. láttu þig ekki vanta @Prikið í kvöld kl 22:00", 
-				langt, "Gig", "08.01.2019",  "09.01.2019", "Prikið", 0,true);
-		Event party = new Event("PARTY ALDARINNAR", "PARTY hjá Mér, MÆTTU!!", 
-				langt2, "Party", "31.12.2018", "01.01.2019", "BRH", 0,true);
-		eventService.createEvent(ammli);
-		eventService.createEvent(tonleikar);
-		eventService.createEvent(bbq);
-		eventService.createEvent(brudkaup);
-		eventService.createEvent(gigg);
-		eventService.createEvent(party);
-		
-
-		return "Events";
-	}
-	
 	@RequestMapping(value = "/addmemberToGoing", method = RequestMethod.POST)
 	public String addMemberToGoing(@ModelAttribute("userInfo") User user,Model model,@RequestParam("userName") String userName,
 			@RequestParam("email") String email) {
@@ -337,6 +330,7 @@ public class EventController {
 		}
 		
 		model.addAttribute("usersGoing", members );
+		
 		
 		return goToViewEvent(updatedEvent.getEventID(), model);
 	}

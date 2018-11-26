@@ -18,16 +18,20 @@ public class LoginController {
 
 	// StringManipulationService stringService;
 	UserService userService;
+	EventService eventService;
+	GroupService groupService;
 
 	// Dependency Injection
 	@Autowired
-	public LoginController(UserService userService) {
+	public LoginController(UserService userService, EventService eventService, GroupService groupService) {
 		this.userService = userService;
+		this.eventService = eventService;
+		this.groupService = groupService;
 		
 		User birgir = new User("Birgir Orri","birgir","birgir@hi.is");
 		User adam = new User("Adam Jens","adam","adam@hi.is");
 		User marino = new User("Marino","marino","marino@hi.is");
-		/*User umball = new User("umballreopen", "password123"," bonnykel@hotmail.com");
+		User umball = new User("umballreopen", "password123"," bonnykel@hotmail.com");
 		User bonnyk = new User("bonnykelvin", "password123", "journeybr@hotmail.com");
 		User journe = new User("journeyblakehope", "password123", "alleetypr@hotmail.com");
 		User alleet = new User("alleetyped", "password123", "despairir@hotmail.com");
@@ -426,7 +430,7 @@ public class LoginController {
 		userService.createUser(crispa);
 		userService.createUser(overly);
 		userService.createUser(kittyb);
-		userService.createUser(wickch);*/
+		userService.createUser(wickch);
 		userService.createUser(birgir);
 		userService.createUser(adam);
 		userService.createUser(marino);
@@ -455,7 +459,28 @@ public class LoginController {
 			if (login_user.getPassword().equals(password)) {
 				
 				userService.setCurrentUser(login_user);
+				User currentUser = userService.getCurrentUser();
+				List<Event> allEvents = eventService.findAllEvents();
+				List<Event> show1 = new ArrayList<Event>();
 				
+				for(Event e: allEvents) {
+					if(e.getGroupID() < 1) {
+						show1.add(e);
+					} else {
+						System.out.println("getting group");
+						Group g = groupService.findGroupByID(e.getGroupID());
+						System.out.println("group gotten");
+						if(!(g.getMembers().isEmpty())) {
+							if(g.getMembers().contains(currentUser.getEmail())) {
+								System.out.println("adding to show");
+								show1.add(e);
+								System.out.println("added");
+							}
+						}
+					}
+				}
+				
+				model.addAttribute("eventList", show1 );
 				return "Events";
 			} else {
 				return "Index";
@@ -470,6 +495,30 @@ public class LoginController {
 		User Guest = new User("guest","guest","guest@email.is");
 		userService.createUser(Guest);
 		userService.setCurrentUser(Guest);
+		
+		//userService.setCurrentUser(login_user);
+		User currentUser = userService.getCurrentUser();
+		List<Event> allEvents = eventService.findAllEvents();
+		List<Event> show2 = new ArrayList<Event>();
+		
+		for(Event e: allEvents) {
+			if(e.getGroupID() < 1) {
+				show2.add(e);
+			} else {
+				System.out.println("getting group");
+				Group g = groupService.findGroupByID(e.getGroupID());
+				System.out.println("group gotten");
+				if(!(g.getMembers().isEmpty())) {
+					if(g.getMembers().contains(currentUser.getEmail())) {
+						System.out.println("adding to show");
+						show2.add(e);
+						System.out.println("added");
+					}
+				}
+			}
+		}
+		
+		model.addAttribute("eventList", show2 );
 		
 		return "Events";
 	}
