@@ -69,7 +69,7 @@
 		<%--If the model has an attribute with the name `postitNotes`--%>
 		<c:when test="${not empty eventList}">
 			<%--Create a table for the Postit Notes--%>
-			<div class="events" border="1px gray">
+			<div class="events">
 
 				<%--For each postit note, that is in the list that was passed in the model--%>
 				<%--generate a row in the table--%>
@@ -99,10 +99,7 @@
 			</div>
 		</c:when>
 			
-</c:choose>
-
-
-	<a href="/LoadEvent" class="button1">preload</a> 
+	</c:choose>
 	</main>
 </body>
 

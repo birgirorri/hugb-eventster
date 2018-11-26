@@ -31,57 +31,54 @@
 		</div>
 	</header>
     <main>
-
-    <p>Here could be some group information</p>
     
-       <a href="/createGroup" class="button">Create a group</a>
-        
-    <sf:form method="POST" modelAttribute="groups" action="/findGroups">
+    <div class="top_container">
     
-    <label>find group:
-    <input type=text path="groupName" name = "groupName">
-    </label>
-    <input type="submit" value="search!">
-    
-    </sf:form>
-    
-    <sf:form method="POST" modelAttribute="groups" action="/showAllGroups">
-    <input type="submit" value="show all">
-    </sf:form>
+    <a href="/showAllGroups">
+		<button>Show all</button>
+	</a>
+	
+	<div class="search_container">
+	<sf:form method="POST" modelAttribute="event" action="/findEvent">
+		<input type=text placeholder="Group Name" name="groupName">
+		<button type="submit">search!</button>
+	</sf:form> 
+	</div>
+	
+	<a href="/createGroup">
+		<button>Create Group</button>
+	</a>
+	
+    </div>
     
     
        <c:choose>
         <%--If the model has an attribute with the name `postitNotes`--%>
         <c:when test="${not empty groupsList}">
+        
+        	<div class="groups">
+
+				<%--For each postit note, that is in the list that was passed in the model--%>
+				<%--generate a row in the table--%>
+				<%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
+				<c:forEach var="groupObj" items="${groupsList}">
+					<a href="/group/${groupObj.getGroupID()}">
+						<div class="card">
+
+							<%--We can reference attributes of the Entity by just entering the name we gave--%>
+							<%--it in the singular item var, and then just a dot followed by the attribute name--%>
+
+							<%--Create a link based on the name attribute value--%>
+							<h1>${groupObj.getGroupName()}</h1>
+							<%--The String in the note attribute--%>
+							<p>${groupObj.getGroupInfo()}</p>
+						</div>
+					</a>
+				</c:forEach>
+			</div>
             <%--Create a table for the Postit Notes--%>
-            <table class="users" border="1px gray">
-
-                <%--For each postit note, that is in the list that was passed in the model--%>
-                <%--generate a row in the table--%>
-                <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-                <c:forEach var="groupObj" items="${groupsList}">
-                    <tr>
-                        <%--We can reference attributes of the Entity by just entering the name we gave--%>
-                        <%--it in the singular item var, and then just a dot followed by the attribute name--%>
-
-                        <%--Create a link based on the name attribute value--%>
-                        <td> <a href="/group/${groupObj.getGroupID()}" >${groupObj.getGroupName()}</a></td>
-                        <%--The String in the note attribute--%>
-                        <td>${groupObj.getGroupInfo()}</td>
-                        
-                       
-                    </tr>
-                </c:forEach>
-            </table>
         </c:when>
-
-        <%--If all tests are false, then do this--%>
-        <c:otherwise>
-            <h3>No users!</h3>
-        </c:otherwise>
     </c:choose>
-    
-    <a href="/LoadGroup" class="button1">preload</a>
     
     </main>
     </body>
