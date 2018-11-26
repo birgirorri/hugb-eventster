@@ -209,6 +209,32 @@ public class EventController {
 		return goToViewEvent(updatedEvent.getEventID(), model);
 	}
 	
+	@RequestMapping(value="/attend",method = RequestMethod.GET)
+	public String attendThisEvent(Model model) {
+
+		User new_member = userService.getCurrentUser();
+		Event currentEvent = eventService.getCurrentEvent();
+		
+		eventService.goingToEvent(new_member, currentEvent.getEventID() );
+		Event updatedEvent = eventService.findEventByID(currentEvent.getEventID());
+	
+		ArrayList<String> memberEmails = updatedEvent.getGoing();
+		ArrayList<User> members = new ArrayList<User>();
+		
+		for(String em : memberEmails) {
+			System.out.println(em);
+			User u = userService.findByEmail(em);
+			members.add(u);
+			System.out.println(u.getEmail());
+		}
+		
+		model.addAttribute("usersGoing", members );
+		
+		return goToViewEvent(updatedEvent.getEventID(), model);
+	}
+	
+	
+	
 	
 
 }

@@ -14,6 +14,7 @@ import project.persistence.entities.Group;
 import project.persistence.entities.User;
 import project.service.UserService;
 import project.service.GroupService;
+import project.service.EventService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +26,14 @@ public class UserController {
 	// StringManipulationService stringService;
 	UserService userService;
 	GroupService groupService;
+	EventService eventService;
 
 	// Dependency Injection
 	@Autowired
-	public UserController(UserService userService,GroupService groupService) {
+	public UserController(UserService userService,GroupService groupService, EventService eventService) {
 		this.userService = userService;
 		this.groupService = groupService;
+		this.eventService = eventService;
 	}
 
 	// To call this method, enter "localhost:8080/user" into a browser
@@ -249,6 +252,30 @@ public class UserController {
 		return showMyPage(model);
 	}
 	
+	@RequestMapping(value = "/showGoingEvents", method = RequestMethod.POST)
+	public String showEventsImIn(Model model) {
+
+		System.out.println("SHOW ALL");
+		List<Event> search = eventService.findAllEvents();
+		
+		User user = userService.getCurrentUser();
+		
+		List<Event> show = new ArrayList<Event>();
+		
+		for(Event e : search) {
+			if(e.getGoing().contains(user.getEmail())) {
+				show.add(e);
+			}
+		}
+
+
+		model.addAttribute("eventListUser", show);
+		
+
+		return showMyPage(model);
+	}
+	
+	
 	
 	@RequestMapping(value = "/findGroupsImIn", method = RequestMethod.POST)
 	public String SearchGroupsImin(@ModelAttribute("groups") Group group, Model model,
@@ -267,10 +294,31 @@ public class UserController {
 		}
 
 		model.addAttribute("groupsList", show);
-		// model.addAttribute("user", temp );
+		
 
 		System.out.println("done looking ================================");
 
+		return showMyPage(model);
+	}
+	
+	@RequestMapping(value = "/findEventsImIn", method = RequestMethod.POST)
+	public String SearchGroupsImin(@ModelAttribute("events") Event event, Model model,
+			@RequestParam("eventName") String eventName) {
+
+		System.out.println("calling service function================================");
+		List<Event> search = eventService.findEventByName(eventName);
+		User user = userService.getCurrentUser();
+		
+		List<Event> show = new ArrayList<Event>();
+		
+		for(Event e : search) {
+			if(e.getGoing().contains(user.getEmail())) {
+				show.add(e);
+			}
+		}
+
+		model.addAttribute("eventListUser", show);
+		
 		return showMyPage(model);
 	}
 	

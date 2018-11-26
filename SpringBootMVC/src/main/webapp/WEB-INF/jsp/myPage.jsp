@@ -52,7 +52,7 @@
 
 	<div class="myPage_container">
 		<div class="myPage_column">
-			<sf:form method="POST" modelAttribute="event" action="/findEvent">
+			<sf:form method="POST" modelAttribute="event" action="/findEventsImIn">
 
 				<label>find event: <input type=text path="eventName"
 					name="eventName">
@@ -61,7 +61,7 @@
 
 			</sf:form>
 
-			<sf:form method="POST" modelAttribute="event" action="/showAllEvents">
+			<sf:form method="POST" modelAttribute="event" action="/showGoingEvents">
 				<input type="submit" value="show all">
 			</sf:form>
 
@@ -141,7 +141,7 @@
 
 				<%--If all tests are false, then do this--%>
 				<c:otherwise>
-					<h3>No users!</h3>
+					<h3>No Groups!</h3>
 				</c:otherwise>
 			</c:choose>
 		</div>

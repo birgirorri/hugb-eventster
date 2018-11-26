@@ -97,6 +97,8 @@
             <h3>None going!</h3>
         </c:otherwise>
     </c:choose>
+    
+    <button><a href="/attend">Attend this event</a> </button>
 
 </div>
 

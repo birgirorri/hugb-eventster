@@ -141,6 +141,8 @@
         </c:otherwise>
     </c:choose>
 
+
+	<button><a href="/joinGroup">Join this group</a> </button>
 </div>
 
 </body>

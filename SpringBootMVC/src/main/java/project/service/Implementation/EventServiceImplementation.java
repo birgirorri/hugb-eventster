@@ -70,17 +70,13 @@ public class EventServiceImplementation implements EventService{
 		
 		@Override
 		public void goingToEvent(User user, Long id) {
-			System.out.println("find by id");
+			
 			Event event = repository.findOne(id);
 			
-			System.out.println("adding if not in");
+			if( !event.getGoing().contains(user.getEmail() ) ){
+				event.addToGoing(user.getEmail() );
+			}
 			
-			
-			System.out.println("adding if not " + user.getEmail());
-			event.addToGoing(user.getEmail() );
-			System.out.println("adding if not " + user.getEmail());
-			
-			System.out.println("save event");
 			repository.save(event);
 		}
 		

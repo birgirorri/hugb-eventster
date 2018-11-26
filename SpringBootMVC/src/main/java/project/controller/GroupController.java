@@ -219,6 +219,31 @@ public class GroupController {
 		return goToViewGroup(updatedGroup.getGroupID(),model);
 	}
 	
+	@RequestMapping(value = "/joinGroup", method = RequestMethod.GET)
+	public String addMemberToGroup(Model model) {
+		
+		User new_member = userService.getCurrentUser();
+		
+		Group currentGroup = groupService.getCurrentGroup();
+		
+		groupService.addMember(new_member, currentGroup.getGroupID() );
+		
+		Group updatedGroup = groupService.findGroupByID(currentGroup.getGroupID());
+		
+		ArrayList<String> memberEmails = updatedGroup.getMembers();
+		ArrayList<User> members = new ArrayList<User>();
+		
+		for(String em : memberEmails) {
+			User u = userService.findByEmail(em);
+			members.add(u);
+			System.out.println(u.getEmail());
+		}
+		
+		model.addAttribute("membersOfgroup", members );
+		
+		return goToViewGroup(updatedGroup.getGroupID(),model);
+	}
+	
 	@RequestMapping(value = "/showUsersToAdd", method = RequestMethod.POST)
 	public String showUsersToAdd(Model model) {
 
