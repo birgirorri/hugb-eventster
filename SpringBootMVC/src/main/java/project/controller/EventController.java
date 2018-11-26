@@ -149,11 +149,54 @@ public class EventController {
 
 	@RequestMapping(value = "/findEvent", method = RequestMethod.POST)
 	public String SearchUser(@ModelAttribute("event") Event event, Model model,
-			@RequestParam("eventName") String eventName) {
+			@RequestParam("eventName") String eventName,@RequestParam("category") String category ,@RequestParam("eventDate") String date) {
 
 		System.out.println("calling service function================================");
+		
+		List<Event> allEvents = eventService.findAllEvents();
+		List<Event> searchName = eventService.findEventByName(eventName);
+		List<Event> result = new ArrayList<Event>();
+		
+		System.out.println(date +" öööööööö");
+		
+		String yyyy = date.substring(0, 4);
+		String mm = date.substring(5,7);
+		String dd = date.substring(8,10);
+		
+		int year = Integer.parseInt(yyyy);
+		int month = Integer.parseInt(mm);
+		int day = Integer.parseInt(dd);
+		
+		
+		for(Event e : allEvents) {
+			if( searchName.contains(e) ) {
+				String eStart_y = e.getStartDate().substring(0,4);
+				String eStart_m = e.getStartDate().substring(5,7);
+				String eStart_d = e.getStartDate().substring(8,10);
+				
+				int start_y = Integer.parseInt(eStart_y);
+				int start_m = Integer.parseInt(eStart_m);
+				int start_d = Integer.parseInt(eStart_d);
+				
+				String eEnd_y = e.getEndDate().substring(0,4);
+				String eEnd_m = e.getEndDate().substring(5,7);
+				String eEnd_d = e.getEndDate().substring(8,10);
 
-		model.addAttribute("eventList", eventService.findEventByName(eventName));
+				int end_y = Integer.parseInt(eEnd_y);
+				int end_m = Integer.parseInt(eEnd_m);
+				int end_d = Integer.parseInt(eEnd_d);
+				
+				Boolean check_y = ((year >= start_y)&&(year <= end_y));
+				Boolean check_m = ((month >= start_m)&&(month <= end_m));
+				
+				if(check_y && check_m) {
+					
+					result.add(e);
+				}
+			}
+		}
+
+		model.addAttribute("eventList", result);
 		// model.addAttribute("user", temp );
 
 		System.out.println("done looking ================================");
@@ -175,10 +218,14 @@ public class EventController {
 			if(e.getGroupID() < 1) {
 				show.add(e);
 			} else {
+				System.out.println("getting group");
 				Group g = groupService.findGroupByID(e.getGroupID());
-				if(!(g.getMembers() == null)) {
+				System.out.println("group gotten");
+				if(!(g.getMembers().isEmpty())) {
 					if(g.getMembers().contains(currentUser.getEmail())) {
+						System.out.println("adding to show");
 						show.add(e);
+						System.out.println("added");
 					}
 				}
 			}
@@ -186,7 +233,7 @@ public class EventController {
 		
 		System.out.println("4");
 		model.addAttribute("eventList", show );
-		// model.addAttribute("user", temp );
+		
 
 		return "Events";
 	}
