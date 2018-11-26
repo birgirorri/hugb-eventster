@@ -100,20 +100,28 @@ button {
 	border-radius: 10px;
 	margin: auto;
 	width: 130px;
+	background-color: #88E042;
 	transition: background-color 0.3s ease-in-out;
 	margin-bottom: 20px;
 	font-size: 14px;
-	
+	border: none;
+	text-decoration: none;
+	color: white;
+	font-size: 16px;
 }
 
-.guest {
-	display: flex;
+button a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
 }
 
 button:hover {
 	background-color: #4EE097;
-	color: white;
-	font-weight: bold;
+}
+
+.guest {
+	display: flex;
 }
 
 a.button {

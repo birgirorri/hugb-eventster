@@ -26,24 +26,33 @@
 					<li><a href="/Group">Groups</a></li>
 					<li><a href="/myPage">My Page</a></li>
 				</ul>
-				<button class="btn"> <a href="/signOut">Log Out</a> </button>
+				<button class="btn">
+					<a href="/signOut">Log Out</a>
+				</button>
 			</div>
 		</div>
 	</header>
 	<main>
-	<p>Here could be some event information</p>
+	<div class="top_container">
 
-	<a href="/createEvent" class="button">Create an event</a> <sf:form
-		method="POST" modelAttribute="event" action="/findEvent">
+	<sf:form method="POST" modelAttribute="event" action="/showAllEvents">
+		<button type="submit">Show all</button>
+	</sf:form> 
+	<div class="search_container">
+	<sf:form method="POST" modelAttribute="event" action="/findEvent">
+		<input type=text placeholder="Name" name="eventName">
+		<input type=text placeholder="Date" name="eventName">
+		<input type=text placeholder="Category" name="eventName">
+		<button type="submit">search!</button>
+	</sf:form> 
+	</div>
 
-		<label>find event: <input type=text path="eventName"
-			name="eventName">
-		</label>
-		<input type="submit" value="search!">
-
-	</sf:form> <sf:form method="POST" modelAttribute="event" action="/showAllEvents">
-		<input type="submit" value="show all">
-	</sf:form> <c:choose>
+	<button>
+		<a href="/createEvent">Create an event</a> 	
+	</button>
+	</div>
+	
+	<c:choose>
 		<%--If the model has an attribute with the name `postitNotes`--%>
 		<c:when test="${not empty eventList}">
 			<%--Create a table for the Postit Notes--%>
@@ -53,17 +62,25 @@
 				<%--generate a row in the table--%>
 				<%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
 				<c:forEach var="eventObj" items="${eventList}">
-				<a  href="/event/${eventObj.getEventID()}">
-					<div>
-						<%--We can reference attributes of the Entity by just entering the name we gave--%>
-						<%--it in the singular item var, and then just a dot followed by the attribute name--%>
+					<a href="/event/${eventObj.getEventID()}">
+						<div class="card">
+							<div class="img_container">
+								<img
+									src="https://notendur.hi.is/ajj10/myndir/${eventObj.getTag()}.jpg">
+							</div>
 
-						<%--Create a link based on the name attribute value--%>
-						<h1>${eventObj.getEventName()}</h1>
-						<%--The String in the note attribute--%>
-						<p>${eventObj.getEventInfo()}</p>
-						<img src="https://notendur.hi.is/ajj10/myndir/${eventObj.getTag()}.jpg">
-					</div>
+							<%--We can reference attributes of the Entity by just entering the name we gave--%>
+							<%--it in the singular item var, and then just a dot followed by the attribute name--%>
+
+							<%--Create a link based on the name attribute value--%>
+							<h1>${eventObj.getEventName()}</h1>
+							<%--The String in the note attribute--%>
+							<div class="time-container">
+								<p>From: ${eventObj.getStartDate()}</p>
+								<p>To: ${eventObj.getEndDate()}</p>
+							</div>
+							<p>Location: ${eventObj.getLocation()}</p>
+						</div>
 					</a>
 				</c:forEach>
 			</div>
