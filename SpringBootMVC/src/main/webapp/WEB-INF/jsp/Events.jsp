@@ -98,6 +98,9 @@
 				</c:forEach>
 			</div>
 		</c:when>
+		<c:otherwise>
+					<h3>No Events!</h3>
+		</c:otherwise>
 			
 	</c:choose>
 

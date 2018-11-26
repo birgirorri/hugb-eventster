@@ -78,6 +78,9 @@
 			</div>
             <%--Create a table for the Postit Notes--%>
         </c:when>
+        <c:otherwise>
+					<h3>No Groups!</h3>
+				</c:otherwise>
     </c:choose>
     
     </main>
