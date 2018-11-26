@@ -103,11 +103,11 @@ button {
 	background-color: #88E042;
 	transition: background-color 0.3s ease-in-out;
 	margin-bottom: 20px;
-	font-size: 14px;
+	font-size: 17px;
 	border: none;
 	text-decoration: none;
 	color: white;
-	font-size: 16px;
+	border: 1px solid white;
 }
 
 button a {

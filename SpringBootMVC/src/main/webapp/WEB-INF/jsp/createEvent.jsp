@@ -32,89 +32,88 @@
 			</div>
 		</div>
 	</header>
-	<h1>Create an event</h1>
-	<p>Fill out all the information about your event</p>
+	<main>
+	<div class="container">
+		<h1>Create an event</h1>
+		<p>Fill out all the information about your event</p>
 
 
-	<sf:form method="POST" modelAttribute="event" action="/addEvent">
+		<sf:form method="POST" modelAttribute="event" action="/addEvent">
 
-		<input type="text" placeholder="Event Name" name="eventName">
 
-		<label>Info of event: </label>
-		<textarea rows="10" cols="20" placeholder="Info about the event..."
-			name="eventInfo">
+			<div class="topCreate">
+				<input type="text" placeholder="Event Name" name="eventName">
+				<label>Start Date:</label><input type="date" class="date_input"
+					name="startDate" /> <label>End Date:</label><input type="date"
+					class="date_input" name="endDate" />
+			</div>
+
+			<label>Info of event: </label>
+			<textarea rows="10" cols="20" placeholder="Info about the event..."
+				name="eventInfo">
 		</textarea>
 
-		<input type="text" placeholder="Location" name="eventLocation">
 
-		<div class="dateSelect">
-			<input type="date" class="date_input" name="startDate" /> <input
-				type="date" class="date_input" name="endDate" />
-		</div>
+			<div class="topCreate">
+				<input type="text" placeholder="Location" name="eventLocation">
 
-		<select class="catecory_select" field="*{size}" path="category"
-			name="category">
-			<option value="Category" disabled="disabled" selected="true">Category</option>
-			<option value="BBQ">BBQ</option>
-			<option value="Birthday">Birthday</option>
-			<option value="Concert">Concert</option>
-			<option value="Dinner">Dinner Party</option>
-			<option value="Gig/Show">Gig/Show</option>
-			<option value="Graduation">Graduation</option>
-			<option value="LAN">LAN</option>
-			<option value="Party">Party</option>
-			<option value="Sports">Sports</option>
-			<option value="Study-session">Study-session</option>
-			<option value="Theatre">Theatre</option>
-			<option value="Wedding">Wedding</option>
-		</select>
+				<select class="catecory_select" field="*{size}" path="category"
+					name="category">
+					<option value="Category" disabled="disabled" selected="true">Category</option>
+					<option value="BBQ">BBQ</option>
+					<option value="Birthday">Birthday</option>
+					<option value="Concert">Concert</option>
+					<option value="Dinner">Dinner Party</option>
+					<option value="Gig/Show">Gig/Show</option>
+					<option value="Graduation">Graduation</option>
+					<option value="LAN">LAN</option>
+					<option value="Party">Party</option>
+					<option value="Sports">Sports</option>
+					<option value="Study-session">Study-session</option>
+					<option value="Theatre">Theatre</option>
+					<option value="Wedding">Wedding</option>
+				</select> <input type="text" placeholder="Maximum seats" name="maxSeats">
 
-		<input type="text" placeholder="Maximum seats" name="maxSeats">
+				<c:choose>
+					<%--If the model has an attribute with the name `postitNotes`--%>
+					<c:when test="${not empty groupsList}">
+						<%--Create a table for the Postit Notes--%>
+						<div class="groupSelect" border="1px gray">
+							<label class="group_chooser" for="group"></label> <select
+								class="group_select" field="*{size}" name="group">
+								<option value="public" selected="true">Public Event</option>
+								<%--For each postit note, that is in the list that was passed in the model--%>
+								<%--generate a row in the table--%>
+								<%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
+								<c:forEach var="groupObj" items="${groupsList}">
 
+									<%--We can reference attributes of the Entity by just entering the name we gave--%>
+									<%--it in the singular item var, and then just a dot followed by the attribute name--%>
+									<%--Create a link based on the name attribute value--%>
+									<option value="${groupObj.getGroupID()}">${groupObj.getGroupName()}</option>
+								</c:forEach>
+							</select>
+						</div>
+					</c:when>
 
-
-		<c:choose>
-			<%--If the model has an attribute with the name `postitNotes`--%>
-			<c:when test="${not empty groupsList}">
-				<%--Create a table for the Postit Notes--%>
-				<div class="groupSelect" border="1px gray">
-					<label class="group_chooser" for="group"></label> <select
-						class="group_select" field="*{size}" name = "group">
-						<option value="public" selected="true">Public Event</option>
-						<%--For each postit note, that is in the list that was passed in the model--%>
-						<%--generate a row in the table--%>
-						<%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
-						<c:forEach var="groupObj" items="${groupsList}">
-
-							<%--We can reference attributes of the Entity by just entering the name we gave--%>
-							<%--it in the singular item var, and then just a dot followed by the attribute name--%>
-							<%--Create a link based on the name attribute value--%>
-							<option value="${groupObj.getGroupID()}">${groupObj.getGroupName()}</option>
-						</c:forEach>
-					</select>
-				</div>
-			</c:when>
-
-			<%--If all tests are false, then do this--%>
-			<c:otherwise>
-				<div class="groupSelect" border="1px gray">
-					<label class="group_chooser" for="group"></label> <select
-						class="group_select" field="*{size}">
-						<option value="public" selected="true">Public Event</option>
-					</select>
-				</div>
-			</c:otherwise>
-		</c:choose>
+					<%--If all tests are false, then do this--%>
+					<c:otherwise>
+						<div class="groupSelect" border="1px gray">
+							<label class="group_chooser" for="group"></label> <select
+								class="group_select" field="*{size}">
+								<option value="public" selected="true">Public Event</option>
+							</select>
+						</div>
+					</c:otherwise>
+				</c:choose>
+			</div>
 
 
-		<input type="submit" VALUE="Create Event" />
-	</sf:form>
+			<button type="submit">Create Event</button>
 
-
-	<ul>
-		<li><a href="/Events">Back</a></li>
-	</ul>
-
+		</sf:form>
+	</div>
+	</main>
 </body>
 
 </html>

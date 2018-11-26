@@ -7,13 +7,13 @@ body {
 }
 
 main {
-	margin: 8px;
+	margin: 1%;
 }
 
 h1 {
 	font-size: 2.5em;
 	margin-bottom: 2em;
-	border-bottom: 1px solid #999;
+	border-bottom: 1px solid white;
 	margin:0 auto;
 	text-align: center;
 }
@@ -23,30 +23,28 @@ h2 {
 	color: black;
 }
 
-.category{
-	margin-bottom: 15px;
-		margin-top: 15px;
+.container{
+	width: 50%;
+	margin: auto;
+	margin-top: 30px;
+	background-color: #88E042;
+	border-radius: 20px;
+	padding: 20px;
+	color: white;
+	font-family: 'Arial';
 }
 
-.catecory_select{
-	width: 100px;
-	height: 20px;
+form {
+	display: flex;
+	flex-direction: column;
 }
 
-.groupSelect{
-	margin-bottom: 15px;
-		margin-top: 15px;
+form >* {
+	margin-bottom:20px;
 }
 
-.group_chooser{
-	display: inline-block;
-	width: 30px;
-	margin-left: 10px;
-	color: #0098AE;
-}
-
-.group_select{
-	width: 100px;
-	height: 20px;
+.topCreate{
+	display:flex;
+	justify-content: space-between;
 }
 
