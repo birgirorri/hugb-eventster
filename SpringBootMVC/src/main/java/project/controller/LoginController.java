@@ -27,7 +27,7 @@ public class LoginController {
 		User birgir = new User("Birgir Orri","birgir","birgir@hi.is");
 		User adam = new User("Adam Jens","adam","adam@hi.is");
 		User marino = new User("Marino","marino","marino@hi.is");
-		User umball = new User("umballreopen", "password123"," bonnykel@hotmail.com");
+		/*User umball = new User("umballreopen", "password123"," bonnykel@hotmail.com");
 		User bonnyk = new User("bonnykelvin", "password123", "journeybr@hotmail.com");
 		User journe = new User("journeyblakehope", "password123", "alleetypr@hotmail.com");
 		User alleet = new User("alleetyped", "password123", "despairir@hotmail.com");
@@ -426,7 +426,7 @@ public class LoginController {
 		userService.createUser(crispa);
 		userService.createUser(overly);
 		userService.createUser(kittyb);
-		userService.createUser(wickch);
+		userService.createUser(wickch);*/
 		userService.createUser(birgir);
 		userService.createUser(adam);
 		userService.createUser(marino);
