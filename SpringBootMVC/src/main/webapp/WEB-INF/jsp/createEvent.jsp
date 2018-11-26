@@ -49,9 +49,7 @@
 			</div>
 
 			<label>Info of event: </label>
-			<textarea rows="10" cols="20" placeholder="Info about the event..."
-				name="eventInfo">
-		</textarea>
+			<textarea rows="10" cols="20" placeholder="Info about the event..." name="eventInfo"></textarea>
 
 
 			<div class="topCreate">

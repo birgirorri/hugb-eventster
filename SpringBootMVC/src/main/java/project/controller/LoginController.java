@@ -23,42 +23,7 @@ public class LoginController {
 	@Autowired
 	public LoginController(UserService userService) {
 		this.userService = userService;
-	}
-
-	@RequestMapping(value = "/signUp", method = RequestMethod.POST)
-	public String createNewUser(Model model, @RequestParam("username") String username,
-			@RequestParam("password") String password, @RequestParam("email") String email) {
-		User newUser = new User(username, password, email);
-		System.out.println("emailið er: " + newUser.getEmail());
-		userService.createUser(newUser);
 		
-		return "Index";
-	}
-
-	@RequestMapping(value = "/Login", method = RequestMethod.GET)
-	public String validLogin(@RequestParam("email") String email, @RequestParam("password") String password,
-			Model model) {
-
-		User login_user = userService.findByEmail(email);
-		
-		//model.addAttribute("errorMsg", "VILLA MAÐUR!");
-		
-		if(login_user != null) {
-			if (login_user.getPassword().equals(password)) {
-				
-				userService.setCurrentUser(login_user);
-				
-				return "Events";
-			} else {
-				return "Index";
-			}
-		} else {
-			return "Index";
-		}
-	}
-	
-	@RequestMapping(value = "/LoadUser", method = RequestMethod.GET)
-	public String preloadUser(Model model) {
 		User birgir = new User("Birgir Orri","birgir","birgir@hi.is");
 		User adam = new User("Adam Jens","adam","adam@hi.is");
 		User marino = new User("Marino","marino","marino@hi.is");
@@ -466,7 +431,38 @@ public class LoginController {
 		userService.createUser(adam);
 		userService.createUser(marino);
 		
+	}
+
+	@RequestMapping(value = "/signUp", method = RequestMethod.POST)
+	public String createNewUser(Model model, @RequestParam("username") String username,
+			@RequestParam("password") String password, @RequestParam("email") String email) {
+		User newUser = new User(username, password, email);
+		System.out.println("emailið er: " + newUser.getEmail());
+		userService.createUser(newUser);
+		
 		return "Index";
+	}
+
+	@RequestMapping(value = "/Login", method = RequestMethod.GET)
+	public String validLogin(@RequestParam("email") String email, @RequestParam("password") String password,
+			Model model) {
+
+		User login_user = userService.findByEmail(email);
+		
+		//model.addAttribute("errorMsg", "VILLA MAÐUR!");
+		
+		if(login_user != null) {
+			if (login_user.getPassword().equals(password)) {
+				
+				userService.setCurrentUser(login_user);
+				
+				return "Events";
+			} else {
+				return "Index";
+			}
+		} else {
+			return "Index";
+		}
 	}
 	
 	@RequestMapping(value = "/GuestUser", method = RequestMethod.GET)

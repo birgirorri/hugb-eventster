@@ -79,6 +79,5 @@
 		<li><a href="/ViewEvent">Event Information</a></li>
 	</ul>
 
-	<a href="/LoadUser" class="button">preload</a>
 </body>
 </html>

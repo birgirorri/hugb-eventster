@@ -48,3 +48,11 @@ form >* {
 	justify-content: space-between;
 }
 
+.groupCreate{
+	display:flex;
+}
+
+.groupCreate >* {
+	margin-right: 30px;
+}
+
