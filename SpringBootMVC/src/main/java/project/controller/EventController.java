@@ -87,19 +87,19 @@ public class EventController {
 		
 		
 		System.out.println("prenta ut group id " + groupID); 
-		int startYear = Integer.parseInt(startDate.substring(0, 4));
-		int endYear = Integer.parseInt(endDate.substring(0, 4));
-		int startMonth = Integer.parseInt(startDate.substring(5, 7));
-		int endMonth = Integer.parseInt(endDate.substring(5, 7));
-		int startDay = Integer.parseInt(startDate.substring(8, 10));
-		int endDay = Integer.parseInt(endDate.substring(8, 10));
+		String startYear = startDate.substring(0, 4);
+		String endYear = endDate.substring(0, 4);
+		String startMonth = startDate.substring(5, 7);
+		String endMonth = endDate.substring(5, 7);
+		String startDay = startDate.substring(8, 10);
+		String endDay = endDate.substring(8, 10);
 		
 		String startdate = startDay + "." + startMonth + " " + startYear;
 		String enddate = endDay + "." + endMonth + " " + endYear;
 		
 		
-		int start = startYear+startMonth+startDay;
-		int end = endYear+endMonth+endDay;
+		int start = Integer.parseInt(startYear+startMonth+startDay);
+		int end = Integer.parseInt(endYear+endMonth+endDay);
 		
 		String errorString = null;
 		
@@ -162,34 +162,28 @@ public class EventController {
 		String yyyy = date.substring(0, 4);
 		String mm = date.substring(5,7);
 		String dd = date.substring(8,10);
-		
-		int year = Integer.parseInt(yyyy);
-		int month = Integer.parseInt(mm);
-		int day = Integer.parseInt(dd);
-		
+
+		String sTime = yyyy+mm+dd;
+		int time = Integer.parseInt(sTime);
 		
 		for(Event e : allEvents) {
 			if( searchName.contains(e) ) {
-				String eStart_y = e.getStartDate().substring(0,4);
-				String eStart_m = e.getStartDate().substring(5,7);
-				String eStart_d = e.getStartDate().substring(8,10);
-				
-				int start_y = Integer.parseInt(eStart_y);
-				int start_m = Integer.parseInt(eStart_m);
-				int start_d = Integer.parseInt(eStart_d);
-				
-				String eEnd_y = e.getEndDate().substring(0,4);
-				String eEnd_m = e.getEndDate().substring(5,7);
-				String eEnd_d = e.getEndDate().substring(8,10);
 
-				int end_y = Integer.parseInt(eEnd_y);
-				int end_m = Integer.parseInt(eEnd_m);
-				int end_d = Integer.parseInt(eEnd_d);
+				String eStart_y = e.getStartDate().substring(6,10);
+				String eStart_m = e.getStartDate().substring(3,5);
+				String eStart_d = e.getStartDate().substring(0,2);
+			
+				String sStart = eStart_y+eStart_m+eStart_d;
+				int start = Integer.parseInt(sStart);
 				
-				Boolean check_y = ((year >= start_y)&&(year <= end_y));
-				Boolean check_m = ((month >= start_m)&&(month <= end_m));
+				String eEnd_y = e.getEndDate().substring(6,10);
+				String eEnd_m = e.getEndDate().substring(3,5);
+				String eEnd_d = e.getEndDate().substring(0,2);
+
+				String sEnd = eEnd_y+eEnd_m+eEnd_d;
+				int end = Integer.parseInt(sEnd);
 				
-				if(check_y && check_m) {
+				if(time >= start && time <= end && e.getTag() == category) {
 					
 					result.add(e);
 				}
