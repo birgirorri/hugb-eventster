@@ -172,17 +172,14 @@ public class EventController {
 		List<Event> show = new ArrayList<Event>();
 		
 		for(Event e: allEvents) {
-			System.out.println("group id : " + e.getGroupID());
-			Group gr = groupService.findGroupByID(e.getGroupID());
-			System.out.println("group name : " + gr.getGroupName() );
-			
 			if(e.getGroupID() < 1) {
 				show.add(e);
-			}
-			else if(e.getGroupID() >= 1) {
+			} else {
 				Group g = groupService.findGroupByID(e.getGroupID());
-				if(g.getMembers().contains(currentUser.getEmail() )) {
-					show.add(e);
+				if(!(g.getMembers() == null)) {
+					if(g.getMembers().contains(currentUser.getEmail())) {
+						show.add(e);
+					}
 				}
 			}
 		}
@@ -303,9 +300,5 @@ public class EventController {
 		
 		return goToViewEvent(updatedEvent.getEventID(), model);
 	}
-	
-	
-	
-	
 
 }
