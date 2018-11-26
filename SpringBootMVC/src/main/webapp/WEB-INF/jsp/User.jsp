@@ -65,7 +65,7 @@
 				<%--generate a row in the table--%>
 				<%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
 				<c:forEach var="userObj" items="${userList}">
-					<a href="/event/${eventObj.getUserID()}">
+					<a href="/user/${userObj.getUserID()}">
 						<div class="card">
 							<div class="img_container">
 								<img src="https://notendur.hi.is/ajj10/myndir/user.png">
