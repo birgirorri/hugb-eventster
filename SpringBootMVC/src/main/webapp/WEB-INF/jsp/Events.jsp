@@ -41,17 +41,30 @@
 	<div class="search_container">
 	<sf:form method="POST" modelAttribute="event" action="/findEvent">
 		<input type=text placeholder="Name" name="eventName">
-		<input type=text placeholder="Date" name="eventName">
-		<input type=text placeholder="Category" name="eventName">
+		<input type="date" class="date_input" name="eventDate" />
+		<select class="catecory_select" field="*{size}" path="category" name="category">
+			<option value="Category" disabled="disabled" selected="true">Category</option>
+			<option value="BBQ">BBQ</option>
+			<option value="Birthday">Birthday</option>
+			<option value="Concert">Concert</option>
+			<option value="Dinner">Dinner Party</option>
+			<option value="Gig/Show">Gig/Show</option>
+			<option value="Graduation">Graduation</option>
+			<option value="LAN">LAN</option>
+			<option value="Party">Party</option>
+			<option value="Sports">Sports</option>
+			<option value="Study-session">Study-session</option>
+			<option value="Theatre">Theatre</option>
+			<option value="Wedding">Wedding</option>
+		</select>
 		<button type="submit">search!</button>
 	</sf:form> 
 	</div>
 
-	<button>
-		<a href="/createEvent">Create an event</a> 	
-	</button>
+	<a href="/createEvent">
+		<button>Create Event</button>
+	</a> 	
 	</div>
-	
 	<c:choose>
 		<%--If the model has an attribute with the name `postitNotes`--%>
 		<c:when test="${not empty eventList}">
@@ -85,12 +98,12 @@
 				</c:forEach>
 			</div>
 		</c:when>
+			
+</c:choose>
 
-		<%--If all tests are false, then do this--%>
-		<c:otherwise>
-			<h3>No events!</h3>
-		</c:otherwise>
-	</c:choose> <a href="/LoadEvent" class="button1">preload</a> </main>
+
+	<a href="/LoadEvent" class="button1">preload</a> 
+	</main>
 </body>
 
 </html>
