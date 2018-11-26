@@ -21,7 +21,7 @@
 			</div>
 			<div class="header_pages">
 				<ul>
-					<li><a class="pages_selected" href="/Events">Events</a></li>
+					<li><a class="pages_selected" href="/showAllEvents">Events</a></li>
 					<li><a href="/user">Users</a></li>
 					<li><a href="/Group">Groups</a></li>
 					<li><a href="/myPage">My Page</a></li>
@@ -35,7 +35,7 @@
 	<main>
 	<div class="top_container">
 
-	<sf:form method="POST" modelAttribute="event" action="/showAllEvents">
+	<sf:form method="GET" modelAttribute="event" action="/showAllEvents">
 		<button type="submit">Show all</button>
 	</sf:form> 
 	<div class="search_container">

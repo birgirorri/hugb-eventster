@@ -8,7 +8,7 @@
 
 <head>
 <link rel="stylesheet" type="text/css"
-	href="<c:url value="/css/Events.css"/>" />
+	href="<c:url value="/css/viewUser.css"/>" />
 	<link rel="stylesheet" type="text/css"
 	href="<c:url value="/css/Header.css"/>" />
 <title>Events Page</title>
@@ -31,11 +31,12 @@
 		</div>
 	</header>
 
-<div class="user__view">
+<div class="user_view">
 <c:choose>
 	<c:when test="${not empty currentUser}">
 			<c:forEach var="userObj" items="${currentUser}">
 				<h1>${userObj.getUsername()}</h1>
+				<img src="https://notendur.hi.is/ajj10/myndir/user.png">
 				<p>Email: ${userObj.getEmail()}</p>
 				<p>Birthday: ${userObj.getBirthday()}</p>
 				<p>phone number: ${userObj.getPhone()}</p>

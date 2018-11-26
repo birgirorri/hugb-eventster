@@ -21,9 +21,9 @@ public class User {
 	private String username;
 	private String password;
 
-	private String birthday = "1";
-	private String phone = "2";
-	private String zodiac = "3";
+	private String birthday = "Not Registered";
+	private String phone = "Not Registered";
+	private String zodiac = "Not Registered";
 
 	private String email;
 	private boolean loggedIn;

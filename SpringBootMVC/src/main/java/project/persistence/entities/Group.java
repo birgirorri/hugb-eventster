@@ -99,6 +99,10 @@ public class Group {
 	public Boolean getVisable(){
 		return this.isVisable;
 	}
+	
+	public String getNameByID(Long id) {
+		return this.group_name;
+	}
 
 	/*
 	 * þessi aðferð verður aldrei notuð, það verður frekar notað addEvent() public

@@ -21,7 +21,7 @@
 			</div>
 			<div class="header_pages">
 				<ul>
-					<li><a href="/Events">Events</a></li>
+					<li><a href="/showAllEvents">Events</a></li>
 					<li><a href="/user">Users</a></li>
 					<li><a class="pages_selected" href="/Group">Groups</a></li>
 					<li><a href="/myPage">My Page</a></li>

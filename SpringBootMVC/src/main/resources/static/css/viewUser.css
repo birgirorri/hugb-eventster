@@ -1,0 +1,43 @@
+html {
+	font-size: 18px;
+}
+
+body {
+	margin: 0;
+}
+
+main {
+	margin: 1%;
+}
+
+h1 {
+	font-size: 2.5em;
+	margin-bottom: 2em;
+	border-bottom: 1px solid white;
+	margin:0 auto;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1.666667em;
+	color: black;
+}
+
+.user_view{
+	width: 40%;
+	margin: auto;
+	margin-top: 30px;
+	background-color: #88E042;
+	border-radius: 20px;
+	padding: 20px;
+	color: white;
+	font-family: 'Arial';
+}
+
+img {
+	width: 400px;
+	hight: 400px;
+	margin-left: 90px;
+	margin-top: 20px;
+	
+}

@@ -199,7 +199,7 @@ public class EventController {
 	}
 
 	// Save the Postit Note that we received from the form
-	@RequestMapping(value = "/showAllEvents", method = RequestMethod.POST)
+	@RequestMapping(value = "/showAllEvents", method = RequestMethod.GET)
 	public String showAll(Model model) {
 
 		System.out.println("SHOW ALL");
@@ -287,7 +287,6 @@ public class EventController {
 		eventService.createEvent(gigg);
 		eventService.createEvent(party);
 		
-		model.addAttribute("eventList", eventService.findAllEvents());
 
 		return "Events";
 	}
