@@ -447,8 +447,11 @@ public class LoginController {
 				return "Index";
 		} else {
 				if(password.equals(password1)){
-				User newUser = new User(username, password, email);
-				userService.createUser(newUser);
+				if(!userService.findAllUsers().contains(userService.findByEmail(email))) {
+					User newUser = new User(username, password, email);
+					userService.createUser(newUser);
+				}
+				
 				return "Index";
 			} else {
 				model.addAttribute("errorMsg1", "VILLA MAÐUR! try again");
