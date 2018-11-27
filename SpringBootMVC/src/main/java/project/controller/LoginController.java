@@ -439,21 +439,30 @@ public class LoginController {
 
 	@RequestMapping(value = "/signUp", method = RequestMethod.POST)
 	public String createNewUser(Model model, @RequestParam("username") String username,
-			@RequestParam("password") String password, @RequestParam("email") String email) {
-		User newUser = new User(username, password, email);
-		System.out.println("emailið er: " + newUser.getEmail());
-		userService.createUser(newUser);
+			@RequestParam("password") String password, @RequestParam("email") String email, 
+			@RequestParam("password1") String password1) {
 		
-		return "Index";
+		if(username == null || password == null || email == null || password1 == null) {
+				model.addAttribute("errorMsg1", "VILLA MAÐUR! try again");
+				return "Index";
+		} else {
+				if(password.equals(password1)){
+				User newUser = new User(username, password, email);
+				userService.createUser(newUser);
+				return "Index";
+			} else {
+				model.addAttribute("errorMsg1", "VILLA MAÐUR! try again");
+				return "Index";
+			}
+		}
+		
 	}
 
 	@RequestMapping(value = "/Login", method = RequestMethod.GET)
-	public String validLogin(@RequestParam("email") String email, @RequestParam("password") String password,
+	public String validLogin(@RequestParam("email") String email, @RequestParam("password") String password, 
 			Model model) {
 
 		User login_user = userService.findByEmail(email);
-		
-		//model.addAttribute("errorMsg", "VILLA MAÐUR!");
 		
 		if(login_user != null) {
 			if (login_user.getPassword().equals(password)) {
@@ -483,9 +492,11 @@ public class LoginController {
 				model.addAttribute("eventList", show1 );
 				return "Events";
 			} else {
+				model.addAttribute("errorMsg", "VILLA MAÐUR! try again");
 				return "Index";
 			}
 		} else {
+			model.addAttribute("errorMsg", "VILLA MAÐUR! try again");
 			return "Index";
 		}
 	}
