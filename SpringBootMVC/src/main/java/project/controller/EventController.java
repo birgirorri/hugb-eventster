@@ -285,8 +285,7 @@ public class EventController {
 	}
 
 	@RequestMapping(value = "/addmemberToGoing", method = RequestMethod.POST)
-	public String addMemberToGoing(@ModelAttribute("userInfo") User user,Model model,@RequestParam("userName") String userName,
-			@RequestParam("email") String email) {
+	public String addMemberToGoing(@ModelAttribute("userInfo") User user,Model model, @RequestParam("email") String email) {
 		
 		
 		User new_member = userService.findByEmail(email);

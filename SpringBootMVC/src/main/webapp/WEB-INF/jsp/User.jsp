@@ -78,6 +78,9 @@
 			</div>
 
 		</c:when>
+		<c:otherwise>
+					<h3>No Users!</h3>
+				</c:otherwise>
 	</c:choose> </main>
 </body>
 
