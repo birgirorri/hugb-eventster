@@ -41,9 +41,26 @@
 	<div class="search_container">
 	<sf:form method="POST" modelAttribute="event" action="/findEvent">
 		<input type=text placeholder="Name" name="eventName">
-		<input type="date" class="date_input" name="eventDate" />
+		<%--<input type="date" class="date_input" name="eventDate" />--%>
+	 	
+		<select name="eventDate" class="date_input">
+		<option value="month" selected=true>month</option>
+		<option value="jan">january</option>
+		<option value="feb">february</option>
+		<option value="mar">march</option>
+		<option value="apr">april</option>
+		<option value="may">may</option>
+		<option value="jun">june</option>
+		<option value="jul">july</option>
+		<option value="aug">august</option>
+		<option value="sep">september</option>
+		<option value="oct">october</option>
+		<option value="nov">november</option>
+		<option value="dec">december</option>
+		</select>
+		
 		<select class="catecory_select" field="*{size}" path="category" name="category">
-			<option value="Category" disabled="disabled" selected="true">Category</option>
+			<option value="Category" selected="true">Category</option>
 			<option value="BBQ">BBQ</option>
 			<option value="Birthday">Birthday</option>
 			<option value="Concert">Concert</option>

@@ -178,39 +178,110 @@ public class EventController {
 		System.out.println("calling service function================================");
 		
 		List<Event> allEvents = eventService.findAllEvents();
-		List<Event> searchName = eventService.findEventByName(eventName);
+		List<Event> searchName = new ArrayList<Event>();
+		if(eventName =="") {
+			searchName = eventService.findAllEvents();
+		}
+		else{
+			searchName = eventService.findEventByName(eventName);
+		}
+		
 		List<Event> result = new ArrayList<Event>();
 		
 		System.out.println(date +" öööööööö");
 		
+		int month = 0;
+		
+		switch(date){
+		case "month":
+			month = 0;
+			break;
+		case "jan":
+			month = 1;
+			break;
+		case "feb":
+			month = 2;
+			break;
+		case "mar":
+			month = 3;
+			break;
+		case "apr":
+			month = 4;
+			break;
+		case "may":
+			month = 5;
+			break;
+		case "jun":
+			month = 6;
+			break;
+		case "jul":
+			month = 7;
+			break;
+		case "aug" :
+			month = 8;
+			break;
+		case "sep":
+			month = 9;
+			break;
+		case "oct":
+			month = 10;
+			break;
+		case "nov":
+			month = 11;
+			break;
+		case "dec":
+			month = 12;
+			break;
+		};
+		/*
 		String yyyy = date.substring(0, 4);
 		String mm = date.substring(5,7);
 		String dd = date.substring(8,10);
 
 		String sTime = yyyy+mm+dd;
 		int time = Integer.parseInt(sTime);
-		
+		*/
 		for(Event e : allEvents) {
 			if( searchName.contains(e) ) {
-
-				String eStart_y = e.getStartDate().substring(6,10);
+				
+				//String eStart_y = e.getStartDate().substring(6,10);
 				String eStart_m = e.getStartDate().substring(3,5);
-				String eStart_d = e.getStartDate().substring(0,2);
+				
+				//String eStart_d = e.getStartDate().substring(0,2);
 			
-				String sStart = eStart_y+eStart_m+eStart_d;
-				int start = Integer.parseInt(sStart);
+				// String sStart = eStart_y+eStart_m+eStart_d;
+				// int start = Integer.parseInt(sStart);
 				
-				String eEnd_y = e.getEndDate().substring(6,10);
+				// String eEnd_y = e.getEndDate().substring(6,10);
 				String eEnd_m = e.getEndDate().substring(3,5);
-				String eEnd_d = e.getEndDate().substring(0,2);
+				// String eEnd_d = e.getEndDate().substring(0,2);
 
-				String sEnd = eEnd_y+eEnd_m+eEnd_d;
-				int end = Integer.parseInt(sEnd);
+				//String sEnd = eEnd_y+eEnd_m+eEnd_d;
+				//int end = Integer.parseInt(sEnd);
 				
-				if(time >= start && time <= end && e.getTag() == category) {
+				int eventStart = Integer.parseInt(eStart_m);
+				int eventEnd = Integer.parseInt(eEnd_m);
+				
+				//if(time >= start && time <= end && e.getTag() == category) { result.add(e);}
+				
+				Boolean middle = (month > eventStart) && (month > eventEnd);
+				if( (month ==  eventStart) || (month == eventEnd) || middle || (month == 0) ) {
 					
-					result.add(e);
+					System.out.println(e.getTag());
+					System.out.println(category);
+					
+					if(category.equals("Category")) {
+						result.add(e);
+						
+					}
+					else {
+						if(e.getTag().equals(category)) {
+							result.add(e);
+						}
+					}
+					
 				}
+			
 			}
 		}
 
@@ -257,7 +328,7 @@ public class EventController {
 	@RequestMapping(value = "/event/{id}", method = RequestMethod.GET)
 	public String goToViewEvent(@PathVariable Long id, Model model) {
 
-		List<Event> eventview = new ArrayList();
+		List<Event> eventview = new ArrayList<Event>();
 		eventview.add(eventService.findEventByID(id));
 		
 		eventService.setCurrentEvent(eventService.findEventByID(id));
