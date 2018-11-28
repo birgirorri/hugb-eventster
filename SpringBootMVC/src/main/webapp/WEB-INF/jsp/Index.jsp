@@ -67,17 +67,5 @@
 		</div>
 	</main>
 
-
-
-	<ul>
-		<li><a href="/postit">Click here for Persistence Layer Demo</a></li>
-		<li><a href="/user">User</a></li>
-		<li><a href="/myPage">My Page</a></li>
-		<li><a href="/Group">Group page</a></li>
-		<li><a href="/Events">Events page</a></li>
-		<li><a href="/createEvent">Create Event</a></li>
-		<li><a href="/ViewEvent">Event Information</a></li>
-	</ul>
-
 </body>
 </html>
