@@ -204,7 +204,7 @@ public class GroupController {
 	}
 	
 	@RequestMapping(value = "/addmember", method = RequestMethod.POST)
-	public String addMemberToGroup(@ModelAttribute("userInfo") User user,Model model,@RequestParam("userName") String userName,
+	public String addMemberToGroup(@ModelAttribute("userInfo") User user,Model model,
 			@RequestParam("email") String email) {
 		
 		User new_member = userService.findByEmail(email);

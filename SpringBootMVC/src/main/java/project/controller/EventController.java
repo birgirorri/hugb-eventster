@@ -139,10 +139,31 @@ public class EventController {
 
 		model.addAttribute("errorMsg", errorString);
 		
-		model.addAttribute("eventList", eventService.findAllEvents());
-
-		
 		eventService.createEvent(newEvent);
+		
+		User currentUser = userService.getCurrentUser();
+		List<Event> allEvents = eventService.findAllEvents();
+		List<Event> show = new ArrayList<Event>();
+		
+		for(Event e: allEvents) {
+			if(e.getGroupID() < 1) {
+				show.add(e);
+			} else {
+				System.out.println("getting group");
+				Group g = groupService.findGroupByID(e.getGroupID());
+				System.out.println("group gotten");
+				if(!(g.getMembers().isEmpty())) {
+					if(g.getMembers().contains(currentUser.getEmail())) {
+						System.out.println("adding to show");
+						show.add(e);
+						System.out.println("added");
+					}
+				}
+			}
+		}
+		
+		model.addAttribute("eventList", show );
+
 		// Return the view
 		return "Events";
 	}

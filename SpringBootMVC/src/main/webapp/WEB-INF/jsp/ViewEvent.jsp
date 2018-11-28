@@ -84,7 +84,7 @@
                 <%--generate a row in the table--%>
                 <%--Here we set `postit` as a singular item out of the list `postitNotes`--%>
                 <c:forEach var="userObj" items="${usersGoing}">
-                <a href="/user/${eventObj.getUserID()}">
+                <a href="/user/${userObj.getUserID()}">
                     <div class=user_row>
                         <%--We can reference attributes of the Entity by just entering the name we gave--%>
                         <%--it in the singular item var, and then just a dot followed by the attribute name--%>
